@@ -1,0 +1,88 @@
+<div class="p-3" style="background-image: url(https://d1csarkz8obe9u.cloudfront.net/posterpreviews/cloudy-zoom-virtual-background-video-design-template-dc277ad03e88d0f22b297601c58f4ec2_screen.jpg?ts=1586775055.jpg); min-height: 591px;">
+    <!-- background-color: rgb(125, 233, 227);-->
+    <div class="card col-md-4" style="border-radius: 30px;">
+        <div class="card-body px-3">
+            
+
+            <!--LOGO-->
+            <div class="col-md-12 pt-2 pb-3 text-center">
+                <img src="assets/image/otop.jpg" alt="" width="100" style="padding-left: 7px;">
+                <h3 class="text-center pt-3" style="color: darkcyan;">LOG IN</h3>
+
+            </div>
+            
+            <!--form login-->
+            <div class="col-md-12 text-dark">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <span id="reauth-email" class="reauth-email"></span>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control form-control-sm border-1" formControlName="username"
+                        
+                        style="background-color: #ffffff;" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">
+                        <i class="bi bi-person-fill" style="font-size: 1rem; color: rgb(23, 167, 135);"></i>
+                        username</label>
+                </div>
+                <div class="form-floating mb-2">
+                    <input type="password" class="form-control form-control-sm border-1" formControlName="password"
+                        
+                        style="background-color: #ffffff;" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">
+                        <i class="bi bi-lock-fill" style="font-size: 1rem; color: rgb(23, 167, 135);"></i>
+                        password</label>
+                </div>
+
+                <div class="form-group d-md-flex">
+                    <div class="w-50">
+                        <label class="checkbox-wrap checkbox-primary">Remember Me
+                                <input type="checkbox" checked="">
+                                    <span class="checkmark"></span></label>
+                    </div>
+                    <!-- <div class="w-50 text-md-right">
+                        <a href="#" style="color: rgb(39, 35, 35)">Forgot Password</a>
+                    </div> -->
+                </div>
+            
+                <!-- <div id="remember" class="checkbox pb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div> -->
+                    <!-- <div class="form-group d-md-flex">
+                     
+                        <div class="w-50 text-md-right">
+                            <a href="#" style="color: rgb(44, 40, 40)">Forgot Password</a>
+                        </div>
+                    </div> -->
+
+                    <div class="form-group col-md-4">
+                        <label for="inputState">เลือก</label> 
+                        <select id="inputState" class="form-control" formControlName="typeLogin">
+                          <option selected value="1">ลูกค้า</option>
+                          <option value="2">แอดมิน</option>
+                         
+                        </select>
+                      </div>
+                    <div class="d-grid gap-2 col-6 pt-2 mx-auto">
+                        <button class="btn btn-lg" type="submit" style="border-radius: 2rem;background-color: teal;">
+                            <h6 class="font-monospace text-white">Sign in</h6>
+                        </button>
+
+                    </div>
+                    
+                </form>
+
+                     <!-- <a href="#" class="forgot-password">
+                    Forgot the password?
+                </a> -->
+
+                <!-- routerLink="../addproduct" -->
+                <div class="col p-0 m-0" style="height: 3px;"></div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+

@@ -1,0 +1,970 @@
+<p>admin-order works!</p>
+<div class="container p-0" style="min-height: 641px;">
+    <div class="row row-side">
+
+        <!--content-->
+        <div 
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-bottom">
+            <h3 class="font-monospace fw-bold ">คำสั่งซื้อสินค้า</h3>
+
+        </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="admin/adminpage">หน้าแรก</a></li>
+                <li class="breadcrumb-item active" aria-current="page">คำสั่งซื้อสินค้า</li>
+
+            </ol>
+
+        </nav>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <ul class="nav nav-tabs" style="padding-left: 1rem;" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active position-relative" id="home-tab" data-bs-toggle="tab"
+                                data-bs-target="#home1" type="button" role="tab" aria-controls="home1"
+                                aria-selected="true"
+                                (click)="loadSupplierBySupIdAndStatusDetail('C','B')">คำสั่งซื้อ</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link position-relative" id="profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#profile3" type="button" role="tab" aria-controls="profile3"
+                                aria-selected="false" (click)="loadSupplierBySupIdAndStatusDetail2('C')">ข้อมูลจัดส่ง
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link position-relative" id="profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#profile4" type="button" role="tab" aria-controls="profile4"
+                                aria-selected="false"
+                                (click)="loadSupplierBySupIdAndStatusDetail2('D')">กรอกเลขพัสดุ</button>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <br>
+                <!--body-->
+                <div class="card">
+                    <div class="tab-content p-0" id="myTabContent">
+                        <!--ยืนยันคำสั่ง-->
+                        <div class="tab-pane fade show active" id="home1" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center text-dark "
+                                style="padding-right: 50px; padding-left: 0px;">
+                                <h5 class="font-monospace fw-bold">คำสั่งซื้อสินค้า</h5>
+                                <div class="btn-toolbar">
+                                    <div class="col-md-12 col">
+                                        <div class="input-group ">
+                                            <!-- <input class="form-control border-end-2 border " type="search" value=""
+                                                placeholder="search" id="example-search-input"
+                                                [(ngModel)]="searchText"> -->
+                                            <span class="input-group-append">
+                                                <button
+                                                    class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
+                                                    type="button">
+                                                    <i class="bi bi-search"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                </div>
+                                 
+                            </div>
+
+                            <div class="card-body p-0">
+                                <ng-container
+                                    *ngFor="let product of listBill  let i = index">
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="massage-text"
+                                            class="col-form-label font-monospace fw-bold ">&nbsp;&nbsp;หมายเลขคำสั่งซื้อ
+                                            : {{
+                                            product.receiptNo }}</label>
+
+
+
+                                            
+
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label for="message-text"
+                                                class="col-form-label font-monospace fw-bold ">ผู้สั่งซื้อ
+                                                : {{product.customers.firstName}} {{product.customers.lastName}}</label>
+                                        </div>
+                                        <div class="col-md-4 text-end">
+                                            <label for="message-text"
+                                                class="col-form-label font-monospace fw-bold ">วันที่สั่งซื้อ : {{
+                                                product.billCreate }} |
+                                                วันที่ชำระ : {{
+                                                product.datePm }} </label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="message-text"
+                                                class="col-form-label text-primary font-monospace fw-bold ">
+                                                {{product.statusMsg}}
+                                            </label>
+                                        </div>
+                                        <div
+                                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+                                    </div>
+
+
+
+                                      </div>    
+                                      <div class="card">
+                                        <table class="table table-hover border-primary">
+                                            <thead>
+                                                <tr class="text-center">
+                                                    <th scope="col">No.</th>
+                                                    <th scope="col">สินค้า</th>
+                                                    <th scope="col">ตัวเลือก</th>
+                                                    <th scope="col">ราคา</th>
+                                                    <th scope="col">จำนวน</th>
+                                                    <th scope="col">หน่วยนับ</th>
+                                                    <th scope="col">ราคารวม</th>
+                                                    <th scope="col">สถานะ</th>
+                                                    <th scope="col">รายละเอียด</th>
+                                                    <th scope="col" style="width: 12%;">ดำเนินการ</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="" *ngFor="let delail of product?.orderDetails let i = index">
+                                                  <td class="text-center" style="width: 3%;">{{i+1}}</td>
+                                                  <td class="text-center" style="width: 15%;">
+                                                      {{delail?.product.proName}}</td>
+                                                  <td class="text-center" style="width: 11%;">
+                                                      {{delail?.product.proColor}} {{delail?.product.proSize}}</td>
+                                                  <!-- <td class="text-center" style="width: 10%;">฿{{delail?.unitPrice |
+                                                      number}}</td> -->
+                                                  <td class="text-center" style="width: 6%;">{{delail?.quantity}}</td>
+                                                  <td class="text-center" style="width: 8%;">{{delail?.unit}}</td>
+                                                  <!-- <td class="text-center" style="width: 8%;">{{delail?.totalAmout |
+                                                      number}}</td> -->
+                                                  <td class="text-center text-warning fw-bold" style="width: 10%;">
+                                                      {{delail?.statusMsg}}
+                                                  </td>
+                                                  <td class="text-center" style="width: 8%;">
+                                                    <div class="col-12" style="text-align: center;">
+                                                        <button type="submit" class="btn-sm btn-primary"
+                                                            data-bs-toggle="modal" data-bs-target="#selecteorder"
+                                                            data-bs-whatever="@mdo"
+                                                            (click)="selectbillorder1(delail.billId)">ดูรายละเอียด</button>&nbsp;
+                                                        <!-- <button type="button" class="btn btn-danger">ลบ</button>&nbsp; -->
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="col-12" style="text-align: center;">
+                                                        <button type="submit" class="btn-sm btn-success"
+                                                            (click)="approvetrader(delail.detailsId)">&nbsp;ยืนยัน&nbsp;</button>
+                                                        <!-- <button type="button"
+                                                            class="btn-sm btn-danger">ยกเลิก</button>&nbsp; -->
+                                                    </div>
+                                                </td>
+
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+
+                                      </div>                                                                    
+
+                                </ng-container>
+
+                            </div>
+                            <br>
+                            <div class="d-flex justify-content-center">
+                                <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> -->
+                            </div>
+                            <br>
+
+                        </div>
+
+                        <!--จัดส่งสินค้า-->
+                        <div class="tab-pane fade" id="profile3" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center text-dark "
+                                style="padding-right: 50px; padding-left: 0px;">
+                                <h5 class="font-monospace fw-bold ">ข้อมูลจัดส่ง</h5>
+                                <div class="btn-toolbar ">
+                                    <div class="col-md-12 col">
+                                        <div class="input-group ">
+                                            <!-- <input class="form-control border-end-2 border " type="search" value=""
+                                                placeholder="search" id="example-search-input"
+                                                [(ngModel)]="searchText1"> -->
+                                            <span class="input-group-append">
+                                                <button
+                                                    class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
+                                                    type="button">
+                                                    <i class="bi bi-search"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                            </div>
+                            <div class="card-body p-0">
+                                <ng-container
+                                *ngFor="let product of listBill  let i = index">
+                                  <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="message-text"
+                                            class="col-form-label font-monospace fw-bold ">&nbsp;&nbsp;หมายเลขคำสั่งซื้อ
+                                            : {{
+                                            product.receiptNo }}</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="message-text"
+                                            class="col-form-label font-monospace fw-bold ">ผู้สั่งซื้อ
+                                            : {{product.customer.firstName}} {{product.customer.lastName}}</label>
+                                    </div>
+                                    <div class="col-md-4 text-end">
+                                        <label for="message-text"
+                                            class="col-form-label font-monospace fw-bold ">วันที่สั่งซื้อ : {{
+                                            product.billCreate }} |
+                                            วันที่ชำระ : {{
+                                            product.datePm }} </label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="message-text"
+                                            class="col-form-label text-primary font-monospace fw-bold ">
+                                            {{product.statusMsg}}
+                                        </label>
+                                    </div>
+                                    <div
+                                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <table class="table table-hover border-primary">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th scope="col">No.</th>
+                                                  <!-- <th scope="col">หมายเลขคำสั่งซื้อ</th>
+                                                <th scope="col">ลูกค้า</th>
+                                                <th scope="col">วันที่สั่งซื้อ</th> -->
+                                                <th scope="col">สินค้า</th>
+                                                <th scope="col">ตัวเลือก</th>
+                                                    <th scope="col">ราคาต่อหน่วย</th>
+                                                    <th scope="col">จำนวน</th>
+                                                    <th scope="col">หน่วยนับ</th>
+                                                    <th scope="col">ราคารวม</th>
+                                                    <th scope="col">สถานะ</th>
+                                                    <th scope="col">รายละเอียด</th>
+                                                    <th scope="col" style="width: 14%;">ดำเนินการ</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="" *ngFor="let delail of product?.orderDetails let i = index">
+                                              <td class="text-center" style="width: 3%;">{{i+1}}</td>
+                                              <td class="text-center" style="width: 15%;">
+                                                  {{delail?.product.proName}}</td>
+                                              <td class="text-center" style="width: 11%;">
+                                                  {{delail?.product.proColor}} {{delail?.product.proSize}}</td>
+                                              <!-- <td class="text-center" style="width: 10%;">฿{{delail?.unitPrice |
+                                                  number}}</td> -->
+                                              <td class="text-center" style="width: 6%;">{{delail?.quantity}}</td>
+                                              <td class="text-center" style="width: 8%;">{{delail?.unit}}</td>
+                                              <!-- <td class="text-center" style="width: 8%;">{{delail?.totalAmout |
+                                                  number}}</td> -->
+                                              <td class="text-center text-warning fw-bold" style="width: 10%;">
+                                                  {{delail?.statusMsg}}
+                                              </td>
+                                              <td class="text-center" style="width: 10%;">
+                                                <div class="col-12" style="text-align: center;">
+                                                    <button type="submit" class="btn-sm btn-primary"
+                                                        data-bs-toggle="modal" data-bs-target="#selecteorder"
+                                                        data-bs-whatever="@mdo"
+                                                        (click)="selectbillorder2(delail.billId,delail.detailsId,'C')">ดูรายละเอียด</button>&nbsp;
+                                                    <!-- <button type="button" class="btn btn-danger">ลบ</button>&nbsp; -->
+                                                </div>
+                                            </td>
+
+                                            
+                                            <td class="text-center">
+                                                <div class="col-12" style="text-align: center;">
+                                                    <button type="submit" class="btn-sm btn-success"
+                                                        data-bs-toggle="modal" data-bs-target="#selectdelivery"
+                                                        data-bs-whatever="@mdo"
+                                                        (click)="selectbillorder2(delail.billId ,delail.detailsId,'C')">จัดส่งสินค้า</button>&nbsp;
+                                                    <!-- <button type="button" class="btn btn-danger">ลบ</button>&nbsp; -->
+                                                </div>
+                                                <!-- <button type="button" class="btn btn-sm btn-primary "
+                                                                                (click)="selectdataorder()">
+                                                                                <i class="bi bi-chat-text-fill"></i>&nbsp;ดูรายละเอียดคำสั่งซื้อ
+                                                                            </button>&nbsp; -->
+                                            </td>
+
+
+
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                                </ng-container>
+
+                            </div>
+
+                            <br>
+                            <div class="d-flex justify-content-center">
+                                <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> -->
+                            </div>
+
+
+
+                        </div>
+
+                        <!--จัดส่งแล้ว-->
+                        <div class="tab-pane fade" id="profile4" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center text-dark "
+                                style="padding-right: 50px; padding-left: 0px;">
+                                <h5 class="font-monospace fw-bold ">กรอกเลขพัสดุ</h5>
+                                <div class="btn-toolbar ">
+                                    <div class="col-md-12 col">
+                                        <div class="input-group ">
+                                            <!-- <input class="form-control border-end-2 border " type="search" value=""
+                                                placeholder="search" id="example-search-input"
+                                                [(ngModel)]="searchText2"> -->
+                                            <span class="input-group-append">
+                                                <button
+                                                    class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
+                                                    type="button">
+                                                    <i class="bi bi-search"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                </div>
+
+                            </div>
+                            <div class="card-body p-0">
+                                <ng-container *ngFor="let product of listBill  let i = index">
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="message-text"
+                                            class="col-form-label font-monospace fw-bold ">&nbsp;&nbsp;หมายเลขคำสั่งซื้อ
+                                            : {{
+                                            product.receiptNo }}</label>
+
+
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="message-text"
+                                                class="col-form-label font-monospace fw-bold ">ผู้สั่งซื้อ
+                                                : {{product.customer.firstName}} {{product.customer.lastName}}</label>
+                                        </div>
+                                        <div class="col-md-4 text-end">
+                                            <label for="message-text"
+                                                class="col-form-label font-monospace fw-bold ">วันที่สั่งซื้อ : {{
+                                                product.billCreate }} |
+                                                วันที่ชำระ : {{
+                                                product.datePm }} </label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="message-text"
+                                                class="col-form-label text-primary font-monospace fw-bold ">
+                                                {{product.statusMsg}}
+                                            </label>
+                                        </div>
+                                        <div
+                                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+                                    </div>
+
+                                    </div>
+                                    <div class="card">
+                                        <table class="table table-hover border-primary">
+                                            <thead>
+                                                <tr class="text-center">
+                                                    <th scope="col">No.</th>
+                                                    <th scope="col">สินค้า</th>
+                                                    <th scope="col">ตัวเลือก</th>
+                                                    <th scope="col">ราคาต่อหน่วย</th>
+                                                    <th scope="col">จำนวน</th>
+                                                    <th scope="col">หน่วยนับ</th>
+                                                    <th scope="col">ราคารวม</th>
+                                                    <th scope="col" style="width: 12%;">หมายเลขพัสดุ</th>
+                                                    <th scope="col" style="width: 8%;">สถานะ</th>
+                                                    <th scope="col" style="width: 10%;">รายละเอียด</th>
+                                                    <th scope="col" style="width: 15%;">ดำเนินการ</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class=""
+                                                *ngFor="let delail of product?.orderDetails let i = index">
+                                                  <td class="text-center" style="width: 3%;">{{i+1}}</td>
+                                                  <td class="text-center" style="width: 12%;">
+                                                      {{delail?.product.proName}}</td>
+                                                  <td class="text-center" style="width: 10%;">
+                                                      {{delail?.product.proColor}} {{delail?.product.proSize}}</td>
+                                                  <!-- <td class="text-center" style="width: 10%;">฿{{delail?.unitPrice |
+                                                      number}}</td> -->
+                                                  <td class="text-center" style="width: 6%;">{{delail?.quantity}}</td>
+                                                  <td class="text-center" style="width: 8%;">{{delail?.unit}}</td>
+                                                  <!-- <td class="text-center" style="width: 8%;">{{delail?.totalAmout |
+                                                      number}}</td> -->
+                                                  <td class="text-center text-primary fw-bold">
+                                                      {{delail?.parcelNumber}}
+                                                  </td>
+                                                  <td class="text-center text-warning fw-bold" style="width: 10%;">
+                                                    {{delail?.statusMsg}}
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="col-12" style="text-align: center;">
+                                                        <button type="submit" class="btn-sm btn-primary"
+                                                            data-bs-toggle="modal" data-bs-target="#selecteorder"
+                                                            data-bs-whatever="@mdo"
+                                                            (click)="selectbillorder2(delail.billId,delail.detailsId,'D')">ดูรายละเอียด</button>&nbsp;
+                                                        <!-- <button type="button" class="btn btn-danger">ลบ</button>&nbsp; -->
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="col-12" style="text-align: center;">
+                                                        <button type="button" class="btn-sm btn-warning"
+                                                            (click)="gotoexpress(delail.detailsId)"*ngIf="delail.parcelNumber ===null || delail.parcelNumber === '' ">กรอกหมายเลขพัสดุ</button>&nbsp;
+                                                    </div>
+                                                    <!-- <button type="button" class="btn btn-sm btn-primary "
+                                                                                                                                (click)="selectdataorder()">
+                                                                                                                                <i class="bi bi-chat-text-fill"></i>&nbsp;ดูรายละเอียดคำสั่งซื้อ
+                                                                                                                            </button>&nbsp; -->
+                                                </td>
+
+
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+
+                                </ng-container>
+
+                            </div>
+                            <br>
+                            <div class="d-flex justify-content-center">
+                                <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> -->
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- <canvas class="my-4 w-100" id="myChart" height="0"></canvas> -->
+
+<!--model รายละเอียดคำสั่งซื้อ-->
+
+<div class="modal fade" id="selecteorder" data-bs-backdrop="static" tabindex="-1" aria-labelledby="selecteorderLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-centent">
+        <div class="modal-header">
+            <h5 class="modal-title font-monospace fw-bold" id="selecteorderLabel">รายละเอียดคำสั่งซื้อสินค้า</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="container">
+                    <div class="mb-3 row">
+                        <div class="col-md-auto">
+                            <label for="recipient-name"
+                            class="col-form-label font-monospace fw-bold">ที่อยู่ในการจัดส่ง :
+
+                            </label>
+
+                        </div>
+                        <form [formGroup]="customersForm">
+                            <div class="col-md-6">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8">
+                                        <label for="message-text" class="col-form-label">{{
+                                            orderView.customers == null?'':orderView.customers.firstName}} {{
+                                            orderView.customers == null?'':orderView.customers.lastName}}
+                                                
+                                        </label>
+                                         <!-- <input type="text" class="form-control-plaintext" id="validationCustom02" formControlName="firstName"
+                                                                                readonly> -->
+
+                                    </div>
+                                       <!-- <div class="col-md-4 ">
+                                                                            <input type="text" class="form-control-plaintext" id="validationCustom02" formControlName="lastName"
+                                                                                readonly>
+                                                                        </div> -->
+
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8 ">
+                                        <label for="message-text" class="col-form-label">{{
+                                            orderView.customers == null?'':orderView.customers.telPhon}} </label>
+                                    </div>
+
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-4">
+                                        <label for="message-text" class="col-form-label">{{
+                                            orderView.customers == null?'':orderView.customers.addrass}} </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                            formControlName="districtinput" readonly>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                            formControlName="amphurinput" readonly>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                            formControlName="provinceinput" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8">
+                                        <label for="message-text" class="col-form-label">{{
+                                            orderView.customer == null?'':orderView.customer.zipCode}} </label>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <!--เส้น-->
+                    <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+                </div>
+                <!--หมายเลยคำสั่งซื้อ-->
+                <div class="mb-3 row">
+                    <div class="col-md-auto">
+                        <label for="message-text" class="col-form-label font-monospace fw-bold">หมายเลขสั่งซื้อ
+                            :</label>
+                    </div>
+                    <div class="col-md-auto">
+                        <label for="message-text" class="col-form-label">{{
+                            orderView.receiptNo == null?'':orderView.receiptNo }}</label>
+
+                    </div>
+                    <div class="col-md-auto">
+                        <label for="message-text" class="col-form-label font-monospace fw-bold">ผู้สั่งซื้อ
+                            :</label>
+                    </div>
+                    <div class="col-md-auto">
+                        <label for="message-text" class="col-form-label">{{
+                            orderView.customers == null?'':orderView.customers.firstName}} {{
+                            orderView.customers == null?'':orderView.customers.lastName}}</label>
+
+                    </div>
+
+                </div>
+                <!--เส้น-->
+                <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+            </div>
+            <!--สินค้า-->
+            <ng-container *ngFor="let orderDetail of orderDetails">
+                <div class="mb-3 row">
+                    <div class="col-md-2">
+                        <div class="col-md-auto">
+                            <div class="text-center"><img src="{{orderDetail.product.proImg}}"
+                                style="width: 120px;" alt="..."></div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-5">
+                        <div class="col-md-auto">
+                            <label for="message-text"
+                            class="col-form-label font-monospace fw-bold">{{orderDetail.product.proName}}</label>
+
+
+                        </div>
+                        <div class="mb-1 row">
+                            <div class="col-md-auto">
+                                <label for="message-text" class="col-form-label">ตัวเลือก :</label>
+                            </div>
+                            <div class="col-md-auto">
+                                <label for="message-text"
+                                    class="col-form-label">{{orderDetail.product.proColor}}</label>
+
+                            </div>
+                            <div class="col-md-auto">
+                                <label for="message-text"
+                                    class="col-form-label">{{orderDetail.product.proSize}}</label>
+                            </div>
+                        </div>
+                        <div class="mb-1 row">
+                            <div class="col-md-auto">
+                                <label for="message-text" class="col-form-label">จำนวน :</label>
+                            </div>
+                            <div class="col-md-auto">
+                                <label for="message-text"
+                                    class="col-form-label">{{orderDetail.quantity}}</label>
+                            </div>
+                            <div class="col-md-auto">
+                                <label for="message-text"
+                                    class="col-form-label">{{orderDetail.unit}}</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--ราคา-->
+                    <div class="col-md-5 text-end">
+
+                        <div class="col-md-auto text-end">
+                            <label for="message-text"
+                                class="col-form-label font-monospace fw-bold">ราคาต่อหน่วย</label>
+                        </div>
+
+                        <div class="col-md-auto text-end">
+                            <label for="message-text"
+                                class="col-form-label font-monospace fw-bold">฿{{orderDetail.unitPrice
+                                |
+                                number}}</label>
+                            <!-- <p>฿{{item.proPric | number}}</p> -->
+                        </div>
+                    </div>
+                </div>
+                <!--เส้น-->
+                <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+            </div>
+            <!--ราคารวม-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-2 row ">
+                        <div class="col-md-9 text-end">
+                            <label for="message-text" class="col-form-label">รวมราคาสินค้า
+                                :</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="message-text" class="col-form-label">฿{{orderDetail.totalAmout
+                                |
+                                number}}</label>
+
+                        </div>
+                    </div>
+                    <div class="mb-2 row">
+                        <div class="col-md-9 text-end">
+                            <label for="message-text" class="col-form-label">ค่าจัดส่ง :</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="message-text"
+                                class="col-form-label">฿{{orderDetail.detailsFreight
+                                |
+                                number}}</label>
+
+                        </div>
+                    </div>
+                    <div class="mb-2 row">
+                        <div class="col-md-9 text-end">
+                            <label for="message-text" class="col-form-label">ยอดรวมคำสั่งซื้อ :</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="message-text" class="col-form-label">฿{{orderDetail.totalOrder
+                                |
+                                number}}</label>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!--เส้น-->
+            <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+        </div>
+
+
+            </ng-container>
+
+            <!--ช่องทางการชำระเงิน-->
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="mb-2 row">
+                        <div class="col-md-9 text-end">
+                            <label for="message-text " class="col-form-label">ช่องทางการชำระเงิน :</label>
+
+
+                        </div>
+                        <div class="col-md-3">
+                            <label for="message-text " class="col-form-label">สแกนคิวอาร์โค้ด</label>
+
+                        </div>
+
+                    </div>
+                      <!-- <div class="mb-2 row">
+                                    <div class="col-md-9 text-end">
+                                        <label for="message-text " class="col-form-label">สถานะ :</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="message-text "
+                                            class="col-form-label text-success">ชำระเงินแล้ว</label>
+
+                                    </div>
+                                </div> -->
+
+                                <div class="mb-2 row">
+                                    <div class="col-md-9 text-end">
+                                        <label for="message-text " class="col-form-label">เวลาสั่งซื้อ :</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="message-text " class="col-form-label">{{
+                                            orderView.billCreate == null?'':orderView.billCreate }}</label>
+
+                                    </div>
+                                </div>
+                                <div class="mb-2 row">
+                                    <div class="col-md-9 text-end">
+                                        <label for="message-text " class="col-form-label">เวลาชำระเงิน :</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="message-text " class="col-form-label">{{
+                                            orderView.datePm == null?'':orderView.datePm }}</label>
+
+                                    </div>
+                                </div>
+                                <div class="mb-2 row">
+
+                                    <div class="col-md-9 text-end">
+                                        <label for="message-text " class="col-form-label">
+                                            รายละเอียดการชำระเงิน :</label>
+
+                                    </div>
+
+                                </div>
+                                <div class="mb-2 row">
+                                    <div class="col-md-12 text-end">
+                                        <div class="text-end"><img src="assets/image/slip.jpg"
+                                                style="height: 450px; width: 300px;" alt=""></div>
+                                    </div>
+                                </div>
+                    
+                </div>
+
+            </div>
+
+
+
+                </div>
+            </form> 
+             
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!--model จัดส่ง-->
+
+<div class="modal fade" id="selectdelivery" data-bs-backdrop="static" tabindex="-1"
+aria-labelledby="selectdeliveryLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title font-monospace fw-bold" id="selectdeliveryLabel">รายละเอียดในการจัดส่ง</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <form [formGroup]="customersForm">
+            <div class="modal-body">
+                <!-- <form [formGroup]="managFormAddrasstrader">
+                    <div class="mb-3 row">
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace fw-bold">ผู้ส่ง (Sender)
+                                :</label>
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="col-md-auto">
+                                <label for="recipient-name" class="col-form-label font-monospace fw-bold">ชื่อ :</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                    formControlName="firstName" readonly>
+                            </div>
+
+                            <div class="col-md-auto">
+                                <label for="recipient-name" class="col-form-label font-monospace fw-bold">นามสกุล
+                                    :</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                    formControlName="lastName" readonly>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="col-md-auto">
+                                <label for="recipient-name" class="col-form-label font-monospace fw-bold">เบอร์โทร
+                                    :</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control-plaintext " id="validationCustom02"
+                                    formControlName="telPhon" readonly>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="col-md-auto">
+                                <label for="recipient-name" class="col-form-label font-monospace fw-bold">ที่อยู่
+                                    :</label>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                        formControlName="addrass" readonly>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                        formControlName="districtinputctm" readonly>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                        formControlName="amphur" readonly>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                        formControlName="province" readonly>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                        formControlName="zipCodes" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form> -->
+                    <!-- เส้น -->
+                    <!-- <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+                </div> -->
+
+                <div class="mb-3 row">
+                    <div class="col-md-auto">
+                        <label for="recipient-name" class="col-form-label font-monospace fw-bold">ผู้รับพัสดุ (Receiver)
+                            :</label>
+                    </div>
+                    <div class="mb-1 row">
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace fw-bold">ชื่อ :</label>
+                        </div>
+                        <div class="col">
+                            <label for="recipient-name" class="col-form-label">{{
+                                orderView.customers == null?'':orderView.customers.firstName}} </label>
+                        </div>
+
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace fw-bold">นามสกุล
+                                :</label>
+                        </div>
+                        <div class="col">
+                            <label for="recipient-name" class="col-form-label">{{
+                                orderView.customers == null?'':orderView.customers.lastName}}</label>
+                        </div>
+                    </div>
+                    <div class="mb-1 row">
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace fw-bold">เบอร์โทร
+                                :</label>
+                        </div>
+                        <div class="col">
+                            <label for="recipient-name" class="col-form-label">{{
+                                orderView.customers == null?'':orderView.customers.telPhon}}</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-1 row">
+                        <div class="mb-1 row">
+                            <div class="col-md-auto">
+                                <label for="message-text" class="col-form-label">{{
+                                    orderView.customer == null?'':orderView.customer.addrass}}
+
+
+                                </label>
+
+                            </div>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                    formControlName="districtinput" readonly>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                    formControlName="amphurinput" readonly>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                    formControlName="provinceinput" readonly>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label for="message-text" class="col-form-label">{{
+                                    orderView.customer == null?'':orderView.customer.zipCode}} </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                <button type="button" class="btn btn-primary" (click)="approveStatusD(orderView.detailsId)">ยืนยัน</button>
+            </div>
+            
+        </form>
+
+    </div>
+
+</div>
+
+</div>

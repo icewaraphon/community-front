@@ -1,0 +1,219 @@
+<div class="container-fluid">
+    <div class="row row-side">
+
+        <!--sidebar-->
+        <form action="" [formGroup]="productRegisForm" (ngSubmit)="onSubmit()">
+
+            <!--content-->
+            <div class="">
+                <div 
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+                    <h3 class="font-monospace fw-bold ">เพิ่มสินค้า</h3>
+
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-sm btn-outline-info" routerLink="#">
+                                << ย้อนกลับ</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">เพิ่มสินค้า</li>
+                </ol>
+            </nav>
+
+            <div class="container" style="padding: 0px;">
+                <div class="container shadow-sm p-3 mb-5 bg-body rounded">
+
+                    <div class="mb-3 row">
+                        <label for="validationCustom04" class="col-sm-1 col-form-label">รหัสสินค้า</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="proId">
+                        </div>&nbsp;&nbsp;
+
+                        <label for="validationCustom04" class="col-sm-1 col-form-label">ชื่อสินค้า</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="proName">
+                        </div>&nbsp;&nbsp;
+
+                        <label for="validationCustom04" class="col-sm-auto col-form-label">หมวดหมู่</label>
+                        <div class="col-sm-2">
+                            <select class="form-select border-2 " aria-label=".form-select-sm example"
+                                formControlName="cateId">
+                                <option selected disabled value="">หมวดหมู่...</option>
+                                <option value="11111">หมวหมู่อาหาร</option>
+                                <option value="22222">หมวดหมู่เครื่องดื่ม</option>
+                                <option value="33333">หมวดหมู่เสื้อผ้า เครื่องแต่งกาย</option>
+                                <option value="44444">หมวดหมู่ของใช้ ของตกแต่ง ของที่ระลึก</option>
+                                <option value="55555">หมวดหมู่สมุนไพรที่ไม่ใช่อาหาร</option>
+                                <option *ngFor="let cat of categoriess" [ngValue]="cat.catePro" [value]="cat.cateId">{{
+                                    cat.catePro }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <label for="validationCustom04"
+                                class="col-sm-3 col-form-label">ราคา</label>&nbsp;&nbsp;
+                                <input type="text" class="form-control "
+                                aria-label="Dollar amount (with dot and two decimal places)"
+                                formControlName="proPric" formControlName="proPric">
+                                <span class="input-group-text">$</span>
+
+                            </div>
+
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                        <label for="validationCustom04" class="col-sm-auto col-form-label">จำนวน</label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="proNumber">
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <label for="validationCustom04" class="col-sm-3 col-form-label">หน่วยนับ</label>&nbsp;
+                                <select class="form-select form-select-sm border-2 " id="validationTitle1"
+                                    aria-label=".form-select-sm example" formControlName="proUnit">
+                                    <option selected disabled value="">เลือกหน่วยนับ...</option>
+                                    <option>ก้อน</option>
+                                    <option>เครื่อง</option>
+                                    <option>ตัว</option>
+                                    <option>อัน</option>
+                                    <option>ชุด</option>
+                                    <option>ชิ้น</option>
+                                    <option>ด้าม</option>
+                                    <option>ชิ้น</option>
+                                    <option>เรือน</option>
+                                    <option>ใบ</option>
+                                    <option>ขวด</option>
+                                    <option>กล่อง</option>
+                                    <option>คู่</option>
+                                    <option>ผืน</option>
+                                    <option>แผ่น</option>
+                                    <option>ลูก</option>
+                                    <option>คัน</option>
+                                    <option>วง</option>
+                                    <option>ต้น</option>
+                                    <option>เส้น</option>
+                                    <option>ลูก</option>
+                                    <option>แท่ง</option>
+                                    </select>
+                            </div>
+
+
+                        </div>
+                         <!-- <label for="validationCustom04" class="col-sm-auto col-form-label">หน่วยนับ</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="proUnit">
+                        </div> -->
+
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="validationCustom04" class="col-sm-1 col-form-label">สี</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="proColor">
+                        </div>
+
+                         <!-- <div class="col-md-3">
+                        <div class="input-group ">
+                            <label for="validationCustom04" class="col-sm-2 col-form-label">สี</label>&nbsp;
+                            <select class="form-select form-select-sm border-2 " id="validationTitle1" aria-label=".form-select-sm example"
+                                formControlName="proColor">
+                                <option selected disabled value="">เลือกสี...</option>
+                                <option>สีน้ำเงิน</option>
+                                <option>สีแดง</option>
+                                <option>สีชมพู</option>
+                                <option>สีส้ม</option>
+                                <option>สีเหลือง</option>
+                                <option>สีดำ</option>
+                                <option>สีเขียว</option>
+                                <option>สีน้ำตาล</option>
+                                <option>สีขาว</option>
+                                <option>สีเงิน</option>
+                                <option>สีทอง</option>
+                                <option>สีน้ำเงินอมเขียว</option>
+                                <option>สีเทา</option>
+                                <option>สีม่วง</option>
+                                <option>สีครีม</option>
+                                <option>สีบรอนซ์</option>
+                                <option>สีกากี</option>
+                                <option>สีคราม</option>
+                                <option>สีฟ้า</option>
+                                <option>สีน้ำเงินเข้ม</option>
+                            </select>
+                        </div>
+                        </div> -->
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="validationCustom04" class="col-sm-auto col-form-label">ขนาด</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="proSize">
+                        </div>
+                        <label for="validationCustom04" class="col-sm-auto col-form-label">ค่าจัดส่ง</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="freight">
+                        </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputSupplier1" class="form-label">รายละเอียดสินค้า</label>
+                    </div>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                            style="height: 100px" formControlName="proDetails"></textarea>
+                        <label for="floatingTextarea2">รายละเอียดสินค้า</label>
+                    </div>
+                    <br>
+                    <div class="mb-3 row">
+                        <div class="mb-3">
+                            <label for="inputSupplier1" class="form-label font-monospace ">รูปภาพสินค้า</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <!-- <input class="form-control form-control-sm" id="file" type="file"
+                                (change)="selectFile($event)"> -->
+                            <div class="subtitle">
+                                ขนาดไฟล์: สูงสุด 1 MB ไฟล์ที่รองรับ: .JPEG, .PNG
+                            </div>
+                        </div>
+                        <!-- &nbsp;<div class="center">
+                            <div class="dropzone">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="upload-icon" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
+                                </svg>
+                                <input type="file" class="upload-input" formControlName="proImg" />
+                            </div>
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp; -->
+                    </div>
+                    <div class="col-12" style="text-align: right;">
+                        <div class="col-12" style="text-align: right;">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ยกเลิก</button>&nbsp;
+                            <button type="reset" class="btn border border-secondary">ล้างข้อมูล</button>&nbsp;
+                            <button type="submit" class="btn btn-warning">บันทึกข้อมูล</button>&nbsp;
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

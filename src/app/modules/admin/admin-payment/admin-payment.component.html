@@ -1,0 +1,463 @@
+<div class="container p-0">
+    <div class="row row-side">
+
+        <!--content-->
+
+        <div class="">
+            <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-bottom font-monospace fw-bold">
+                <h3 class=" font-monospace fw-bold ">ข้อมูลการชำระเงิน</h3>
+
+            </div>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="admin/adminpage">หน้าแรก</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">ข้อมูลการชำระเงิน</li>
+                </ol>
+            </nav>
+
+            <div class="card bg-light text-dark">
+                <div class="card-body">
+                    <h6 class="font-monospace fw-bold">ค้นหาข้อมูล</h6>
+                    <div class="container">
+                        <form>
+                            <div class="row g-3 align-items-center">
+                                <div class="col-auto">
+                                    <label for="inputnumber" class="col-form-label">วัน/เดือน/ปีที่ต้องการแสดง :</label>
+                                    <label for="inputnumber" class="col-form-label">&emsp;จาก</label>
+                                </div>
+                                <div class="col-auto">
+                                    <input class="form-control-sm" type="date" value="" id="example-date-input">
+                                </div>
+                                <div class="col-auto">
+                                    <label for="inputnumber" class="col-form-label">&nbsp;ถึง&nbsp;</label>
+                                </div>
+                                <div class="col-auto">
+                                    <input class="form-control-sm" type="date" value="" id="example-date-input">
+                                </div>
+                                &nbsp;&nbsp;&nbsp;
+
+                                <div class="col-auto">
+                                    <div class="input-group-sm">
+                                        <button type="submit" class="btn btn-outline-primary col-md-12"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                            </svg>
+                                            &nbsp;ค้นหา
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+            <br>
+             <div
+             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-bottom">
+             </div>
+
+             <div class="row align-items-center">
+
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-12 bg-light">
+                                    <h5 class="font-monospace fw-bold ">รายละเอียดการชำระเงิน</h5>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="tab-content p-0" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                aria-labelledby="home-tab">
+                                <div class="shadow-sm p-3">
+
+                                    <table class="table table table-hover border-primary">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th scope="col">No.</th>
+                                                <th scope="col">วันที่สั่งซื้อ</th>
+                                                <th scope="col">วันที่ชำระเงิน</th>
+                                                <th scope="col">ผู้สั่งซื้อ</th>
+                                                <th scope="col">ยอดรวม</th>
+                                                <th scope="col">จากร้าน</th>
+                                                <th scope="col">รหัสร้าน</th>
+                                                <th scope="col">รายละเอียด</th>
+                                                <!-- <th scope="col">ดำเนินการ</th> -->
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">xx/xx/xx</td>
+                                                <td class="text-center">xx/xx/xx</td>
+                                                <td class="text-center">xxxxxxxxx</td>
+                                                <td class="text-center">xx.xx</td>
+                                                <td class="text-center">xxxxx</td>
+                                                <td class="text-center">111111</td>
+                                                <td class="text-center"><button type="button"
+                                                        class="btn btn-warning  btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#nopayment"
+                                                        data-bs-whatever="@mdo">ดูรายละเอียด</button></td> 
+
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">xx/xx/xx</td>
+                                                <td class="text-center">xx/xx/xx</td>
+                                                <td class="text-center">xxxxxxxxx</td>
+                                                <td class="text-center">xx.xx</td>
+                                                <td class="text-center">xxxxxx</td>
+                                                <td class="text-center">22222</td>
+                                                <td class="text-center"><button type="button"
+                                                        class="btn btn-warning  btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#nopayment"
+                                                        data-bs-whatever="@mdo">ดูรายละเอียด</button></td>
+
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+             </div>
+
+             <br>
+             <nav aria-label="Page navigation example ">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" routerLink="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" routerLink="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+             </nav>
+
+        </div>
+
+    </div>
+    <canvas class="my-4 w-100" id="myChart" height="50"></canvas>
+
+    <!--model ใบเสร็จการชำระเงิน-->
+    <div class="modal fade" id="nopayment" tabindex="-1" aria-labelledby="nopaymentLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-monospace fw-bold" id="nopaymentLabel">ใบเสร็จการสั่งซื้อสินค้า</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form>
+                        <div class="row p-3">
+                            <div class="col-md-6">
+                                <div class="mb-5 row">
+                                    <div class="col-md-auto">
+                                        <label for="recipient-name"
+                                            class="col-form-label font-monospace fw-bold">ที่อยู่ผู้สั่งซื้อ
+                                            :</label>
+
+                                    </div>
+                                    <div class="mb-6 row">
+                                        <label for="recipient-name" class="col-form-label">xxxxx xxxxxx</label>
+                                        <label for="recipient-name" class="col-form-label">0983213997</label>
+                                        <label for="recipient-name" class="col-form-label">76/1 ต.ตลาด
+                                            อ.เมืองมหาสารคาม
+                                            จ.มหาสารคาม
+                                            44000</label>
+                                        
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6" style="padding-left: 5%;">
+                                <div class="container">
+                                    <div class="mb-2 row">
+                                        <div class="col-md-auto">
+                                            <label for="message-text"
+                                                class="col-form-label font-monospace fw-bold">วันที่สั่งซื้อ
+                                                :</label>
+
+                                        </div>
+                                        <div class="col-md-auto">
+                                            <label for="message-text" class="col-form-label">xx/xx/xx</label>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="mb-2 row">
+                                        <div class="col-md-4">
+                                            <label for="message-text"
+                                                class="col-form-label font-monospace fw-bold">ผู้สั่งซื้อ
+                                                :</label>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="message-text" class="col-form-label">xxxxx</label>
+
+                                        </div>
+
+                                    </div>
+                                   
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="container">
+                            <!--เส้น-->
+                            <div
+                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+                        </div>
+                        <!--รายการสินค้า-->
+                        <div class="mb-3 row">
+                            <div class="col-md-auto">
+                                <label for="message-text" class="col-form-label font-monospace fw-bold">รายการสินค้า
+                                </label>
+                            </div>
+                        </div>
+                        <!--เส้น-->
+                        <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+                    </div>
+                    <!--สินค้า-->
+                    <div class="mb-3 row">
+                        <div class="col-md-auto">
+                            <div class="col-md-auto">
+                                <!-- <div class="text-center"><img src="assets/image/pro10.jpg" style="width: 120px;" alt="..."></div> -->
+                            </div>
+                           
+                        </div>
+
+                        <div class="col-md-auto">
+                            <div class="col-md-auto">
+                                <label for="message-text"
+                                    class="col-form-label font-monospace fw-bold">
+                                    อาหาร</label>
+                            </div>
+
+                            <div class="mb-1 row">
+                                <div class="col-md-auto">
+                                    <label for="message-text" class="col-form-label">ตัวเลือก :</label>
+                                </div>
+                                <div class="col-md-auto">
+                                    <label for="message-text" class="col-form-label">สีน้ำเงิน ไซต์ L</label>
+
+                                </div>
+                            </div>
+                            <div class="mb-1 row">
+                                <div class="col-md-auto">
+                                    <label for="message-text" class="col-form-label">จำนวน :</label>
+                                </div>
+                                <div class="col-md-auto">
+                                    <label for="message-text" class="col-form-label">1</label>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ราคา -->
+                        <div class="col-md-5 text-end">
+
+                            <div class="col-md-auto">
+                                <label for="message-text" class="col-form-label">฿300</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-md-auto">
+                            <div class="col-md-auto">
+                                <!-- <div class="text-center"><img src="assets/image/pro9.png" style="width: 120px;" alt="..."></div> -->
+                            </div>
+                        </div>
+                        <div class="col-md-auto">
+                            <div class="col-md-auto">
+                                <label for="message-text"
+                                    class="col-form-label font-monospace fw-bold">
+                                    อาหาร</label>
+                            </div>
+
+                            <div class="mb-1 row">
+                                <div class="col-md-auto">
+                                    <label for="message-text" class="col-form-label">ตัวเลือก :</label>
+                                </div>
+                                <div class="col-md-auto">
+                                    <label for="message-text" class="col-form-label">สีเหลือง ไซต์ M</label>
+
+                                </div>
+                            </div>
+                            <div class="mb-1 row">
+                                <div class="col-md-auto">
+                                    <label for="message-text" class="col-form-label">จำนวน :</label>
+                                </div>
+                                <div class="col-md-auto">
+                                    <label for="message-text" class="col-form-label">1</label>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ราคา -->
+                        <div class="col-md-5 text-end">
+
+                            <div class="col-md-auto">
+                                <label for="message-text" class="col-form-label">฿280</label>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- เส้น -->
+                     <div
+                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+                 </div>
+                 <!--ราคารวม-->
+                 <div class="row">
+                    <div class="col-md-12 ">
+
+                        <div class="mb-2 row ">
+                            <div class="col-md-9 text-end">
+                                <label for="message-text" class="col-form-label">รวมราคาสินค้า :</label>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="message-text" class="col-form-label">฿580</label>
+
+                            </div>
+                        </div>
+                        <div class="mb-2 row">
+                            <div class="col-md-9 text-end">
+                                <label for="message-text" class="col-form-label">ค่าจัดส่ง :</label>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="message-text" class="col-form-label">29</label>
+
+                            </div>
+                        </div>
+                        <!-- <div class="mb-2 row">
+                            <div class="col-md-9 text-end">
+                                <label for="message-text" class="col-form-label">ส่วนลด :</label>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="message-text" class="col-form-label">-29</label>
+
+                            </div>
+                        </div> -->
+                        
+                        <div class="mb-2 row">
+                            <div class="col-md-9 text-end">
+                                <label for="message-text" class="col-form-label">ยอดรวมคำสั่งซื้อ :</label>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="message-text" class="col-form-label">฿609</label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--เส้น-->
+                <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+            </div>
+            <!--ช่องทางการชำระเงิน-->
+            <div class="row">
+                <div class="col-md-12 ">
+
+                    <div class="mb-2 row">
+                        <div class="col-md-9 text-end">
+                            <label for="message-text " class="col-form-label">ช่องทางการชำระเงิน
+                                :</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="message-text " class="col-form-label">สแกนคิวอาร์โค้ด</label>
+
+                        </div>
+                    </div>
+                    <div class="mb-2 row">
+                        <div class="col-md-9 text-end">
+                            <label for="message-text " class="col-form-label">เวลาชำระเงิน :</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="message-text " class="col-form-label">22/06/2564 12.30</label>
+                    
+                        </div>
+                    </div>
+
+                    <div class="mb-2 row">
+
+                        <div class="col-md-9 text-end">
+                            <label for="message-text " class="col-form-label">
+                                รายละเอียดการชำระเงิน</label>
+
+                        </div>
+                     
+                    </div>
+                    <div class="mb-2 row">
+                        <div class="col-md-12 text-end">
+                            <div class="text-end"><img src="assets/image/slip.jpg" style="height: 450px; width: 300px;" alt=""></div>
+                        </div>
+                    </div>
+
+                   
+
+
+                </div>
+            </div>
+
+                        </div>
+                    </form>
+                      <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">ตกลง</button>
+                </div> -->
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

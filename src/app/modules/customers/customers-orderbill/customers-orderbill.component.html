@@ -1,0 +1,519 @@
+<div class="container-fluid ">
+    <div class="row row-side">
+
+        <!--content-->
+
+        <div class="container con-c">
+            <div 
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-bottom">
+                <h3 class="font-monospace fw-bold ">ทำการสั่งซื้อสินค้า</h3>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <!-- <div class="btn-group me-2">
+                        <button type="button" class="btn btn-sm btn-outline-info" routerLink="../manage-user">
+                            << ย้อนกลับ</button>
+                    </div> -->
+                </div>
+
+
+            </div>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="admin/adminpage">หน้าแรก</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">คำสั่งซื้อสินค้า</li>
+                </ol>
+            </nav>
+            <form>
+                <div class="container" style="padding: 0px;">
+                    <div class="card p-3">
+
+                        <div class="container">
+                            <div class="card p-2">
+                                <div class="col-md-6">
+                                    <div class="mb-3 row">
+                                        <div class="col-md-4">
+                                            <label for="recipient-name"
+                                                class="col-form-label font-monospace fw-bold">ที่อยู่ในการจัดส่ง
+                                                :</label>
+                                        </div>
+
+                                        <form [formGroup]="ctmmanagForm">
+                                            <div class="col-md-8">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control-plaintext"
+                                                        id="validationCustom02" formControlName="firstName"
+                                                        readonly>
+
+                                                    </div>
+                                                    <div class="col-md-4 ">
+                                                        <input type="text" class="form-control-plaintext"
+                                                            id="validationCustom02" formControlName="lastName" readonly>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row justify-content-center">
+                                                    <div class="col-md-8 ">
+                                                        <input type="text" class="form-control-plaintext "
+                                                            id="validationCustom02" formControlName="telPhon" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-center">
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control-plaintext"
+                                                            id="validationCustom02" formControlName="addrass" readonly>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control-plaintext"
+                                                            id="validationCustom02" formControlName="districtinput" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-center">
+
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control-plaintext"
+                                                            id="validationCustom02" formControlName="amphurinput" readonly>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control-plaintext"
+                                                            id="validationCustom02" formControlName="provinceinput" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-center">
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control-plaintext"
+                                                            id="validationCustom02" formControlName="zipCode" readonly>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="container">
+                            <ng-container *ngFor="let item of products ">
+                                <div class="card p-3">
+                                    <div class="mb-3 row">
+                                               <!-- <div class="col">
+                                            <div class="row">
+                                        
+                                                <div class="row justify-content-end">
+                                                    <div class="col-md-auto">
+                                                        <label for="message-text"
+                                                            class="col-form-label font-monospace fw-bold">หมายเลขคำสั่งซื้อ
+                                                            :</label>
+                                                    </div>
+                                                    <div class="col-md-auto">
+                                                        <p> {{item.billId}}</p>
+                                                    </div>
+                                                    <div class="mb-1 row justify-content-end">
+                                                        <div class="col-md-auto">
+                                                            <label for="message-text"
+                                                                class="col-form-label font-monospace fw-bold">วันที่สั่งซื้อ
+                                                                :</label>
+                                                        </div>
+                                                        <div class="col-md-auto">
+                                                            <p>{{item.billDate}}</p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+                                    </div>
+                                    <!--เส้น-->
+
+                                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+
+
+                                    </div>
+                                    <!--สินค้า-->
+
+                                    <div class="mb-3 row">
+                                        <div class="col-md-2">
+                                             <!-- <img src="{{item.proImg}}" alt=""> -->
+                                             <div class="col-md-auto">
+                                                <div class="text-center"><img src="{{item.proImg}}"
+                                                        style="width: 120px;" alt="..."></div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="col-md-auto">
+                                                <label for="message-text" class="col-form-label font-monospace fw-bold">{{item.proName}}</label>
+                                                <!-- <p>{{item.proName}}</p> -->
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-auto">
+                                                    <label for="message-text"
+                                                        class="col-form-label font-monospace fw-bold">ตัวเลือก :</label>
+                                                </div>
+                                                <div class="col-md-auto">
+                                                    <label for="message-text" class="col-form-label font-monospace fw-bold">{{item.proColor}} {{item.proSize}}</label>
+                                                    <!-- <p>{{item.proColor}} {{item.proSize}}</p> -->
+                                                </div>
+
+                                            </div>
+                                            <div class=" row">
+                                                <div class="col-md-auto">
+                                                    <label for="message-text"
+                                                        class="col-form-label font-monospace fw-bold">จำนวน :</label>
+                                                </div>
+                                                <div class="col-md-auto">
+                                                    <label for="message-text" class="col-form-label font-monospace fw-bold">{{ item.quantity }}</label>
+                                                    <!-- <p>{{ item.quantity }}</p> -->
+
+
+                                                </div>
+                                                <div class="col-md-auto">
+                                                    <label for="message-text" class="col-form-label font-monospace fw-bold">{{ item.proUnit }}</label>
+                                                    <!-- <p>{{ item.proUnit | number}}</p> -->
+
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <!--ราคา-->
+                                        <div class="col-md-2 text-center">
+                                            <div class="col-md-auto">
+                                                <label for="message-text"
+                                                    class="col-form-label font-monospace fw-bold">ราคา</label>
+                                            </div>
+
+                                            <div class="col-md-auto ">
+                                                <label for="message-text" class="col-form-label font-monospace fw-bold">฿{{item.proPric | number}}</label>
+                                                <!-- <p>฿{{item.proPric | number}}</p> -->
+                                            </div>
+                                        </div>
+                                         
+                                    </div>
+
+                                    <!--เส้น-->
+                                    <div
+                                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+                                </div>
+
+                                <!--ราคารวม-->
+
+                                <div class="row">
+                                    <div class="col-md-12 ">
+                                        <div class="row">
+                                            <div class="col-md-9 text-end">
+                                                <label for="message-text"
+                                                class="col-form-label font-monospace fw-bold font-monospace fw-bold">รวมราคาสินค้า
+                                                :</label>
+
+                                            </div>
+                                            <div class="col-md-3 ">
+                                                <label for="message-text"
+                                                    class="col-form-label font-monospace fw-bold">฿{{ item.proPric *
+                                                    item.quantity | number}}</label>
+                                                <!-- <p>฿{{ item.proPric * item.quantity | number}}</p> -->
+                                                <!-- <p>฿{{item.total}}</p> -->
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-9 text-end">
+                                                <label for="message-text"
+                                                    class="col-form-label font-monospace fw-bold ">ค่าจัดส่ง
+                                                    :</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="message-text"
+                                                    class="col-form-label font-monospace fw-bold">฿{{item.freight |
+                                                    number}}</label>
+                                                <!-- <p>฿{{item.freight | number}}</p> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-9 text-end">
+                                                <label for="message-text"
+                                                    class="col-form-label font-monospace fw-bold">ยอดรวมคำสั่งซื้อ
+                                                    :</label>
+                                            </div>
+                                            <div class="col-md-3 ">
+                                                <label for="message-text"
+                                                    class="col-form-label font-monospace fw-bold">฿{{ (item.proPric
+                                                    * item.quantity) + item.freight | number}}</label>
+                                                <!-- <p>฿{{ (item.proPric * item.quantity) + item.freight | number}}</p> -->
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                </div>
+
+                            </ng-container>
+                            <br>
+                            <div class="card">
+                                <!--ราคารวม-->
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <div class=" row ">
+                                            <div class="col-md-9 text-end">
+                                                <label for="message-text"
+                                                    class="col-form-label font-monospace fw-bold">ยอดรวมสินค้าทั้งหมด
+                                                    :</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="message-text"
+                                                    class="col-form-label font-monospace fw-bold">฿{{amount |
+                                                    number}}</label>
+
+                                            </div>
+                                        </div>
+
+                                        <div class=" row">
+                                            <div class="col-md-9 text-end">
+                                                <label for="message-text"
+                                                    class="col-form-label font-monospace fw-bold font-monospace fw-bold">รวมค่าจัดส่ง
+                                                    :</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="message-text"
+                                                    class="col-form-label font-monospace fw-bold">฿{{freightTotal |
+                                                    number}}</label>
+
+                                            </div>
+                                        </div>
+
+                                        <div class=" row">
+                                            <div class="col-md-9 text-end">
+                                                <label for="message-text"
+                                                    class="col-form-label font-monospace fw-bold">การชำระเงินทั้งหมด
+                                                    :</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="message-text"
+                                                    class="col-form-label font-monospace fw-bold">฿{{totalAmout |
+                                                    number}}</label>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <!--เส้น-->
+                                <div
+                                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+                            </div>
+                            <!-- ช่องทางการชำระเงิน -->
+                            <div class="row">
+                                <div class="col-md-12 ">
+
+                                    <div class="mb-2 row">
+                                        <div class="col-md-9 text-end">
+                                            <label for="message-text "
+                                                class="col-form-label font-monospace fw-bold">ช่องทางการชำระเงิน
+                                                :</label>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label for="message-text "
+                                                class="col-form-label font-monospace fw-bold">สแกนคิวอาร์โค้ด</label>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            </div>
+
+                            <br>
+                            <div class="mb-1 row justify-content-end">
+                                <a class="btn btn-primary justify-content-end  col-sm-2 me-5" href="#" role="button"
+                                    data-bs-toggle="modal" data-bs-target="#qrcodeModal">ชำระเงิน</a>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+
+
+        </div>
+
+    </div>
+
+</div>
+<!-- Model Edit Addrass -->
+<!-- <div class="modal fade" id="editaddrassModal" data-bs-backdrop="static" tabindex="-1"
+    aria-labelledby="editaddrassModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered text-dark">
+        <div class="modal-content">
+            <div class="modal-body bg-light">
+                <div class="row justify-content-end p-2 pt-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="">
+                    <div class="card p-2">
+                        <div class="row justify-content-center">
+                            <h5 class="text-center font-monospace pb-2">เปลี่ยนที่อยู่ใหม่</h5>
+                            <br>
+                            <div class="mb-3 row">
+                                <div class="col-md-5">
+                                    <div class="input-group">
+                                        <div class="input-group-text">ชื่อ</div>
+                                        <input type="tel" class="form-control" id="autoSizingInputGroup" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="input-group">
+                                        <div class="input-group-text">นามสุกล</div>
+                                        <input type="tel" class="form-control" id="autoSizingInputGroup" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="col-md-5">
+                                    <div class="input-group">
+                                        <div class="input-group-text">เบอร์โทรศัพท์</div>
+                                        <input type="tel" class="form-control" id="autoSizingInputGroup" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="col-md-10">
+                                    <div class="input-group">
+                                        <div class="input-group-text">ที่อยู่</div>
+                                        <input type="tel" class="form-control" id="autoSizingInputGroup" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="col-md-5">
+                                    <div class="input-group">
+                                        <div class="input-group-text">รหัสไปรษณีย์</div>
+                                        <input type="tel" class="form-control" id="autoSizingInputGroup"
+                                            placeholder="กรอกรหัสไปรษณีย์">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-text">จังหวัด</div>
+                                        <select id="inputState" class="form-select">
+                                            <option>...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-text">อำเภอ</div>
+                                        <select id="inputState" class="form-select">
+                                            <option>...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-text">ตำบล</div>
+                                        <select id="inputState" class="form-select">
+                                            <option>...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-auto pt-3">
+                                <button type="submit" class="fw-bolder btn btn-success">ตั้งค่าใหม่</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!--Model Qr code-->
+<div class="modal fade" id="qrcodeModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="qrcodeModalLabel"
+aria-hidden="true">
+<div class="modal-dialog  modal-dialog-centered text-dark">
+    <div class="modal-content">
+        <div class="modal-body bg-light">
+            <div class="row justify-content-end p-2 pt-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="">
+                <div class="card p-2">
+                    <div class="row justify-content-center">
+                        <h5 class="text-center font-monospace fw-bold pb-2">QR Code ชำระเงิน</h5>
+
+                        <br>
+                        <div class="col-md-12">
+                            <div class="text-center"><img [src]="myQrCode" alt="Image Source">
+                            </div>
+                            <div class="row ">
+                                <div class="col-md-6">
+                                    <h6 class="font-monospace text-end pb-2">Saleonline Front</h6>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="font-monospace text-center pb-2">฿{{totalAmout|
+                                    number}}</h6>
+                                </div>
+                            </div>
+                                  <!-- <div class="row ">
+                                    <div class="col-md-5">
+                                        <h6 class="font-monospace text-end pb-2">Ref Number:</h6>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h6 class="font-monospace text-center pb-2">xxxxxxxxxxx</h6>
+                                    </div>
+                                </div> -->
+
+                        </div>
+                        <div class="mb-3 row justify-content-end p-2">
+                            <button data-bs-dismiss="modal" (click)="btnClick1();"  class="btn btn-primary justify-content-end  col-sm-4 me-1"
+                                >ตกลง</button>
+                                <!-- (click)="paymentorder()" -->
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+<!-- <canvas class="my-4 w-100" id="myChart" height="20"></canvas> -->

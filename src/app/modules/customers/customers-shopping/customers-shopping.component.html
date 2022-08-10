@@ -1,0 +1,426 @@
+<!-- ex : https://www.positronx.io/angular-server-side-pagination-with-ngx-pagination-example/ -->
+
+<ng-container *ngIf="product.length !=0">
+    <div class="container p-3" style="min-height: 641px;">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                          <!-- style="font-family: 'Rampart One', cursive;" -->
+                          <tr class="text-center font-monospace fw-bold" >
+                            <th>No.</th>
+                            <th>สินค้า</th>
+                            <th>รูปภาพ</th>
+                            <th>ตัวเลือก</th>
+                            <th>จากร้าน</th>
+                            <th>ราคาต่อชิ้น</th>
+                            <th>จำนวนชิ้น</th>
+                            <th>ราคารวม</th>
+                            <th>Action</th>
+
+                          </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center " *ngFor="let product of product; let i = index">
+                            <td style="width: 4%;">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3" name="">
+                                    {{i+1}}
+
+                                </div>
+
+                            </td>
+                            <td style="width: 4%;"> 
+                                {{i+1}}
+                            </td>
+                            <td class="text-start" style="width: 20%;">{{product.proName}}</td>
+                            <td><img style="width: 120px;" src="{{product.proImg}}" alt=""></td>
+                            <th style="width: 12%;">{{product.proSize}}</th>
+                            <td style="width: 18%;">{{product.supplier.supName}}</td>
+                            <th style="width: 12%;">{{product.proPric | number}}</th>
+                            <td style="width: 12%;">
+                                <button class="btn btn-warning  btn-sm" (click)="addProductCount(product)">+</button>
+                                {{ product.quantity }}
+                                <button class="btn btn-warning  btn-sm"(click)="removeProductCount(product)">-</button>
+                            </td>
+                             <!-- <td style="width: 12%;">{{item.quantity}}</td> -->
+                             <td style="width: 12%;">{{ product.proPric * product.quantity | number}}</td>
+                             <td >
+                                 <button (click)="removeItem(product)" class="btn btn-danger"><i
+                                         class="bi bi-trash-fill"></i></button>
+                             </td>
+
+                        </tr>
+                        <tr class="text-center font-monospace fw-bold">
+                            <td colspan="4"></td>
+                            <td style="width: 10%;"><button (click)="emptycart()" class="btn btn-danger">ลบทั้งหมด</button></td>
+                            <td style="width: 15%;"><button routerLink="/home" class="btn btn-primary">เลือกสินค้าเพิ่ม</button></td>
+                            <td style="width: 10%;"><button (click)="GotoOrderCart(product)" class="btn btn-success">สั่งซื้อสินค้า</button></td>
+                            <td style="width: 18%;"><strong>รวม : ฿{{grandTotal | number}}</strong></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</ng-container>
+
+<ng-container *ngIf="product.length ==0">
+    <div class="container" style="min-height: 641px;">
+        <div class="card">
+            <h5 class="card-title font-monospace fw-bold">ตระกร้าสินค้า</h5>
+
+        </div>
+        <div class="center">
+            <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
+            alt="">
+            <h4 class="text-center font-monospace fw-bold">ยังไม่มีสินค้าในตระกร้า!</h4>
+            <!-- <h6>Add item to it now</h6> -->
+            <button routerLink="/home" class="btn btn-primary text-center font-monospace fw-bold">Shop Now</button>
+
+        </div>
+
+    </div>
+
+</ng-container>
+
+<div class="container-fluid ">
+    <div class="row row-side">
+        <div class="container p-3 con-c">
+            <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-bottom">
+            <h3 class="font-monospace fw-bold ">ตระกร้าของฉัน</h3>
+
+            </div>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="admin/adminpage">หน้าแรก</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">ตระกร้าของฉัน</li>
+
+                </ol>
+
+            </nav>
+
+            <div class="card">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center  ">
+
+                            <div class="col-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckIndeterminate">
+                                    <label class="form-check-label" for="flexCheckIndeterminate">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+
+                            </div>
+                            <div class="col-md-3">
+
+                            </div>
+                            <div class="col-md-2">
+
+                            </div>
+                            <div class="col-md-1 text-center">
+                                ราคาต่อชิ้น
+                            </div>
+                            <div class="col-md-1 text-center">
+                                จำนวน
+                            </div>
+                            <div class="col-md-1 text-center">
+                                ราคารวม
+                            </div>
+                            <div class="col-md-1 text-center">
+                                แอคชั่น
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckIndeterminate">
+                                    <label class="form-check-label" for="flexCheckIndeterminate">
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+                                xxam
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center ">
+                            <div class="col-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckIndeterminate">
+                                    <label class="form-check-label" for="flexCheckIndeterminate">
+                                    </label>
+                                </div>
+
+
+                            </div>
+                            <div class="col-auto">
+                                <img src="assets/image/food2.png" class="img-thumbnail" alt="...">
+                            </div>
+                            <div class="col-md-4">
+                                อาหาร
+                            </div>
+                            <div class="col-md-2 text-center">
+                                ตัวเลือกสินค้า : สีชมพู
+                            </div>
+                            <div class="col-md-1 text-center">
+                                10
+                            </div>
+                            <div class="col-md-1 text-center number-input md-number-input">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                    class="minus"></button>
+                                <input class="quantity" min="0" name="quantity" value="1" type="number">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                    class="plus"></button>
+                            </div>
+                            <div class="col-md-1 text-center">
+                                50
+                            </div>
+                            <div class="col-md-1 text-center">
+                                <!-- <button type="submit" class="btn btn-danger" (click)="deleteaddress()">ลบ</button>&nbsp; -->
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <br>
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckIndeterminate">
+                                    <label class="form-check-label" for="flexCheckIndeterminate">
+                                    </label>
+                                </div>
+
+
+                            </div>
+                            <div class="col">
+                                xxam
+                            </div>
+                             
+                        </div>
+
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row align-items-center ">
+                            <div class="col-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                    id="flexCheckIndeterminate">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                </label>
+
+                                </div>
+
+                            </div>
+                            <div class="col-auto">
+                                <img src="assets/image/food3.png" class="img-thumbnail" alt="...">
+                            </div>
+                            <div class="col-md-4">
+                                อาหาร
+                            </div>
+                            <div class="col-md-2 text-center">
+                                ตัวเลือกสินค้า : สีชมพู
+                            </div>
+                            <div class="col-md-1 text-center">
+                                10
+                            </div>
+                            <div class="col-md-1 text-center number-input md-number-input">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                    class="minus"></button>
+                                <input class="quantity" min="0" name="quantity" value="1" type="number">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                    class="plus"></button>
+                            </div>
+                            <div class="col-md-1 text-center">
+                                50
+                            </div>
+                            <div class="col-md-1 text-center">
+                                <!-- <button type="submit" class="btn btn-danger"(click)="deleteaddress()">ลบ</button>&nbsp; -->
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                    id="flexCheckIndeterminate">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                </label>
+
+                                </div>
+
+                            </div>
+                            <div class="col">
+                                xxam
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                    id="flexCheckIndeterminate">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                </label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-auto">
+                                <img src="assets/image/food1.png" class="img-thumbnail" alt="...">
+                            </div>
+                            <div class="col-md-4">
+                                อาหาร
+                            </div>
+                            <div class="col-md-2 text-center">
+                                ตัวเลือกสินค้า : สีชมพู
+                            </div>
+                            <div class="col-md-1 text-center">
+                                10
+                            </div>
+                            <div class="col-md-1 text-center number-input md-number-input">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                    class="minus"></button>
+                                <input class="quantity" min="0" name="quantity" value="1" type="number">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                    class="plus"></button>
+                            </div>
+                            <div class="col-md-1 text-center">
+                                50
+                            </div>
+                            <div class="col-md-1 text-center">
+                                <!-- <button type="submit" class="btn btn-danger"(click)="deleteaddress()">ลบ</button>&nbsp; -->
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="card-header">
+                        <div class="row ">
+                            <div class="col-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                                    <label class="form-check-label" for="flexCheckIndeterminate">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                xxam
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row align-items-center ">
+                            <div class="col-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                                    <label class="form-check-label" for="flexCheckIndeterminate">
+                                    </label>
+
+                                </div>
+
+                            </div>
+                            <div class="col-auto">
+                                <img src="assets/image/food1.png" class="img-thumbnail" alt="...">
+                            </div>
+                            <div class="col-md-4">
+                                อาหาร
+                            </div>
+                            <div class="col-md-2 text-center">
+                                ตัวเลือกสินค้า : สีชมพู
+                            </div>
+                            <div class="col-md-1 text-center">
+                                10
+                            </div>
+                            <div class="col-md-1 text-center number-input md-number-input">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                                <input class="quantity" min="0" name="quantity" value="1" type="number">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                            </div>
+                            <div class="col-md-1 text-center">
+                                50
+                            </div>
+                            <div class="col-md-1 text-center">
+                                <!-- <button type="submit" class="btn btn-danger"(click)="deleteaddrass()">ลบ</button>&nbsp; -->
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="card-body p-4 sticky-top"
+                style="position: sticky; bottom: 0; height: 90px; background-color: #c7e3f5;">
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                            <label class="form-check-label" for="flexCheckIndeterminate">
+                            </label>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-auto font-monospace fw-bold">เลือกทั้งหมด</div>
+                    <div class="col-md-auto font-monospace fw-bold">(XX)</div>
+                    <!-- <div class="col-md-6 font-monospace fw-bold"><a 
+                            class="link-dark text-decoration-none fw-bold hover"(click)="deleteaddress()">ลบ</a></div> -->
+
+                    <div class="col-md-auto font-monospace fw-bold text-end">รวม </div>
+                    <div class="col-md-auto font-monospace fw-bold text-end">(0 สินค้า)</div>
+                    <div class="col-md-auto font-monospace fw-bold text-end">฿xx </div>
+                    <div class="col-md-2">
+                        <a type="submit" class="btn btn-primary btn-lg col-sm-10 font-monospace fw-bold" href="customers/customersorderbill" role="button">สั่งซื้อสินค้า</a>&nbsp;</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<canvas class="my-4 w-100" id="myChart" height="25"></canvas>

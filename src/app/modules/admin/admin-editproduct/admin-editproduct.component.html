@@ -1,0 +1,233 @@
+<div class="container p-0">
+    <div class="row row-side">
+        <!--sidbar-->
+
+        <!--conte-->
+        <div class="">
+            <div 
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+            <h3 class="font-monospace fw-bold"> แก้ไขสินค้า</h3>
+            
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group me-2">
+                    <button type="button" class="btn btn-sm btn-outline-info" routerLink="../traderproduct">
+                        << ย้อนกลับ</button>
+
+                </div>
+
+            </div>
+
+            </div>
+
+        </div>
+
+        <nav aria-label="breadcrump">
+            <ol class="breadcrump">
+                <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
+                <li class="breadcrumb-item active" aria-current="page">เพิ่มสินค้า</li>
+
+            </ol>
+
+        </nav>
+
+        <div class="container" style="padding: 0px;">
+            <div class="container shadow-sm p-3 mb-5 bg-body rounded">
+                  <!-- <div class="mb-3">
+                    <label for="inputSupplier1" class="font-monospace fw-bold ">ข้อมูลทั่วไป</label>
+                </div> -->
+
+                <div class="mb-3 row">
+                    <label for="validationCustom04" class="col-sm-1 col-form-label">รหัสสินค้า</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="validationCustom04"  value="xxxxxxxxxxxxx" required>
+                    </div>&nbsp;&nbsp;
+        
+                    <label for="validationCustom04" class="col-sm-1 col-form-label">ชื่อสินค้า</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="validationCustom04"  value="xxxxxxxxxxxxx" required>
+                    </div>&nbsp;&nbsp;
+        
+                    <label for="inputPassword" class="col-sm-auto col-form-label">หมวดหมู่</label>
+                    <div class="col-sm-2">
+                        <select class="form-select border-2 " aria-label=".form-select-sm example">
+                            <option value="1">เลือกหมวดหมู่</option>
+                            <option value="2">หมวดหมู่อาหาร</option>
+                            <option value="3">หมวดหมู่เครื่องดื่ม</option>
+                            <option value="4">หมวดหมู่ผ้า เครื่องแต่งกาย</option>
+                            <option value="5">หมวดหมู่ของใช้ ของตกแต่ง ของที่ระลึก</option>
+                            <option value="2">หมวดหมู่สมุนไพรที่ไม่ใช่อาหาร</option>
+                        </select>
+                    </div>
+                </div>
+
+                 <!-- <div class="mb-3">
+                    <label for="inputSupplier1" class="font-monospace fw-bold ">ข้อมูลการขาย</label>
+                </div> -->
+
+                <div class="mb-3 row">
+                    <div class="col-md-4">
+                        <div class="input-group ">
+                            <label for="validationCustom04" class="col-sm-3 col-form-label">ราคาต่อหน่วย</label>&nbsp;&nbsp;
+                            <input type="text" class="form-control "
+                                aria-label="Dollar amount (with dot and two decimal places)"  value="xxx">
+                            <span class="input-group-text">$</span>
+                        </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;
+                    <label for="validationCustom04" class="col-sm-auto col-form-label">คลัง/จำนวน</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="validationCustom04"  value="xx" required>
+                    </div>
+        
+                    <label for="validationCustom04" class="col-sm-auto col-form-label">หน่วยนับ</label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" id="validationCustom04"  value="xxx" required>
+                    </div>
+        
+                    <!-- <div class="col-md-3">
+                                <div class="input-group ">
+                                    <label for="validationCustom04" class="col-sm-0 col-form-label">ค่าจัดส่ง</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="text" class="form-control " aria-label="Dollar amount (with dot and two decimal places)">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                            </div> -->
+                </div>
+                 <!-- <div class="mb-3">
+                    <label for="inputSupplier1" class="form-label font-monospace fw-bold">ตัวเลือก</label>
+                </div> -->
+
+                <div class="mb-3 row">
+                    <div class="col-md-3">
+                        <div class="input-group ">
+                            <label for="validationCustom04" class="col-sm-2 col-form-label">สี</label>&nbsp;
+                            <select class="form-select" id="validationDate7" required>
+                                <option>...</option>
+                            </select>
+                        </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="validationCustom04" class="col-sm-auto col-form-label">ขนาด</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="validationCustom04" value="xxxxxxxxxxxxx" required>
+                    </div>
+                    <label for="validationCustom04" class="col-sm-auto col-form-label">อื่น ๆ</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="validationCustom04" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputSupplier1" class="form-label">รายละเอียดสินค้า</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                        style="height: 100px">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</textarea>
+                    <label for="floatingTextarea2">รายละเอียดสินค้า</label>
+                </div>
+                <br>
+
+                <div class="mb-3 row">
+                    <div class="mb-3">
+                        <label for="inputSupplier1" class="form-label font-monospace ">รูปภาพสินค้า</label>
+                    </div>
+                    &nbsp;<div class="center">
+                        <!-- <img src="assets/image/pro11.jpg" class="" style="width: 150px;" alt="..."> -->
+                        <div class="dropzone">
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                class="upload-icon" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
+                            </svg>
+                            <!-- <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" /> -->
+                            <input type="file" class="upload-input" />
+                        </div>
+                    </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <!-- <div class="mb-3 row">
+                                                            <div class="mb-3">
+                                                                <br>
+                                                                <label for="inputSupplier1" class="form-label">วิดีโอสินค้า</label>
+                                                            </div>
+                                                            &nbsp;<div class="center">
+                                                                <div class="dropzone">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                                                        class="upload-icon" viewBox="0 0 16 16">
+                                                                        <path
+                                                                            d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
+                                                                    </svg>
+                                                                  
+                                                                    <input type="file" class="upload-input" />
+                                                                </div>
+                                                            </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                                            <div class="center">
+                                                                <div class="dropzone">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                                                        class="upload-icon" viewBox="0 0 16 16">
+                                                                        <path
+                                                                            d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
+                                                                    </svg>
+                                                                   
+                                                                    <input type="file" class="upload-input" />
+                                                                </div>
+                                                            </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                                            <div class="center">
+                                                                <div class="dropzone">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                                                        class="upload-icon" viewBox="0 0 16 16">
+                                                                        <path
+                                                                            d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
+                                                                    </svg>
+                                                                   
+                                                                    <input type="file" class="upload-input" />
+                                                                </div>
+                                                            </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                                            <div class="center">
+                                                                <div class="dropzone">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                                                        class="upload-icon" viewBox="0 0 16 16">
+                                                                        <path
+                                                                            d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
+                                                                    </svg>
+                                                                    
+                                                                    <input type="file" class="upload-input" />
+                                                                </div>
+                                                            </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                                            <div class="center">
+                                                                <div class="dropzone">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                                                        class="upload-icon" viewBox="0 0 16 16">
+                                                                        <path
+                                                                            d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
+                                                                    </svg>
+                                                                    
+                                                                    <input type="file" class="upload-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div> -->
+                </div>
+
+                <div class="col-12" style="text-align: right;">
+                    <div class="col-12" style="text-align: right;">
+                        <button type="button" class="btn btn-danger">ยกเลิก</button>&nbsp;
+                        <button type="submit" class="btn border border-secondary">บันทึกและซ่อน</button>&nbsp;
+                        <button type="submit" class="btn btn-warning">บันทึกและเผยแพร่</button>&nbsp;
+                    </div>
+                </div>
+        
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+     
+</div>

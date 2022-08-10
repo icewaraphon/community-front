@@ -1,0 +1,254 @@
+<div class="container p-0" style="min-height: 641px;">
+    <div class="row row-side">
+
+        <!--content-->
+        <div class="">
+            <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top ">
+            <h3 class=" font-monospace fw-bold ">ข้อมูลลูกค้า</h3>
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <!-- <div class="btn-group me-2">
+                    <button type="button" class="btn btn-sm btn-outline-success"
+                        routerLink="../adminadduser">เพิ่มผู้ใช้งาน</button>
+                </div> -->
+                <!-- <button type="button" class="btn btn-sm btn-outline-info" (click)="refresh()">รีโหลด</button> -->
+            </div>
+        </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
+                <li class="breadcrumb-item active" aria-current="page">ข้อมูลลูกค้า</li>
+            </ol>
+        </nav>
+        <div class="row align-item-center">
+            <div class="card">
+                <div class="card-header">
+
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center text-dark "
+                    style="padding-right: 50px; padding-left: 0px;">
+                    <h5 class=" font-monospace fw-bold ">รายชื่อลูกค้า</h5>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="col-md-12 col">
+                            <div class="input-group ">
+                                <!-- <input class="form-control border-end-2 border " type="search" value=""
+                                    placeholder="search" id="example-search-input" [(ngModel)]="searchText"> -->
+                                <span class="input-group-append">
+                                    <button
+                                        class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
+                                        type="button">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                </div>
+                <div class="card-body p-0">
+                    <div class="tab-content p-0" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel"
+                        aria-labelledby="home-tab">
+                        <div class="p-3">
+                            <table>
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col" style="width: 3%;">No.</th>
+                                        <th scope="col" style="width: 10%;">รหัสลูกค้า</th>
+                                        <th scope="col" style="width: 15%;">ชื่อ-สกุล</th>
+                                        <th scope="col" style="width: 15%;">E-mail</th>
+                                        <th scope="col" style="width: 15%;">รายละเอียด</th>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <!-- <tr class="" *ngFor="let item of listCustomers | filter:searchText | paginate: {
+                                        itemsPerPage: tableSize,
+                                        currentPage: page,
+                                        totalItems: count
+                                      };let i = index"> -->
+
+                                      <!-- <th scope="row" class="text-center">{{i+1}}</th> -->
+                                      <td class="text-center">{{item.ctmId}}</td>
+                                      <td>{{item.titleType}}{{item.firstName}} {{item.lastName}}</td>
+                                      <td>{{item.email}}</td>
+                                      <td class="text-center">
+                                        <button type="button" class=" btn-primary btn-sm"
+                                            data-bs-toggle="modal" data-bs-target="#selectdetail"
+                                            (click)="selectctm(item)">รายละเอียด</button>&nbsp;
+
+                                      </td>
+                                      <!-- </tr> -->
+                                </tbody>
+                            </table>
+
+                        </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        
+
+
+        </div>
+        <div class="d-flex justify-content-center">
+            <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> -->
+        </div>
+
+    </div>
+
+</div>
+
+<!--model รายละเอียดลูกค้า-->
+<div class="modal fade" id="selectdetail" tabindex="-1" data-bs-backdrop="static"
+aria-labelledby="selectdetailLabel" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-centered ">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title font-monospace fw-bold" id="selectdeliveryLabel">รายละเอียดข้อมูลลูกค้า
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <!-- <form [formGroup]="ctmmanagForm"> -->
+                <div class="row p-3">
+                    <div class="mb-3 row">
+
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">คำนำหน้า
+                                :</label>
+                        </div>
+                        <div class="col-md-auto">
+                            <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                formControlName="titleType" readonly>
+                        </div>
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">ชื่อ
+                                :</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                formControlName="firstName" readonly>
+                        </div>
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">นามสกุล
+                                :</label>
+                        </div>
+                        <div class="col-md-auto">
+                            <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                formControlName="lastName" readonly>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">เพศ
+                                :</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                formControlName="gender" readonly>
+                        </div>
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">วัน/เดือน/ปีเกิด
+                                :</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                formControlName="birthDate" readonly>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">อีเมล
+                                :</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                formControlName="email" readonly>
+                        </div>
+
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">เบอร์โทรศัพท์
+                                :</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                formControlName="telPhon" readonly>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">ที่อยู่ :
+                            </label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                formControlName="address" readonly>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-md-auto">
+                            <label for="recipient-name"
+                                class="col-form-label font-monospace ">รหัสไปรษณีย์:</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                formControlName="zipCode" readonly>
+                        </div>
+                        <div class="col-sm-auto">
+                            <label for="validationCustom04" class="col-form-label">ตำบล :</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                formControlName="district" readonly>
+                        </div>
+                        <div class="col-sm-auto">
+                            <label for="validationCustom04" class="col-form-label">อำเภอ :</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                formControlName="amphur" readonly>
+                        </div>
+                        <div class="col-sm-auto">
+                            <label for="validationCustom04" class="col-form-label">จังหวัด :</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                formControlName="province" readonly>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-auto">
+                            <label for="recipient-name"
+                                class="col-form-label font-monospace ">หมวดหมู่สินค้าที่สนใจ
+                                :</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control-plaintext" id="validationCustom02"
+                                formControlName="cateInteres" readonly>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- </form> -->
+        </div>
+    </div>
+</div>
+
+</div>

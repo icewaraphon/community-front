@@ -1,0 +1,310 @@
+<div class="card" style="width: 80%; margin: 5px auto; background: #eaf4f7;">
+    <div class="container col-md-11">
+        <div class="card-body">
+
+            <form action="" [formGroup]="customersRegisterForm">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom margin: 10px">
+                    <h3 class="font-monospace fw-bold">สมัครสมาชิก</h3>
+                    <!-- <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group me-2">
+                        <button type="button" class="btn btn-sm btn-outline-info" routerLink="../manage-user">
+                            << ย้อนกลับ</button>
+                    </div>
+                </div> -->
+                </div>
+
+                <div class="card p-3">
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom margin: 10px">
+                        <h5 class="font-monospace fw-bold">ข้อมูลทั่วไป</h5>
+                    </div>
+
+                    <div class="mb-3 row">
+
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">คำนำหน้า
+                                :</label>
+                        </div>
+                        <div class="col-md-auto">
+                            <select class="form-select" id="validationTitle1" formControlName="titleType">
+                                <option selected disabled value="">คำนำหน้า...</option>
+                                <option>นาย</option>
+                                <option>นาง</option>
+                                <option>นางสาว</option>
+                            </select>
+                        </div>
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">ชื่อ
+                                :</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="recipient-name" formControlName="firstName">
+                        </div>
+
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">นามสกุล
+                                :</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control " id="recipient-name" formControlName="lastName">
+                        </div>
+                    </div>
+
+                    <div class="mb-1 row">
+                        <div class="mb-3 col">
+                            <label for="inputGraden33" class="col-sm-2 col-form-label">เพศ :</label>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="ชาย"
+                                    formControlName="gender">
+                                <label class="form-check-label" for="inlineRadio1">ชาย</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="inlineRadio2"
+                                    value="หญิง" formControlName="gender">
+                                <label class="form-check-label" for="inlineRadio2">หญิง</label>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="input-group">
+                                <label for="recipient-name" class="col-form-label font-monospace ">วัน/เดือน/ปี เกิด
+                                    :</label>&nbsp;&nbsp;&nbsp;
+                                <input type="date" class="form-control" id="autoSizingInputGroup"
+                                    placeholder="วัน/เดือน/ปี เกิด" formControlName="birthDate">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">อีเมล
+                                :</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="recipient-name" formControlName="email">
+                        </div>
+
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">เบอร์โทรศัพท์
+                                :</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control " id="recipient-name" formControlName="telPhon">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">ที่อยู่ : </label>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="col-md-12">
+                                <textarea class="form-control" id="message-text" value="xxxxxxxxxxxx"
+                                    formControlName="addrass"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace ">รหัสไปรษณีย์:</label>
+                        </div>
+                        <!-- <div class="col-md-2">
+                            <input type="text" class="form-control" id="recipient-name"
+                                (change)="changeUserZipCode($event)" formControlName="zipCode">
+                        </div> -->
+                        <!-- <div class="col-sm-auto">
+                            <label for="validationCustom04" class="col-form-label">ตำบล :</label>
+                        </div> -->
+                        <!-- <div class="col-sm-2">
+                            <select id="inputState" class="form-select" formControlName="distId">
+                                <option value="" selected disabled>--ตำบล--</option>
+                                <option *ngFor="let disT of districts" [ngValue]="disT.distId">{{
+                                    disT.distNameTh }}</option>
+                            </select>
+                        </div> -->
+                        <!-- <div class="col-sm-auto">
+                            <label for="validationCustom04" class="col-form-label">อำเภอ :</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <select id="inputState" class="form-select" formControlName="amphur">
+                                <option value="" selected disabled>--อำเภอ--</option>
+                                <option *ngFor="let amn of amphurs" [ngValue]="amn.ampNameTh">{{ amn.ampNameTh }}
+                                </option>
+                            </select>
+                        </div> -->
+                        <!-- <div class="col-sm-auto">
+                            <label for="validationCustom04" class="col-form-label">จังหวัด :</label>
+                        </div> -->
+                        <!-- <div class="col-sm-2">
+                            <select id="inputState" class="form-select" formControlName="province">
+                                <option value="" selected disabled>--จังหวัด--</option>
+                                <option *ngFor="let pro of provinces" [ngValue]="pro.pvNameTh">{{ pro.pvNameTh }}
+                                </option>
+                            </select>
+                        </div> -->
+                    </div>
+
+                    <br>
+                   
+                    <div class="mb-3 row">
+                        <div class="col-md-auto">
+                            <label for="recipient-name" class="col-form-label font-monospace fw-bold">หมวดหมู่สินค้าที่สนใจ
+                                :</label>
+                        </div>
+                        <div class="col-md-2 p-2">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="cateInteres" id="inlineRadio01" value="หมวดหมู่อาหาร"
+                                    formControlName="cateInteres">
+                                <label class="form-check-label" for="inlineRadio1">หมวดหมู่อาหาร</label>
+                            </div>
+                        </div>
+                    
+                        <div class="col-md-2 p-2">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="cateInteres" id="inlineRadio02" value="หมวดหมู่เครื่องดื่ม"
+                                    formControlName="cateInteres">
+                                <label class="form-check-label" for="inlineRadio1">หมวดหมู่เครื่องดื่ม</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 p-2">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="cateInteres" id="inlineRadio03" value="หมวดหมู่ผ้า เครื่องแต่งกาย"
+                                        formControlName="cateInteres">
+                                    <label class="form-check-label" for="inlineRadio1">หมวดหมู่ผ้า เครื่องแต่งกาย</label>
+                                </div>
+                        </div>
+                        <div class="col-md-2 p-2">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="cateInteres" id="inlineRadio04" value="หมวดหมู่ของใช้ ของตกแต่ง ของที่ระลึก"
+                                        formControlName="cateInteres">
+                                    <label class="form-check-label" for="inlineRadio1">หมวดหมู่ของใช้ ของตกแต่ง ของที่ระลึก</label>
+                                </div>
+                        </div>
+                        <div class="col-md-2 p-2">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="cateInteres" id="inlineRadio04" value="หมวดหมู่สมุนไพร ที่ไม่ใช่อาหาร"
+                                    formControlName="cateInteres">
+                                <label class="form-check-label" for="inlineRadio1">หมวดหมู่สมุนไพร ที่ไม่ใช่อาหาร</label>
+                            </div>
+                    </div>
+                    
+                    </div>
+                  
+
+                  
+
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="inputState">เลือก</label> 
+                    <select id="inputState" class="form-control" formControlName="roldId">
+                      <option selected value="1">ลูกค้า</option>
+                      <option value="2">แอดมิน</option>
+                     
+                    </select>
+                  </div>
+
+                <br>
+                <div class="col-12" style="text-align: center;">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#register1"
+                        data-bs-whatever="@mdo">ถัดไป</button>&nbsp;
+                    <button type="reset" class="btn btn-danger">ล้างข้อมูล</button>
+                </div>
+                <!-- Model username/password -->
+                <div class="modal fade" id="register1" data-bs-backdrop="static" tabindex="-1"
+                    aria-labelledby="register1ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered text-dark">
+                        <div class="modal-content">
+                            <div class="modal-body bg-light">
+                                <div class="row justify-content-end p-2 pt-0">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="card p-3">
+
+                                    <div class="row justify-content-center">
+                                        <h5 class="text-center font-monospace pb-2">บัญชีผู้ใช้</h5>
+                                        <br>
+                                        <div class="mb-3 row">
+                                            <div class="col-md-auto">
+                                                <label for="recipient-name" class="col-form-label font-monospace ">
+                                                    ชื่อบัญชีผู้ใช้&nbsp;</label>
+                                            </div>
+                                            <div class="col">
+                                                <input class="form-control" type="text" placeholder="ชื่อบัญชีผู้ใช้"
+                                                    aria-label="default input example" formControlName="usName">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <div class="col-md-auto">
+                                                <label for="recipient-name" class="col-form-label font-monospace ">
+                                                    รหัสผ่าน&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                            </div>
+                                            <div class="col">
+                                                <!-- <show-hide-password [btnOutline]="false"> -->
+                                                    <input class="form-control" type="password" placeholder="รหัสผ่าน"
+                                                        aria-label="default input example" formControlName="password">
+                                                <!-- </show-hide-password> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3 row">
+                                            <div class="col-md-auto">
+                                                <input for="recipient-name" class="col-form-label font-monospace ">
+                                                    ยืนยันรหัสผ่าน
+                                            </div>
+                                            <div class="col">
+                                                <!-- <show-hide-password [btnOutline]="false"> -->
+                                                    <input class="form-control" type="password"
+                                                        placeholder="ยืนยันรหัสผ่าน" aria-label="default input example"
+                                                        (change)="changeUserConfirmPassword($event)">
+                                                <!-- </show-hide-password> -->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 text-center pt-3">
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                                                (click)="onSubmit()">ยืนยันการสมัคร</button>&nbsp;
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">ยกเลิก</button>&nbsp;
+                                        </div>
+
+                                        <!-- <button type="submit" class="fw-bolder btn btn-success">ตั้งค่าใหม่</button> -->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">การสมัคร</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                สมัครสมาชิกสำเร็จ
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="refresh()">ตกลง</button>
+
+            </div>
+        </div>
+    </div>
+</div> -->
