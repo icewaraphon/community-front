@@ -18,9 +18,9 @@ export class AdminCustomersService {
   // Http Options 
 
   httpOptions = {
-    headers: new HttpClient({
-      'Contnt-Type': 'application/json'
-    })
+    // headers: new HttpClient({
+    //   'Contnt-Type': 'application/json'
+    // })
   }
 
   getAllCustomers(): Observable<any>{

@@ -23,7 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'community-front'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('community-front');
+    expect(app.logOut).toEqual('community-front');
   });
 
   it('should render title', () => {

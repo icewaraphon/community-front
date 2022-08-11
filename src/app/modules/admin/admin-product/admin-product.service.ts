@@ -24,19 +24,19 @@ export class AdminProductService {
   // }
 
   getAllProduct(): Observable<any> {
-    return this.http.get<any>(endpoint + '/product')
+    return this.http.get<any>(endpoint + '/products')
   }
 
   getSupplierById(supId: any): Observable<any> {
-    return this.http.get<any>(endpoint + '/product/by-supId?supId=' + supId)
+    return this.http.get<any>(endpoint + '/products/by-supId?supId=' + supId)
   }
 
   getProductByProId(proId: any): Observable<any> {
-    return this.http.get<any>(endpoint + '/product/' + proId)
+    return this.http.get<any>(endpoint + '/products/' + proId)
   }
 
   deleteProductByproId(proId: any): Observable<any> {
-    return this.http.delete(endpoint + '/product/' .concat(proId),
+    return this.http.delete(endpoint + '/products/' .concat(proId),
     {
       headers: new HttpHeaders({ 'Content-Type': 'application/json'}),
       responseType: 'text'
@@ -74,7 +74,10 @@ export class AdminProductService {
   // }
 
   updateProductt(updateProduct: any): Observable<any> {
-    return this.http.post<any>(endpoint + '/product/update/',JSON.stringify(updateProduct),httpOptions)
+    console.log(updateProduct);
+    let proId = updateProduct.proId
+    console.log(proId)
+    return this.http.put<any>(endpoint + '/products/'+ proId ,JSON.stringify(updateProduct),httpOptions)
 
   }
    // HttpClient API post() method => Create employee

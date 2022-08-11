@@ -11,7 +11,7 @@ export class AdminAddproductService {
 
   constructor(private http: HttpClient) { }
    // Define API URL
-  // apiURL = 'http://localhost:8090/saleonline-api';
+  // apiURL = 'http://localhost:9080/communityonline';
   // Http Options 
   httpOptions = {
     headers: new HttpHeaders({
@@ -29,6 +29,8 @@ export class AdminAddproductService {
   getProductByproId(proId: any): Observable<any> {
     return this.http.get<any>(endpoint + '/product' +proId)
   }
+
+
 
   // getSupplierById(supId: any): Observable<any> {
   //   return this.http.get<any>(endpoint + '/product/by-supId?supId=' +supId)
@@ -78,14 +80,17 @@ export class AdminAddproductService {
     });
     return this.http.request(req);
   }
+  
   createProduct(addproductData: any): Observable<any> {
-    return this.http.post<any>(endpoint + '/products', JSON.stringify(addproductData), this.httpOptions)
+    return this.http.post<any>(endpoint + '/products/save/product', JSON.stringify(addproductData), this.httpOptions)
     // .pipe(
     //   retry(1),
     //   catchError(this.handleError)
 
     // )
   }
+
+
   //Error handling
   handleError(error: any) {
     let errorMessage = '';

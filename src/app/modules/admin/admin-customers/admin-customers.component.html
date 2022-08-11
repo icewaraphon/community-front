@@ -7,11 +7,11 @@
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top ">
             <h3 class=" font-monospace fw-bold ">ข้อมูลลูกค้า</h3>
             <div class="btn-toolbar mb-2 mb-md-0">
-                <!-- <div class="btn-group me-2">
+                <div class="btn-group me-2">
                     <button type="button" class="btn btn-sm btn-outline-success"
                         routerLink="../adminadduser">เพิ่มผู้ใช้งาน</button>
-                </div> -->
-                <!-- <button type="button" class="btn btn-sm btn-outline-info" (click)="refresh()">รีโหลด</button> -->
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-info" (click)="refresh()">รีโหลด</button>
             </div>
         </div>
         <nav aria-label="breadcrumb">
@@ -30,8 +30,8 @@
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="col-md-12 col">
                             <div class="input-group ">
-                                <!-- <input class="form-control border-end-2 border " type="search" value=""
-                                    placeholder="search" id="example-search-input" [(ngModel)]="searchText"> -->
+                                <input class="form-control border-end-2 border " type="search" value=""
+                                    placeholder="search" id="example-search-input" [(ngModel)]="searchText">
                                 <span class="input-group-append">
                                     <button
                                         class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
@@ -121,7 +121,7 @@ aria-labelledby="selectdetailLabel" aria-hidden="true">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <!-- <form [formGroup]="ctmmanagForm"> -->
+            <form [formGroup]="customersForm">
                 <div class="row p-3">
                     <div class="mb-3 row">
 
@@ -246,7 +246,7 @@ aria-labelledby="selectdetailLabel" aria-hidden="true">
                     </div>
                 </div>
 
-            <!-- </form> -->
+            </form>
         </div>
     </div>
 </div>

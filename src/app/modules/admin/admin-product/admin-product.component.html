@@ -7,74 +7,17 @@
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-bottom">
             <h3 class="font-monospace fw-bold ">จัดการข้อมูลสินค้า</h3>
             <div class="btn-group">
-                <button type="button" class="btn-sm btn-success" routerLink="#">
+                <button type="button" class="btn-sm btn-success" routerLink="../addproduct">
                     + เพิ่มสินค้าใหม่ </button>
             </div>
         </div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
+                <li class="breadcrumb-item"><a routerLink="home">หน้าแรก</a></li>
                 <li class="breadcrumb-item active" aria-current="#">สินค้าของฉัน</li>
             </ol>
         </nav>
-         <!-- <div class="card bg-light text-dark">
-                    <div class="card-body">
-                        <h6 class="font-monospace fw-bold">ค้นหาข้อมูลสินค้า</h6>
-                        <div class="container">
-                            <form>
-
-                                <div class="row g-3 align-items-center">
-                                    <div class="col-md-5 ">
-                                        <div class="input-group input-group-sm">
-                                            <div class="col-md-3">
-                                                <select class="form-select form-select-sm"
-                                                    aria-label=".form-select-sm example">
-                                                    <option value="1">ชื่อสินค้า</option>
-                                                    <option value="2">รหัสสินค้า</option>
-                                                </select>
-                                            </div>
-
-                                            <input type="text" placeholder="กรอกข้อมูล" aria-label="search"
-                                                class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3 ">
-                                        <div class="row align-items-center">
-                                            <label for="inputPassword"
-                                                class="col-sm-auto col-form-label">หมวดหมู่</label>
-                                            <div class="col-sm-8">
-                                                <select class="form-select form-select-sm border-2 "
-                                                    aria-label=".form-select-sm example">
-                                                    <option value="1">เลือกหมวดหมู่</option>
-                                                    <option value="2">รองเท้า</option>
-                                                    <option value="3">เสื้อผ้าผู้ชาย</option>
-                                                    <option value="4">เสื้อผ้าผู้หญิง</option>
-                                                    <option value="5">เครื่องสำอาง</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="input-group-sm">
-                                            <button type="submit" class="btn btn-primary col-md-12"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                    fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                                </svg>
-                                                &nbsp;ค้นหา
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div> -->
-                
+    
                 <br>
                 <div class="row align-items-center">
                     <div class="container">
@@ -121,25 +64,25 @@
                                                     <th scope="col" style="width: 12%;">ราคา</th>
                                                     <th scope="col" style="width: 12%;">จำนวน</th>
                                                     <th scope="col" style="width: 10%;">หน่วยนับ</th>
-                                                    <th scope="col" style="width: 10%;">สถานะ</th>
+                                                    <!-- <th scope="col" style="width: 10%;">สถานะ</th> -->
                                                     <th scope="col" style="width: 15%;">ดำเนินการ</th>  
                                                 </tr>
 
                                             </thead>
                                             <tbody>
-                                                <!-- <tr class="text-center"
+                                                <tr class="text-center"
                                                 *ngFor="let item of listProduct | filter:searchText | paginate: {
-                                                    itemsPerPage: tableSize,
-                                                    currentPage: Page,
-                                                    totalItems: count
-                                                };let i = index"> -->
-                                                    <!-- <td scope="row" class="text-center">{{i+1}}</td> -->
+                    itemsPerPage: tableSize,
+                    currentPage: page,
+                    totalItems: count
+                  };let i = index">
+                                                    <td scope="row" class="text-center">{{i+1}}</td>
                                                     <td>{{item.proId}}</td>
                                                     <td class="text-center">{{item.proName}}</td>
                                                     <td class="text-center">{{item.proPric}}</td>
                                                     <td class="text-center">{{item.proNumber}}</td>
                                                     <td class="text-center">{{item.proUnit}}</td>
-                                                    <td class="text-center">{{item.proStatus}}</td>
+                                                    <!-- <td class="text-center">{{item.proStatus}}</td> -->
                                                     <td class="text-center">
                                                         <div class="col-12" style="text-align: center;">
                                                             <button type="button" class="btn-sm btn-sm btn-warning"
@@ -183,7 +126,216 @@
 </div>
 
 <!--model แก้ไขสินค้า-->
-<div class="modal fade" id="editproduct" data-bs-backdrop="static" tabindex="-1" aria-labelledby="editproductLabel"
+<div
+class="modal fade"
+id="editproduct"
+tabindex="-1"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog modal-xl ">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">แก้ไขสินค้า</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="editproductForm" (ngSubmit)="onSubmit()">
+            <div class="row p-2">
+                <div class="mb-3 row">
+                    <label for="validationCustom04" class="col-sm-1 col-form-label">รหัสสินค้า</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control"  id="recipient-name" formControlName="proId"
+                        readonly>
+                 </div>&nbsp;&nbsp;
+                 <label for="validationCustom04" class="col-sm-1 col-form-label">ชื่อสินค้า</label>
+                 <div class="col-sm-3">
+                     <input type="text" class="form-control " id="recipient-name" formControlName="proName"
+                        >
+                 </div>&nbsp;&nbsp;
+                 <label for="inputPassword" class="col-sm-auto col-form-label">หมวดหมู่</label>
+                 <div class="col-sm-2">
+                     <select class="form-select border-2 " aria-label=".form-select-sm example" formControlName="cateId" >
+                         <option selected disabled value="">หมวดหมู่...</option>
+                            <option value="11111">หมวดหมู่อาหาร</option>
+                            <option value="22222">หมวดหมู่เครื่องดื่ม</option>
+                            <option value="33333">หมวดหมู่ผ้า เครื่องแต่งกาย</option>
+                            <option value="44444">หมวดหมู่ของใช้ ของตกแต่ง ของที่ระลึก</option>
+                            <option value="55555">หมวดหมู่สมุนไพรที่ไม่ใช่อาหาร</option>
+                         <option *ngFor="let cat of categories" [ngValue]="cat.catePro" [value]="cat.cateId">{{ cat.catePro }}
+                         </option>
+                     </select>
+                     <!-- <input type="text" class="form-control " id="recipient-name" formControlName="catePro" readonly> -->
+                 </div>
+                 </div>
+
+                 <div class="mb-3 row">
+                    <label for="validationCustom04" class="col-sm-auto col-form-label">ราคา</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="recipient-name" formControlName="proPric">
+
+
+                    </div>
+                    <!-- <div class="col-md-auto">
+                        <div class="input-group ">
+                            <label for="validationCustom04"
+                                class="col-sm-3 col-form-label">ราคาต่อหน่วย</label>&nbsp;&nbsp;
+                            <input type="text" class="form-control "
+                                aria-label="Dollar amount (with dot and two decimal places)" value="" formControlName="proPric"readonly>
+                            <span class="input-group-text">$</span>
+                        </div>
+                    </div> -->
+                        &nbsp;&nbsp;&nbsp;
+                        <label for="validationCustom04" class="col-sm-auto col-form-label">จำนวน</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="recipient-name"
+                                formControlName="proNumber">
+
+                        </div>
+                        <!-- <label for="validationCustom04" class="col-sm-auto col-form-label">หน่วยนับ</label> -->
+                        <div class="col-md-2">
+                            <!-- <input type="text" class="form-control" id="recipient-name" formControlName="proUnit"> -->
+                            <div class="input-group">
+                                <label for="validationCustom04" class="col-sm-3 col-form-label">หน่วยนับ</label>&nbsp;
+                                <select class="form-select form-select-sm border-2 " id="validationTitle1" aria-label=".form-select-sm example"
+                                formControlName="proUnit">
+                                <option selected disabled value="">เลือกหน่วยนับ...</option>
+                                <option>ก้อน</option>
+                                <option>เครื่อง</option>
+                                <option>ตัว</option>
+                                <option>อัน</option>
+                                <option>ชุด</option>
+                                <option>ชิ้น</option>
+                                <option>ด้าม</option>
+                                <option>ชิ้น</option>
+                                <option>เรือน</option>
+                                <option>ใบ</option>
+                                <option>ขวด</option>
+                                <option>กล่อง</option>
+                                <option>คู่</option>
+                                <option>ผืน</option>
+                                <option>แผ่น</option>
+                                <option>ลูก</option>
+                                <option>คัน</option>
+                                <option>วง</option>
+                                <option>ต้น</option>
+                                <option>เส้น</option>
+                                <option>ลูก</option>
+                                <option>แท่ง</option>
+                            </select>
+                            </div>
+                        </div>
+                 </div>
+                 <div class="mb-3 row">
+                    <label for="validationCustom04" class="col-sm-1 col-form-label">สี</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control " id="recipient-name" formControlName="proColor">
+                    </div>
+                    <div class="input-group ">
+                        <label for="validationCustom04" class="col-sm-2 col-form-label">สี</label>&nbsp;
+                        
+                        <select class="form-select form-select-sm border-2 " id="validationTitle1" aria-label=".form-select-sm example"
+                            formControlName="proColor">
+                            <option selected disabled value="">เลือกสี...</option>
+                            <option>สีน้ำเงิน</option>
+                            <option>สีแดง</option>
+                            <option>สีชมพู</option>
+                            <option>สีส้ม</option>
+                            <option>สีเหลือง</option>
+                            <option>สีดำ</option>
+                            <option>สีเขียว</option>
+                            <option>สีน้ำตาล</option>
+                            <option>สีขาว</option>
+                            <option>สีเงิน</option>
+                            <option>สีทอง</option>
+                            <option>สีน้ำเงินอมเขียว</option>
+                            <option>สีเทา</option>
+                            <option>สีม่วง</option>
+                            <option>สีครีม</option>
+                            <option>สีบรอนซ์</option>
+                            <option>สีกากี</option>
+                            <option>สีคราม</option>
+                            <option>สีฟ้า</option>
+                            <option>สีน้ำเงินเข้ม</option>
+                        </select>
+                    </div>
+
+                    &nbsp;&nbsp;&nbsp;
+                    <label for="validationCustom04" class="col-sm-auto col-form-label">ขนาด</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control " id="recipient-name" formControlName="proSize">
+                        <label for="validationCustom04" class="col-sm-auto col-form-label">ค่าจัดส่ง</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="recipient-name" formControlName="freight">
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputSupplier1" class="form-label">รายละเอียดสินค้า</label>
+
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control " id="recipient-name" formControlName="proDetails">
+                    </div>
+
+                    <br>
+                    &nbsp;&nbsp;
+                    <div class="mb-3 row">
+                        <div class="mb-3">
+                            <label for="inputSupplier1" class="form-label font-monospace ">รูปภาพสินค้า</label>
+
+
+                        </div>
+                        <div class="col-sm-9">
+                            <input class="form-control form-control-sm" id="file" type="file" (change)="selectFile($event)" >
+                            <div class="subtitle"> 
+                                ขนาดไฟล์: สูงสุด 1 MB ไฟล์ที่รองรับ: .JPEG, .PNG
+                            </div>
+                        </div>
+                        &nbsp;<div class="center">
+                            <div class="dropzone">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="upload-icon" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
+                                </svg>
+                                <input type="file" class="upload-input" />
+                            </div>
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="col-12" style="text-align: rignt;">
+                            <div class="col-12" style="text-align: right;">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ยกเเลิก</button>&nbsp;
+                                <!-- <button type="submit"
+                                class="btn border border-secondary">บันทึกและซ่อย</button> -->
+                                    <button type="submit" class="btn btn-primary">บันทึกข้อมูล</button>&nbsp;
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
+                 </div>
+                 
+
+            </div>
+
+        </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<!--model แก้ไขสินค้า ไม่ได้ใช้-->
+<div class="modal fade" id="editproduct1" data-bs-backdrop="static" tabindex="-1" aria-labelledby="editproductLabel"
 aria-hidden="true">
 <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-header">

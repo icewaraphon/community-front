@@ -12,7 +12,7 @@
 
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
-                            <button type="button" class="btn btn-sm btn-outline-info" routerLink="#">
+                            <button type="button" class="btn btn-sm btn-outline-info" routerLink="../product">
                                 << ย้อนกลับ</button>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
+                    <li class="breadcrumb-item"><a routerLink="#">หน้าแรก</a></li>
                     <li class="breadcrumb-item active" aria-current="page">เพิ่มสินค้า</li>
                 </ol>
             </nav>
@@ -31,10 +31,13 @@
             <div class="container" style="padding: 0px;">
                 <div class="container shadow-sm p-3 mb-5 bg-body rounded">
 
+                    
+
                     <div class="mb-3 row">
                         <label for="validationCustom04" class="col-sm-1 col-form-label">รหัสสินค้า</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" id="validationCustom04" formControlName="proId">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="proId" required>
+                            
                         </div>&nbsp;&nbsp;
 
                         <label for="validationCustom04" class="col-sm-1 col-form-label">ชื่อสินค้า</label>
@@ -118,12 +121,12 @@
 
                     </div>
                     <div class="mb-3 row">
-                        <label for="validationCustom04" class="col-sm-1 col-form-label">สี</label>
+                        <!-- <label for="validationCustom04" class="col-sm-1 col-form-label">สี</label>
                         <div class="col-sm-3">
                             <input type="text" class="form-control" id="validationCustom04" formControlName="proColor">
-                        </div>
+                        </div> -->
 
-                         <!-- <div class="col-md-3">
+                         <div class="col-md-3">
                         <div class="input-group ">
                             <label for="validationCustom04" class="col-sm-2 col-form-label">สี</label>&nbsp;
                             <select class="form-select form-select-sm border-2 " id="validationTitle1" aria-label=".form-select-sm example"
@@ -151,7 +154,7 @@
                                 <option>สีน้ำเงินเข้ม</option>
                             </select>
                         </div>
-                        </div> -->
+                        </div>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <label for="validationCustom04" class="col-sm-auto col-form-label">ขนาด</label>
                         <div class="col-sm-3">
@@ -177,13 +180,13 @@
                             <label for="inputSupplier1" class="form-label font-monospace ">รูปภาพสินค้า</label>
                         </div>
                         <div class="col-sm-9">
-                            <!-- <input class="form-control form-control-sm" id="file" type="file"
-                                (change)="selectFile($event)"> -->
+                            <input class="form-control form-control-sm" id="file" type="file"
+                                >
                             <div class="subtitle">
                                 ขนาดไฟล์: สูงสุด 1 MB ไฟล์ที่รองรับ: .JPEG, .PNG
                             </div>
                         </div>
-                        <!-- &nbsp;<div class="center">
+                        &nbsp;<div class="center">
                             <div class="dropzone">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                     class="upload-icon" viewBox="0 0 16 16">
@@ -192,7 +195,7 @@
                                 </svg>
                                 <input type="file" class="upload-input" formControlName="proImg" />
                             </div>
-                        </div>&nbsp;&nbsp;&nbsp;&nbsp; -->
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
                     <div class="col-12" style="text-align: right;">
                         <div class="col-12" style="text-align: right;">

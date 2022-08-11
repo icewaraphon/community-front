@@ -17,6 +17,9 @@ import { LoginComponent } from './modules/login/login.component';
 import { CustomersComponent } from './modules/customers/customers.component';
 import { LoginService } from './modules/login/login.service';
 import { AdminPageComponent } from './modules/admin/admin-page/admin-page.component';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -40,7 +43,11 @@ import { AdminPageComponent } from './modules/admin/admin-page/admin-page.compon
     ReactiveFormsModule,
     FormsModule,
     NgxPermissionsModule.forRoot(),
-    BrowserAnimationsModule
+    NgIdleKeepaliveModule.forRoot(),
+    BrowserAnimationsModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    NgbModule
     
     
  

@@ -15,6 +15,10 @@ import { AdminOrderComponent } from './admin-order/admin-order.component';
 import { AdminPaymentComponent } from './admin-payment/admin-payment.component';
 import { AdminOrdercheckComponent } from './admin-ordercheck/admin-ordercheck.component';
 import { AdminmanagAdminComponent } from './adminmanag-admin/adminmanag-admin.component';
+import { AdminReportComponent } from './admin-report/admin-report.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -31,6 +35,7 @@ import { AdminmanagAdminComponent } from './adminmanag-admin/adminmanag-admin.co
     AdminPaymentComponent,
     AdminOrdercheckComponent,
     AdminmanagAdminComponent,
+    AdminReportComponent,
    
     
   ],
@@ -39,6 +44,9 @@ import { AdminmanagAdminComponent } from './adminmanag-admin/adminmanag-admin.co
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    NgbModule
     
 
 

@@ -3,7 +3,7 @@
 <div *ngIf="!isLogin">
   <nav class="navbar navbar-expand-sm sticky-top nav-c">
     <div class="container-fluid">
-      <a href="home" class="navbar-brand font-white active fw-bold"
+      <a routerLink="home" class="navbar-brand font-white active fw-bold"
         >Community Online</a
       >
 
@@ -22,7 +22,7 @@
       <div class="nav justify-content-end" id="navbarNav">
         <!-- <ul *ngIf="!isLogin" class="navbar-nav px-3"> -->
         <!-- <li class="nav-item">
-            <a href="#" class="nav-link link-danger font-white">แจ้งเตือน</a>
+            <a href="#" class="nav-link link-danger font-white">ช่วยเหลือ</a>
           </li> -->
         <li class="nav-item">
           <a routerLink="register" class="nav-link link-danger font-white"
@@ -176,7 +176,7 @@
           </div>
           <div class="flex-shrink-0 dropdown">
             <a
-              href="#"
+              routerLink="adminpage"
               class="d-block link-dark text-decoration-none dropdown-toggle"
               id="dropdownUser2"
               data-bs-toggle="dropdown"
@@ -187,22 +187,26 @@
 
             <ul
               class="dropdown-menu text-small shadow dropdown-menu-end"
-              aria-labelledby="dropdownUser2"
-            >
+              aria-labelledby="dropdownUser2">
+
               <li>
-                <a class="dropdown-item" routerLink="#">จัดการข้อมูลสินค้า</a>
-              </li>
-              <li>
-                <a class="dropdown-item" routerLink="#">จัดการข้อมูลลูกค้า</a>
+                <a class="dropdown-item" routerLink="admin/adminmanag">Admin</a>
               </li>
 
               <li>
-                <a class="dropdown-item" routerLink="#"
+                <a class="dropdown-item" routerLink="admin/addproduct">จัดการข้อมูลสินค้า</a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="admin/customers">จัดการข้อมูลลูกค้า</a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" routerLink="admin/ordercheck"
                   >จัดการข้อมูลคำสั่งซื้อ</a
                 >
               </li>
               <li>
-                <a class="dropdown-item" routerLink="#">รายงานการขายสินค้า</a>
+                <a class="dropdown-item" routerLink="admin/report">รายงานการขายสินค้า</a>
               </li>
               <li>
                 <hr class="dropdown-divider" />
@@ -321,76 +325,92 @@
     </div>
   </nav>
 
-  <!-- sidebar-content -->
-  <div class="row row-side" style="margin: 0px">
-    <!-- sidebar -->
+  <div class="row">
+    <div class="col-md-2">
+      <!-- sidebar-content -->
+      <div class="row row-side" style="margin: 0px">
+        <!-- sidebar -->
 
-    <div
-      class="col-md-1 col-sm-1 bg-light side-ccc"
-      style="height: auto; width: 215px"
-    >
-      <ul class="nav flex-column mb-auto">
-        <li class="nav-item">
-          <a
-            routerLink="admin/page"
-            class="nav-link link-dark"
-            aria-current="page"
-          >
-            <i
-              class="bi bi-house-fill"
-              style="font-size: 1rem; color: rgb(0, 0, 0)"
-            ></i
-            >&nbsp; หน้าแรก
-          </a>
-        </li>
-        <li>
-          <a routerLink="#" class="nav-link link-dark">
-            <i
-              class="bi bi-person-fill"
-              style="font-size: 1rem; color: rgb(0, 0, 0)"
-            ></i
-            >&nbsp; จัดการข้อมูลสินค้า
-          </a>
-        </li>
-        <li>
-          <a routerLink="#" class="nav-link link-dark">
-            <i
-              class="bi bi-file-earmark-person-fill"
-              style="font-size: 1rem; color: rgb(0, 0, 0)"
-            ></i
-            >&nbsp; จัดการข้อมูลลูกค้า
-          </a>
-        </li>
-        <li>
-          <a routerLink="#" class="nav-link link-dark">
-            <i
-              class="bi bi-file-earmark-person-fill"
-              style="font-size: 1rem; color: rgb(0, 0, 0)"
-            ></i
-            >&nbsp; จัดการข้อมูลคำสั่งซื้อ
-          </a>
-        </li>
+        <div
+          class="col-md-1 col-sm-1 bg-light side-ccc"
+          style="height: auto; width: 215px"
+        >
+          <ul class="nav flex-column mb-auto">
+            <li class="nav-item">
+              <a
+                routerLink="admin/page"
+                class="nav-link link-dark"
+                aria-current="admin/adminpage"
+              >
+                <i
+                  class="bi bi-house-fill"
+                  style="font-size: 1rem; color: rgb(0, 0, 0)"
+                ></i
+                >&nbsp; หน้าแรก
+              </a>
+            </li>
+            <li>
+              <a routerLink="admin/adminmanag" class="nav-link link-dark">
+                <i
+                  class="bi bi-person-fill"
+                  style="font-size: 1rem; color: rgb(0, 0, 0)"
+                ></i
+                >&nbsp; Admin
+              </a>
+            </li>
+            <li>
+              <a routerLink="admin/product" class="nav-link link-dark">
+                <i
+                  class="bi bi-person-fill"
+                  style="font-size: 1rem; color: rgb(0, 0, 0)"
+                ></i
+                >&nbsp; จัดการข้อมูลสินค้า
+              </a>
+            </li>
+            <li>
+              <a routerLink="admin/customers" class="nav-link link-dark">
+                <i
+                  class="bi bi-file-earmark-person-fill"
+                  style="font-size: 1rem; color: rgb(0, 0, 0)"
+                ></i
+                >&nbsp; จัดการข้อมูลลูกค้า
+              </a>
+            </li>
+            <li>
+              <a routerLink="admin/ordercheck" class="nav-link link-dark">
+                <i
+                  class="bi bi-file-earmark-person-fill"
+                  style="font-size: 1rem; color: rgb(0, 0, 0)"
+                ></i
+                >&nbsp; จัดการข้อมูลคำสั่งซื้อ
+              </a>
+            </li>
 
-        <li>
-          <a routerLink="#" class="nav-link link-dark">
-            <i
-              class="bi bi-folder-symlink-fill"
-              style="font-size: 1rem; color: rgb(0, 0, 0)"
-            ></i
-            >&nbsp; รายงานการขายสินค้า
-          </a>
-        </li>
+            <li>
+              <a routerLink="admin/report" class="nav-link link-dark">
+                <i
+                  class="bi bi-folder-symlink-fill"
+                  style="font-size: 1rem; color: rgb(0, 0, 0)"
+                ></i
+                >&nbsp; รายงานการขายสินค้า
+              </a>
+            </li>
 
-        <li>
-          <a routerLink="#" class="nav-link link-dark" (click)="logOut()">
-            <i
-              class="bi bi-folder-symlink-fill"
-              style="font-size: 1rem; color: rgb(0, 0, 0)"
-            ></i
-            >&nbsp; ออกจากระบบ
-          </a>
-        </li>
-      </ul>
+            <li>
+              <a routerLink="#" class="nav-link link-dark" (click)="logOut()">
+                <i
+                  class="bi bi-folder-symlink-fill"
+                  style="font-size: 1rem; color: rgb(0, 0, 0)"
+                ></i
+                >&nbsp; ออกจากระบบ
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <router-outlet></router-outlet>
     </div>
   </div>
 
@@ -406,7 +426,7 @@
 </ng-template>
 
 <!-- .....................................CUSTOMER.................................................. -->
-<ng-template ngxPermissionsOnly="CUSTOMER">
+<ng-template ngxPermissionsOnly="CUSTOMERS">
   <nav class="navbar navbar-expand-sm sticky-top nav-c">
     <div class="container-fluid">
       <a href="home" class="navbar-brand font-white active fw-bold"
@@ -443,7 +463,7 @@
             aria-expanded="false"
           >
             <img
-              src="https://www.img.in.th/images/bb8cee41a45aeac2f3c18c3e0445f871.jpg"
+              src=""
               alt="mdo"
               width="32"
               height="35"
@@ -456,23 +476,29 @@
           >
             <!-- <li><a class="dropdown-item" href="home">หน้าแรก</a></li> -->
             <li>
-              <a class="dropdown-item" routerLink="customer/customeredit"
+              <a class="dropdown-item" routerLink="customers/customers"
                 >บัญชีของฉัน</a
               >
             </li>
             <li>
-              <a class="dropdown-item" routerLink="customer/customerorder"
+              <a class="dropdown-item" routerLink="customers/customerorsder"
                 >การซื้อของฉัน</a
               >
             </li>
             <li>
-              <a class="dropdown-item" routerLink="customer/customerorder"
+              <a class="dropdown-item" routerLink="customers/customerorderbill"
                 >ข้อมูลการสั่งซื้อสินค้า</a
               >
             </li>
-            <li>
+            <!-- <li>
               <a class="dropdown-item" routerLink="customer/customerorder"
                 >การชำระเงิน</a
+              >
+            </li> -->
+
+            <li class="dropdown-item text-nowrap">
+              <a class="nav-link font-dark text-dark" (click)="logOut()"
+                >ออกจากระบบ</a
               >
             </li>
 
@@ -483,12 +509,12 @@
             <li class="dropdown-item text-nowrap">
               <!-- <a class="nav-link font-dark text-dark" (click)="logOut()"
                 >ออกจากระบบ</a -->
-              >
+              
             </li>
           </ul>
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <!-- <a routerLink="customer/customershoppingcart">
+        <a routerLink="customer/customershoppingcart">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#fff"
@@ -503,10 +529,10 @@
           </svg>
           <div style="font-size: 10px" class="badge bg-danger">
             {{ totalItem }}
-          </div> </a -->
+          </div> </a
         >&nbsp;
       </div>
-      <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -522,7 +548,7 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
     </div>
   </nav>
 
@@ -557,11 +583,11 @@
     </div>
   </nav> -->
 
-  <div class="col py-0">
+  <div class="col p-0">
     <router-outlet></router-outlet>
   </div>
 
-  <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="200"></canvas> -->
+  <canvas class="my-4 w-100" id="myChart" width="900" height="200"></canvas>
   <footer
     class="bg-light text-center text-lg-start footer-c navbar-fixed-bottom"
   >

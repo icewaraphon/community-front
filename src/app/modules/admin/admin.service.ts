@@ -17,6 +17,13 @@ export class AdminService {
           'Content-Type': 'application/json'
         })
       }
+      getSupplierBySupIdAndStatusAndDateAdmin(statusBill: any, statusDetail: any, dateStart: any, dateEnd: any): Observable<any> {
+        return this.http.get<any>(endpoint + '/billorderBySupIdAndtatusAndDateAdmin?statusBill=' + statusBill + '&statusDetail=' + statusDetail + '&dateStart=' + dateStart + '&dateEnd=' + dateEnd)
+      }
+
+      getAllStatusBillorder(statusBill: any, statusDetail: any): Observable<any> {
+        return this.http.get<any>(endpoint + '/billOrderByStatusAll?statusBill=' + statusBill + '&statusDetail=' + statusDetail)
+      }
       getbillorById(billId: any): Observable<any> {
         return this.http.get<any>(endpoint + '..' + billId)
       }

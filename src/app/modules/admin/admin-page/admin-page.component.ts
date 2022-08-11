@@ -10,6 +10,8 @@ export class AdminPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('111111111111111111');
+    
   }
 
 }

@@ -171,22 +171,22 @@ export class AdminCustomersComponent implements OnInit {
     // this.loadUserZipCode(item.zipCode);
   }
   
-  // refresh() {
-  //   this.fetchData();
-  //   window.location.reload();
-  // }
+  refresh() {
+    this.fetchData();
+    window.location.reload();
+  }
 
-  // fetchData() {
-  //   this.adminCustomersService.getCustomersByRole(3).subscribe(
-  //     (res) => {
-  //       console.log(res)
-  //       this.listCustomers = res;
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
+  fetchData() {
+    // this.adminCustomersService.getCustomersByRole(3).subscribe(
+    //   (res) => {
+    //     console.log(res)
+    //     this.listCustomers = res;
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
+  }
   pageChanged(event: any) {
     this.page = event;
     // this.fetchData();

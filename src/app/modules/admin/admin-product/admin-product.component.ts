@@ -5,6 +5,9 @@ import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
 import { AdminProductService } from './admin-product.service';
 
+//model
+declare var window: any;
+
 @Component({
   selector: 'app-admin-product',
   templateUrl: './admin-product.component.html',
@@ -32,6 +35,9 @@ count = 0;
 tableSize = 10;
 tableSizes = [3, 6, 9, 12];
 
+//model
+formModaleditproduct: any;
+
 
   constructor(
     private fb: FormBuilder,
@@ -42,44 +48,60 @@ tableSizes = [3, 6, 9, 12];
   submitted = false;
 
   editproductForm = this.fb.group({
-    proId: ['', Validators.required],
-	  proName: ['', Validators.required],
+    proId: [''],
+	  proName: [''],
 	  proImg: [''],
 	  proPric: ['', Validators.required],
-	  freight: [''],
-	  proNumber: ['', Validators.required],
-	  proUnit: ['', Validators.required],
-	  proColor: ['', Validators.required],
-  	proSize: [''],
-  	proDetails: ['', Validators.required],
+	  freight: ['', Validators.required],
+	  proNumber: [''],
+	  proUnit: [''],
+	  proColor: [''],
+	  proSize: [''],
+	  proDetails: [''],
 	  proStatus: [''],
 	  supId: [''],
-	  cateId: ['', Validators.required],
-	  facturerId: ['', Validators.required],
+	  cateId: [{ value: ''},],
+	  facturerId: [''],
+     // cateId: ['', Validators.required],
 
     categories: {
-      catePro: ['', Validators.required],
-      cateId: ['', Validators.required],
-      proDetails: [''],
-    } 
+      catePro: [''],
+      proDetaols: [''],
+    }
+
   });
 
   ngOnInit(): void {
+//model
+    this.formModaleditproduct = new window.bootstrap.Modal(
+      document.getElementById('editproduct')
+    );
+
+//----------------------------------------------
     debugger
     // const supId = this.item.supId;
     const supId = sessionStorage.getItem('user_id');
-    this.fetchDataProduct(supId);
+    this.fetchDataProduct();
     // this.fetchData();
     this.initDropdown();
     // this.initproducteditDataforById(this.proId);
     this.proId = this.activatedroute.snapshot.paramMap.get("proId");
   }
+
+  //model
+  // openFormModal() {
+  //   this.formModaleditproduct.show();
+  // }
+
+
   initDropdown() {
     this.adminProductService.getAllCategories().subscribe(res => { this.categories = res; });
 
   }
 
   initproducteditDataforById(res: any,) {
+    //model
+    this.formModaleditproduct.show();
     console.log('!!!!!!!!! res data!!!!!!!!!!',res)
     this.editproductForm.patchValue({
       proId: res.proId,
@@ -251,7 +273,7 @@ tableSizes = [3, 6, 9, 12];
 
   pageChanged(event: any) {
     this.page = event;
-    this.fetchDataProduct(this.supId);
+    this.fetchDataProduct();
       // this.fetchData();
   }
 
@@ -262,34 +284,46 @@ tableSizes = [3, 6, 9, 12];
     this.key = key;
     this.reverse = !this.reverse;
   }
-  fetchDataProduct(supId: any) {
-    debugger
-    this.adminProductService.getSupplierById(supId).subscribe(
+
+  fetchDataProduct() {
+    this.adminProductService.getAllProduct().subscribe(
       (res) => {
         console.log(res)
         this.listProduct = res;
-
       },
       (error) => {
         console.log(error);
       }
     );
   }
-
-    // const supId = item.supId;
-  //   this.fetchDataProduct(supId);
-
-  // fetchData() {
-  //   this.traderProductService.getAllProduct().subscribe(
+  // fetchDataProduct(supId: any) {
+  //   debugger
+  //   this.adminProductService.getAllProduct().subscribe(
   //     (res) => {
   //       console.log(res)
   //       this.listProduct = res;
+
   //     },
   //     (error) => {
   //       console.log(error);
   //     }
   //   );
-  // } 
+  // }
+
+    // const supId = item.supId;
+  //   this.fetchDataProduct(supId);
+
+  fetchData() {
+    this.adminProductService.getAllProduct().subscribe(
+      (res) => {
+        console.log(res)
+        this.listProduct = res;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  } 
 
   deleteproduct(item: any) {
     Swal.fire({
@@ -318,7 +352,7 @@ tableSizes = [3, 6, 9, 12];
   }
 
   refresh() {
-    this.fetchDataProduct(this.supId);
+    this.fetchDataProduct();
     // this.fetchData();
     window.location.reload();
   }

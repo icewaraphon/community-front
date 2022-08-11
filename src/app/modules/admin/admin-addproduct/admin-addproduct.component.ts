@@ -35,16 +35,16 @@ export class AdminAddproductComponent implements OnInit {
 
   productRegisForm = this.fb.group({
 
-    proId: ['', Validators.required],
-	  proName: ['', Validators.required],
+    proId: [''],
+	  proName: [''],
 	  proImg: [''],
 	  proPric: ['', Validators.required],
-	  freight: [''],
-	  proNumber: ['', Validators.required],
-	  proUnit: ['', Validators.required],
-	  proColor: ['', Validators.required],
-	  proSize: ['', Validators.required],
-	  proDetails: ['', Validators.required],
+	  freight: ['', Validators.required],
+	  proNumber: [''],
+	  proUnit: [''],
+	  proColor: [''],
+	  proSize: [''],
+	  proDetails: [''],
 	  proStatus: [''],
 	  supId: [''],
 	  cateId: [{ value: ''},],
@@ -69,6 +69,8 @@ export class AdminAddproductComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.productRegisForm.value);
+    
      // this.ngOnInit();
      this.submitted = true;
     this.progress = 0;

@@ -4,22 +4,30 @@ import { HomeComponent } from '../home/home.component';
 import { AdminAddproductComponent } from './admin-addproduct/admin-addproduct.component';
 import { AdminCustomersComponent } from './admin-customers/admin-customers.component';
 import { AdminEditproductComponent } from './admin-editproduct/admin-editproduct.component';
+import { AdminOrderComponent } from './admin-order/admin-order.component';
+import { AdminOrdercheckComponent } from './admin-ordercheck/admin-ordercheck.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { AdminPaymentComponent } from './admin-payment/admin-payment.component';
 import { AdminProductComponent } from './admin-product/admin-product.component';
+import { AdminReportComponent } from './admin-report/admin-report.component';
+import { AdminComponent } from './admin.component';
 import { AdminModule } from './admin.module';
+import { AdminmanagAdminComponent } from './adminmanag-admin/adminmanag-admin.component';
 
 
 const routes: Routes = [
-  { path: '', component: AdminPageComponent },
-  //{ path: '', component: HomeComponent },
+  { path: '', component: HomeComponent },
+  { path: 'order', component: AdminOrderComponent },
   { path: 'adminpage', component: AdminPageComponent },
-  // { path: '', component: AdminPageComponent },
+  { path: 'customers', component: AdminCustomersComponent },
   { path: 'product', component: AdminProductComponent },
   { path: 'addproduct', component: AdminAddproductComponent },
+  { path: 'adminmanag', component: AdminmanagAdminComponent},
+  { path: 'payment', component: AdminPaymentComponent},
+  { path: 'ordercheck', component: AdminOrdercheckComponent},
+  { path: 'report', component: AdminReportComponent},
   
-  // { path: 'roles', component: ListRoleComponent},
-  // { path: 'edit-role', component: EditRoleComponent},
-  // { path: 'edit/editrole/:roleId', component: EditRoleComponent},
+
 ];
 {  }
 
