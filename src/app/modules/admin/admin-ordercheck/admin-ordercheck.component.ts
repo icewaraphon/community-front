@@ -19,6 +19,8 @@ export class AdminOrdercheckComponent implements OnInit {
   orderView: any;
   orderDetails: any;
 
+  formModalodercheck: any;
+
   public orderDetailsList = new Array();
 
 
@@ -35,10 +37,10 @@ export class AdminOrdercheckComponent implements OnInit {
   }
 
   fetchData() {
-    debugger
+    // debugger
     this.adminService.getAllBillorder().subscribe(
       (res) => {
-        console.log(res)
+        console.log('getAllBillorder => ',res)
         this.listBill = res;
       },
       (error) => {

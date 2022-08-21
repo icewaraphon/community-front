@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { AdminAddproductService } from '../admin-addproduct/admin-addproduct.service';
+import { AdminCustomersService } from './admin-customers.service';
 
 @Component({
   selector: 'app-admin-customers',
@@ -16,6 +18,7 @@ export class AdminCustomersComponent implements OnInit {
   searchText: any;
   formValue !: FormGroup;
   listCustomers !: any;
+
   item: any
   ctmId: any
 
@@ -24,42 +27,77 @@ export class AdminCustomersComponent implements OnInit {
   tableSize = 10;
   tableSizes = [3, 6, 9, 12];
 
+  formModaleditcustomers: any;
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private activatedroute: ActivatedRoute,
-    private adminCustomersService: AdminAddproductService
+    private adminCustomersService: AdminCustomersService
   ) { }
    submitted = false;
    customersForm = this.fb.group({
 
     ctmId: ['', Validators.required],
-	  usName: ['', Validators.required],
-	  password: ['', Validators.required],
-	  titleType: ['', Validators.required],
+	  usName: [''],
+	  password: [''],
+	  titleType: [''],
 	  firstName: ['', Validators.required],
-	  lastName: ['', Validators.required],
-	  gender: ['', Validators.required],
-	  birthDate: ['', Validators.required],
-	  telPhone: ['', Validators.required],
-	  eMail: ['', Validators.required],
-	  address: ['',Validators.required],
+	  lastName: [''],
+	  gender: [''],
+	  birthDate: [''],
+	  telPhone: [''],
+	  eMail: [''],
+	  address: [''],
 	  cateInteres: [''],
-	  ctmStatus: ['', Validators.required],
-	  zipCode: ['', Validators.required],
-	  remark: ['', Validators.required],
+	  ctmStatus: [''],
+	  zipCode: [''],
+	  remark: [''],
 	  distId: [''],
 	  roldId: [''],
+    district: [''],
+    amphur: [''],
+    province:[''],
    });
 
+   editcustomersForm = this.fb.group( {
+    ctmId: ['', Validators.required],
+	  usName: [''],
+	  password: [''],
+	  titleType: [''],
+	  firstName: ['', Validators.required],
+	  lastName: [''],
+	  gender: [''],
+	  birthDate: [''],
+	  telPhone: [''],
+	  eMail: [''],
+	  address: [''],
+	  cateInteres: [''],
+	  ctmStatus: [''],
+	  zipCode: [''],
+	  remark: [''],
+	  distId: [''],
+	  roldId: [''],
+    district: [''],
+    amphur: [''],
+    province:[''],
+
+  });
+
+
   ngOnInit(): void {
+    
     const ctmId = sessionStorage.getItem('user_id');
     // this.fetchData();
     this.initDropdown();
      // this.initAdminDataforById(this.ctmId);
      this.ctmId = this.activatedroute.snapshot.paramMap.get("ctmId");
 
-
+    this.adminCustomersService.getCustomersByRole(1).subscribe(res => {
+      this.listCustomers= res
+      console.log(res);
+      
+    })
   }
   initDropdown() {
     // this.adminCustomersService.getAllDistrict().subscribe(res => { this.districts = res; });
@@ -153,6 +191,34 @@ export class AdminCustomersComponent implements OnInit {
   //   );
   // }
 
+  initproducteditDataforById(res: any,) {
+    this.formModaleditcustomers.show();
+    console.log('!!!!!!!!! res data!!!!!!!!!!',res)
+    this.editcustomersForm.patchValue({
+      ctmId: res.ctmId,
+      usName: res.usName,
+      password: res.password,
+      titleType: res.titleType,
+      firstName: res.firstName,
+      lastName: res.lastName,
+      gender: res.gender,
+      birthDate: res.birthDate,
+      telPhone: res.telPhone,
+      eMail: res.eMail,
+      address: res.address,
+      cateInteres: res.cateInteres,
+      ctmStatus: res.ctmStatus,
+      zipCode: res.zipCode,
+      remark: res.remark,
+      distId: res.distId,
+      roldId: res.roldId,
+      district: res.distId,
+      amphur: res.amphur,
+      province: res.province,
+
+    })
+  }
+
   selectctm(item: any) {
     debugger
     this.customersForm.controls['titleType'].patchValue(item.titleType);
@@ -176,6 +242,32 @@ export class AdminCustomersComponent implements OnInit {
     window.location.reload();
   }
 
+  deletecustomers(item: any) {
+    Swal.fire({
+      title: 'ต้องการลบลูกค้า?',
+      text: "ลบข้อมูลลูกค้า : " + item.proId,
+      icon: 'error',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'ลบข้อมูล'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.adminCustomersService.deleteCustomersByCtmId(item.proId).subscribe(
+          (res) => {
+            console.log(res);
+            Swal.fire('เรียบร้อย!', 'คุณได้ทำการลบข้อมูลลูกค้าค้าเรียบร้อย', 'success');
+            setTimeout(function () { window.location.reload(); }, 2 * 1000);
+          },
+          (error) => {
+            console.log('delete Product error : ', error);
+          }
+        );
+      }
+    })
+
+  }
+
   fetchData() {
     // this.adminCustomersService.getCustomersByRole(3).subscribe(
     //   (res) => {
@@ -190,6 +282,33 @@ export class AdminCustomersComponent implements OnInit {
   pageChanged(event: any) {
     this.page = event;
     // this.fetchData();
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    console.log('data :', this.editcustomersForm.value)
+    // stop here if form is invalid
+    if (this.editcustomersForm.invalid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'กรุณากรอกข้อมูลให้ถูกต้อง',
+        text: 'Something went wrong!',
+      })
+    }else {
+      Swal.fire({
+        icon: 'success',
+        title: 'แก้ไขข้อมูลสินค้าสำเร็จ',
+        text: '',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.adminCustomersService.updateCustomers(this.editcustomersForm.value).subscribe(res => {
+            console.log('Create User res : ', res)
+            window.location.reload()
+          }
+          )
+        }
+      })
+    }
   }
 
   get customerf() { return this.customersForm.controls; }

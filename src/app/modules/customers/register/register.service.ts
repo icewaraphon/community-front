@@ -56,7 +56,7 @@ export class RegisterService {
 
   }
   getAllAmphur(): Observable<any> {
-    return this.http.get<any>(this.apiURL + '/abphur')
+    return this.http.get<any>(this.apiURL + '/amphur')
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -64,7 +64,7 @@ export class RegisterService {
   }
 
   getAllProvince(): Observable<any> {
-    return this.http.get<any>(this.apiURL + '/province')
+    return this.http.get<any>(this.apiURL + '/provinces')
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -78,7 +78,7 @@ export class RegisterService {
     )
   }
   getDistricByZipCode(zipCode: any): Observable<any> {
-    return this.http.get<any>(this.apiURL + '/district/by_zip_code?zipCode=' + zipCode)
+    return this.http.get<any>(this.apiURL + '/district/by_zipcode?zipCode=' + zipCode)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -94,9 +94,9 @@ export class RegisterService {
   //     )
   // }
 
-  createbillorder(registerData1: any): Observable<any> {
-    console.log('total ->', registerData1)
-    return this.http.post<any>(this.apiURL + '/billorder/save', JSON.stringify(registerData1), this.httpOption)
+  createbillorder(billorder: any): Observable<any> {
+    console.log('billorder ->', billorder)
+    return this.http.post<any>(this.apiURL + '/billorders', JSON.stringify(billorder), this.httpOption)
       .pipe(
         retry(1),
         catchError(this.handleError)

@@ -1,6 +1,6 @@
 <div class="container p-0" style="min-height: 641px;">
     <div class="row row-side">
-
+        <form>
         <!--content-->
         <div class="">
             <div
@@ -9,14 +9,14 @@
             <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
                     <button type="button" class="btn btn-sm btn-outline-success"
-                        routerLink="../adminadduser">เพิ่มผู้ใช้งาน</button>
+                        routerLink="../addminaddcus">เพิ่มผู้ใช้งาน</button>
                 </div>
                 <button type="button" class="btn btn-sm btn-outline-info" (click)="refresh()">รีโหลด</button>
             </div>
         </div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
+                <li class="breadcrumb-item"><a routerLink="#">หน้าแรก</a></li>
                 <li class="breadcrumb-item active" aria-current="page">ข้อมูลลูกค้า</li>
             </ol>
         </nav>
@@ -29,16 +29,17 @@
                     <h5 class=" font-monospace fw-bold ">รายชื่อลูกค้า</h5>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="col-md-12 col">
-                            <div class="input-group ">
-                                <input class="form-control border-end-2 border " type="search" value=""
-                                    placeholder="search" id="example-search-input" [(ngModel)]="searchText">
-                                <span class="input-group-append">
-                                    <button
-                                        class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
-                                        type="button">
-                                        <i class="bi bi-search"></i>
-                                    </button>
-                                </span>
+                            <div class="input-group col-mb-3">
+                                <input class="form-control border-end-2 border " type="search" value="" placeholder="search"
+                                id="example-search-input" name="searchText" [(ngModel)]="searchText">
+
+                                <button type="button" class="btn btn-primary col-md-3 me-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path
+                                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -64,23 +65,29 @@
                                 </thead>
 
                                 <tbody>
-                                    <!-- <tr class="" *ngFor="let item of listCustomers | filter:searchText | paginate: {
+                                    <tr class="" *ngFor="let item of listCustomers | filter:searchText | paginate: {
                                         itemsPerPage: tableSize,
                                         currentPage: page,
                                         totalItems: count
-                                      };let i = index"> -->
+                                      };let i = index">
 
-                                      <!-- <th scope="row" class="text-center">{{i+1}}</th> -->
+                                      <th scope="row" class="text-center">{{i+1}}</th>
                                       <td class="text-center">{{item.ctmId}}</td>
                                       <td>{{item.titleType}}{{item.firstName}} {{item.lastName}}</td>
                                       <td>{{item.email}}</td>
                                       <td class="text-center">
-                                        <button type="button" class=" btn-primary btn-sm"
-                                            data-bs-toggle="modal" data-bs-target="#selectdetail"
-                                            (click)="selectctm(item)">รายละเอียด</button>&nbsp;
+                                        <div class="col-12" style="text-align: center;">
+                                            <button type="button" class="btn-sm btn-sm btn-warning"
+                                            data-bs-toggle="modal" data-bs-target="#editproduct"
+                                            (click)="initproducteditDataforById(item)">
+                                            แก้ไขลูกค้า</button>&nbsp;
+                                            <button type="button" class="btn-sm btn-danger"
+                                            (click)="deletecustomers(item)">ลบ</button>&nbsp;
 
-                                      </td>
-                                      <!-- </tr> -->
+                                        </div>
+
+                                    </td>
+                                      </tr>
                                 </tbody>
                             </table>
 
@@ -88,6 +95,12 @@
 
 
                         </div>
+
+                    </div>
+
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> -->
 
                     </div>
 
@@ -103,15 +116,87 @@
 
         </div>
         <div class="d-flex justify-content-center">
-            <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> -->
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+        </div>
+    </form>
+    </div>
+
+</div>
+
+<!--model แก้ไขสินลูกค้า-->
+<div class="modal fade" id="editcustomers" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl " >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">แก้ไขลูกค้า</h5>
+                <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="editcustomersForm" (ngSubmit)="onSubmit()">
+                    <div class="row p-2">
+                        <div class="mb-3 row">
+                            <label for="validationCustom04" class="col-sm-1 col-form-label">รหัสลูกค้า</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control"  id="recipient-name" formControlName="ctmId"
+                                readonly>
+                         </div>&nbsp;&nbsp;
+                         <label for="validationCustom04" class="col-sm-1 col-form-label">ชื่อลูกค้า</label>
+                         <div class="col-sm-3">
+                            <input type="text" class="form-control " id="recipient-name" formControlName="firstName"
+                               >
+                        </div>&nbsp;&nbsp;
+                        <label for="validationCustom04" class="col-sm-1 col-form-label">นามสกุลลูกค้า</label>
+                        <div class="col-sm-3">
+                           <input type="text" class="form-control " id="recipient-name" formControlName="lastName"
+                              >
+                       </div>&nbsp;&nbsp;
+                       <label for="validationCustom04" class="col-sm-1 col-form-label">เบอร์โทรศัพท์</label>
+                       <div class="col-sm-3">
+                          <input type="text" class="form-control " id="recipient-name" formControlName="telPhone"
+                             >
+                      </div>&nbsp;&nbsp;
+                      <label for="validationCustom04" class="col-sm-1 col-form-label">อีเมล</label>
+                      <div class="col-sm-3">
+                         <input type="text" class="form-control " id="recipient-name" formControlName="eMail"
+                            >
+                     </div>&nbsp;&nbsp;
+                     <label for="validationCustom04" class="col-sm-1 col-form-label">ที่อยู่</label>
+                     <div class="col-sm-3">
+                        <input type="text" class="form-control " id="recipient-name" formControlName="address"
+                           >
+                    </div>&nbsp;&nbsp;
+                    <div class="col-12" style="text-align: rignt;">
+                        <div class="col-12" style="text-align: right;">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ยกเเลิก</button>&nbsp;
+                            <!-- <button type="submit"
+                            class="btn border border-secondary">บันทึกและซ่อย</button> -->
+                                <button type="submit" class="btn btn-primary">บันทึกข้อมูล</button>&nbsp;
+                        </div>
+
+                    </div>
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
         </div>
 
     </div>
 
 </div>
 
+
 <!--model รายละเอียดลูกค้า-->
-<div class="modal fade" id="selectdetail" tabindex="-1" data-bs-backdrop="static"
+<!-- <div class="modal fade" id="selectdetail" tabindex="-1" data-bs-backdrop="static"
 aria-labelledby="selectdetailLabel" aria-hidden="true">
 <div class="modal-dialog modal-xl modal-dialog-centered ">
     <div class="modal-content">
@@ -178,7 +263,7 @@ aria-labelledby="selectdetailLabel" aria-hidden="true">
                         </div>
                         <div class="col-md-4">
                             <input type="text" class="form-control-plaintext" id="validationCustom02"
-                                formControlName="email" readonly>
+                                formControlName="eMail" readonly>
                         </div>
 
                         <div class="col-md-auto">
@@ -187,7 +272,7 @@ aria-labelledby="selectdetailLabel" aria-hidden="true">
                         </div>
                         <div class="col-md-4">
                             <input type="text" class="form-control-plaintext" id="validationCustom02"
-                                formControlName="telPhon" readonly>
+                                formControlName="telPhone" readonly>
                         </div>
                     </div>
 
@@ -251,4 +336,4 @@ aria-labelledby="selectdetailLabel" aria-hidden="true">
     </div>
 </div>
 
-</div>
+</div> -->

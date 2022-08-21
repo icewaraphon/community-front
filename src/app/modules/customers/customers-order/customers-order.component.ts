@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { flatten } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
@@ -60,7 +61,8 @@ export class CustomersOrderComponent implements OnInit {
     private registerService: RegisterService,
     private customersService: CustomersService,
     private formBuilder: FormBuilder,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private datePipe: DatePipe
   ) { }
 
   submitted = false;
@@ -106,8 +108,9 @@ export class CustomersOrderComponent implements OnInit {
     balance: [''],
     ctmId: [''],
   });
+
   billForm2 = this.fb.group({
-    datePm: ['', Validators.required],
+    //datePm: ['', Validators.required],
   });
 
   OrderdetailsForm = this.fb.group({
@@ -134,10 +137,10 @@ export class CustomersOrderComponent implements OnInit {
     this.getCustomersByCtmId(ctmId);
 
     // QR Code
-    // this.customerService.genQRCode(100).subscribe(res => {
-    //   console.log('===>',res)
-    //   this.myQrCode = "data:image/png;base64," + res;
-    // });
+    this.customersService.genQRCode(100).subscribe(res => {
+      //console.log('===>',res)
+      this.myQrCode = "data:image/png;base64," + res;
+    });
   
   }
   initDropdown() {
@@ -177,39 +180,39 @@ export class CustomersOrderComponent implements OnInit {
   }
 
   getCustomersByCtmId(ctmId: any) {
-    // this.customersService.getCustomersByCtmId(ctmId).subscribe((res) => {
-    //   this.customersService.getDistrictByZipCode1(res.zipCode).subscribe(res => { this.districts = res; console.log('data :', res) });
-    //   console.log('!!!!!!!!!!!!res data!!!!!!!!!!!!', res)
-    //   this.ctmmanagForm.patchValue({
-    //     ctmId: res.ctmId,
-    //     usName: res.usName,
-    //     password: res.password,
-    //     titleType: res.titleType,
-    //     cardId: res.cardId,
-    //     firstName: res.firstName,
-    //     lastName: res.lastName,
-    //     gender: res.gender,
-    //     birthDate: res.birthDate,
-    //     telPhon: res.telPhon,
-    //     email: res.email,
-    //     addrass: res.addrass,
-    //     cateInteres: res.cateInteres,
-    //     zipCode: res.zipCode,
-    //     roleId: res.roleId,
-    //     // district: res.district,
-    //     // amphur: res.amphur,
-    //     // province: res.province,
-    //     districtinput: res.district,
-    //     amphurinput: res.amphur,
-    //     provinceinput: res.province,
-    //   });
+    this.customersService.getCustomersByCtmId(ctmId).subscribe((res) => {
+      //this.customersService.getDistrictByZipCode1(res.zipCode).subscribe(res => { this.districts = res; console.log('data :', res) });
+      console.log('!!!!!!!!!!!!res data!!!!!!!!!!!!', res)
+      this.ctmmanagForm.patchValue({
+        ctmId: res.ctmId,
+        usName: res.usName,
+        password: res.password,
+        titleType: res.titleType,
+        cardId: res.cardId,
+        firstName: res.firstName,
+        lastName: res.lastName,
+        gender: res.gender,
+        birthDate: res.birthDate,
+        telPhon: res.telPhon,
+        email: res.email,
+        addrass: res.addrass,
+        cateInteres: res.cateInteres,
+        zipCode: res.zipCode,
+        roleId: res.roleId,
+        // district: res.district,
+        // amphur: res.amphur,
+        // province: res.province,
+        districtinput: res.district,
+        amphurinput: res.amphur,
+        provinceinput: res.province,
+      });
 
-    //   this.loadUserZipCode(res.distId);
-    // },
-      // (error) => {
-      //   console.log('!!!!!!!!!!!!!!error!!!!!!!!!!', error);
-      // }
-    // );
+      this.loadUserZipCode(res.distId);
+    },
+      (error) => {
+        console.log('!!!!!!!!!!!!!!error!!!!!!!!!!', error);
+      }
+    );
   }
    getBillById(billId: any) {
     // this.customersService.getbillorById(billId).subscribe((res) => {
@@ -275,68 +278,68 @@ export class CustomersOrderComponent implements OnInit {
 
   selectbillorder(billId: any) {
     console.log(billId)
-    // this.customersService.getbillorById(billId).subscribe(
-    //   (res) => {
-    //     console.log(res)
-    //     this.orderView = res[0];
-    //     this.orderDetails = res[0].orderDetails;
+    this.customersService.getbillorById(billId).subscribe(
+      (res) => {
+        console.log('selectbillorder => ', res)
+        this.orderView = res;
+        this.orderDetails = res.orderdetails;
 
-    //     // แสดงราคารวมในโมดอล
-    //     this.billTotalamout.setValue(res[0].billTotalamout);
-    //     this.billFreighttotal.setValue(res[0].billFreighttotal);
-    //     this.billPric.setValue(res[0].billPric);
-    //     // debugger
-    //     // this.billForm.controls['billId'].patchValue(billId.billId);
-    //     // this.billForm.controls['billDate'].patchValue(billId.billDate);
-    //     // this.billForm.controls['datePm'].patchValue(billId.datePm);
-    //     // this.billForm.controls['receiptNo'].patchValue(billId.receiptNo);
-    //     // this.billForm.controls['billFreighttotal'].patchValue(billId.billFreighttotal);
-    //     // this.billForm.controls['billTotalamout'].patchValue(billId.billTotalamout);
-    //     // this.billForm.controls['billPric'].patchValue(billId.billPric);
-    //     // this.billForm.controls['discount'].patchValue(billId.discount);
-    //     // this.billForm.controls['statasPm'].patchValue(billId.statasPm);
-    //     // this.billForm.controls['pmMethod'].patchValue(billId.pmMethod);
-    //     // this.billForm.controls['slipPm'].patchValue(billId.slipPm);
-    //     // this.billForm.controls['balance'].patchValue(billId.balance);
-    //     // this.billForm.controls['ctmId'].patchValue(billId.ctmId);
+        // แสดงราคารวมในโมดอล
+        this.billTotalamout.setValue(res.billTotalamout);
+        this.billFreighttotal.setValue(res.billFreighttotal);
+        this.billPric.setValue(res.billPric);
+        // debugger
+        // this.billForm.controls['billId'].patchValue(billId.billId);
+        // this.billForm.controls['billDate'].patchValue(billId.billDate);
+        // this.billForm.controls['datePm'].patchValue(billId.datePm);
+        // this.billForm.controls['receiptNo'].patchValue(billId.receiptNo);
+        // this.billForm.controls['billFreighttotal'].patchValue(billId.billFreighttotal);
+        // this.billForm.controls['billTotalamout'].patchValue(billId.billTotalamout);
+        // this.billForm.controls['billPric'].patchValue(billId.billPric);
+        // this.billForm.controls['discount'].patchValue(billId.discount);
+        // this.billForm.controls['statasPm'].patchValue(billId.statasPm);
+        // this.billForm.controls['pmMethod'].patchValue(billId.pmMethod);
+        // this.billForm.controls['slipPm'].patchValue(billId.slipPm);
+        // this.billForm.controls['balance'].patchValue(billId.balance);
+        // this.billForm.controls['ctmId'].patchValue(billId.ctmId);
 
 
-    //   },
+      },
      
-    //   // (error) => {
-    //   //   console.log(error);
-    //   // }
-    // );
+      // (error) => {
+      //   console.log(error);
+      // }
+    );
     
   }
 
   selectbillPric(billId: any) {
 
     console.log(billId)
-    // this.customersService.getbillorById(billId).subscribe(
-    //   (res) => {
-    //     console.log(res)
-    //     // this.orderView = res[0];
-    //     // this.orderDetails = res[0].orderDetails;
+    this.customersService.getbillorById(billId).subscribe(
+      (res) => {
+        console.log(res)
+        // this.orderView = res[0];
+        // this.orderDetails = res[0].orderDetails;
 
-    //     // แสดงราคารวมในโมดอล
-    //     // this.billTotalamout.setValue(res[0].billTotalamout);
-    //     // this.billFreighttotal.setValue(res[0].billFreighttotal);
-    //     this.billPric.setValue(res[0].billPric);
+        // แสดงราคารวมในโมดอล
+        // this.billTotalamout.setValue(res[0].billTotalamout);
+        // this.billFreighttotal.setValue(res[0].billFreighttotal);
+        this.billPric.setValue(res.billPric);
        
 
-    //     //generate qrcode this here
-    //     // this.customersService.genQRCode(res[0].billPric).subscribe(res => {
-    //     //   console.log('qr base64 ===>', res)
-    //     //   this.myQrCode = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${res}`);
-    //     // });
+        //generate qrcode this here
+        // this.customersService.genQRCode(res[0].billPric).subscribe(res => {
+        //   console.log('qr base64 ===>', res)
+        //   this.myQrCode = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${res}`);
+        // });
 
-    //   },
+      },
 
-    //   // (error) => {
-    //   //   console.log(error);
-    //   // }
-    // );
+      // (error) => {
+      //   console.log(error);
+      // }
+    );
     // แยกสินค้า
     // const billId = billId.billId;
     // this.fetchgetbillorById(billId);
@@ -345,15 +348,15 @@ export class CustomersOrderComponent implements OnInit {
   
   fetchDatabillorderByCtmId(ctmId: any) {
 
-    // this.customersService.getbillorderByCtmId(ctmId).subscribe(
-    //   (res) => {
-    //     console.log(res)
-    //     this.ordertList = res;
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
+    this.customersService.getbillorderByCtmId(ctmId).subscribe(
+      (res) => {
+        console.log(res)
+        this.ordertList = res;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
     fetchDataorderdetailsId(ctmId: any) {
@@ -408,32 +411,32 @@ export class CustomersOrderComponent implements OnInit {
       })
       return;
     } else {
-    // if (this.selectedFiles) {
-    //   const file: File | null = this.selectedFiles.item(0);
-    //   if (file) {
-    //     this.currentFile = file;
-    //     this.customersService.upload(this.currentFile, this.billIdStatusA, this.billForm2.value).subscribe(
-    //       event => {
-    //         Swal.fire({
-    //           icon: 'success',
-    //           title: 'ชำระเงินสำเร็จ',
-    //           text: 'รอการตรวจสอบการชำระเงิน',
-    //           confirmButtonColor: '#3085d6',
-    //           confirmButtonText: 'ตกลง'
-    //         }).then((result) => {
-    //           if (result.isConfirmed) {
-    //             window.location.reload()
+    if (this.selectedFiles) {
+      const file: File | null = this.selectedFiles.item(0);
+      if (file) {
+      this.currentFile = file;
+      this.customersService.upload(this.currentFile, this.billIdStatusA).subscribe(
+          event => {
+            Swal.fire({
+              icon: 'success',
+              title: 'ชำระเงินสำเร็จ',
+              text: 'รอการตรวจสอบการชำระเงิน',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'ตกลง'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.reload()
 
-    //           }
-    //           return;
-    //         });
-    //       },
-    //       error => {
-    //         this.progress = 0;
-    //         this.message = 'Could not upload the file!';
-    //       });
-    //   }
-    // }
+              }
+              return;
+            });
+          },
+          error => {
+            this.progress = 0;
+            this.message = 'Could not upload the file!';
+          });
+      }
+    }
     }
   }
 
@@ -494,6 +497,10 @@ export class CustomersOrderComponent implements OnInit {
     get billf() { return this.billForm.controls; }
     get Orderdetailsf() { return this.OrderdetailsForm.controls; }
   
+    get paymentDueDate() {
+      var nextDays = new Date();      
+      return this.datePipe.transform(nextDays.setDate(new Date().getDate() + 3), 'dd-MM-yyyy');
+    }
 
 
 }

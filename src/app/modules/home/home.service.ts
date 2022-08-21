@@ -27,7 +27,7 @@ export class HomeService {
   // }
  
   getAllProduct(): Observable<any> {
-    return this.http.get<any>(endpoint + '/product')
+    return this.http.get<any>(endpoint + '/products')
   }
 
   //แสดงรายการสินค้า

@@ -20,6 +20,7 @@ import { AdminPageComponent } from './modules/admin/admin-page/admin-page.compon
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -55,7 +56,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     
     
   ],
-  providers: [LoginService],
+  providers: [LoginService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

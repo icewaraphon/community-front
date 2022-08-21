@@ -1,0 +1,119 @@
+
+<div class="container-fluid">
+    <div class="row row-side">
+
+           <!--sidebar-->
+           <!-- <form action="" [formGroup]="customersRegisForm" (ngSubmit)="onSubmit()"> -->
+
+            <!--content-->
+            <div class="">
+                <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-sm-start pt-2 pb-1 mb-2 border-top">
+                <h3 class="font-monospace fw-bold ">เพิ่มลูกค้า</h3>
+
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group me-2">
+                        <button type="button" class="btn btn-sm btn-outline-info" routerLink="../customers">
+                            << ย้อนกลับ</button>
+
+                    </div>
+
+                </div>
+
+                </div>
+
+            </div>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="#">หน้าแรก</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">เพิ่มลูกค้า</li>
+                </ol>
+
+
+            </nav>
+            <div class="container" style="padding: 0px;">
+                <div class="container shadow-sm p-3 mb-5 bg-body rounded">
+
+                    <div class="mb-3 row">
+                        <label for="validationCustom04" class="col-sm-1 col-form-label">รหัสลูกค้า</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="ctmId" required>
+
+                            
+                        </div>&nbsp;&nbsp;
+                        <label for="validationCustom04" class="col-sm-1 col-form-label">เพศ</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="ชาย"
+                                formControlName="gender">
+                            <label class="form-check-label" for="inlineRadio1">ชาย</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio2"
+                                value="หญิง" formControlName="gender">
+                            <label class="form-check-label" for="inlineRadio2">หญิง</label>
+                        </div>&nbsp;&nbsp;
+
+
+                            <div class="col-md-7">
+                            <div class="input-group">
+                                <label for="recipient-name" class="col-form-label font-monospace ">วัน/เดือน/ปี เกิด
+                                    :</label>&nbsp;&nbsp;&nbsp;
+                                <input type="date" class="form-control" id="autoSizingInputGroup"
+                                    placeholder="วัน/เดือน/ปี เกิด" formControlName="birthDate">
+                            </div>
+                        </div>
+
+                        <label for="validationCustom04" class="col-sm-1 col-form-label">ชื่อลูกค้า</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="firstName">
+                        </div>&nbsp;&nbsp;
+                        <label for="validationCustom04" class="col-sm-1 col-form-label">นามสกุล</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="lastName">
+                        </div>&nbsp;&nbsp;
+                        <label for="validationCustom04" class="col-sm-1 col-form-label">เบอร์โทรศัพท์</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="telPhon">
+                        </div>&nbsp;&nbsp;
+                        <label for="validationCustom04" class="col-sm-1 col-form-label">อีเมล</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="eMail">
+
+                        </div>&nbsp;&nbsp;
+                        <label for="validationCustom04" class="col-sm-1 col-form-label">ที่อยู่</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="validationCustom04" formControlName="address">
+
+                        </div>&nbsp;&nbsp;
+                        <div class="mb-3">
+                            <!-- <label for="inputSupplier1" class="form-label">รายละเอียดลูกค้า</label> -->
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                                style="height: 100px" formControlName="proDetails"></textarea>
+                            <label for="floatingTextarea2">รายละเอียดลูกค้า</label>
+                        </div>
+                        <br>
+
+                        <div class="col-12" style="text-align: right;">
+                            <div class="col-12" style="text-align: right;">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ยกเลิก</button>&nbsp;
+                                <button type="reset" class="btn border border-secondary">ล้างข้อมูล</button>&nbsp;
+                                <button type="submit" class="btn btn-warning">บันทึกข้อมูล</button>&nbsp;
+                            </div>
+                        </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+           <!-- </form> -->
+
+    </div>
+<!-- </div> -->
+

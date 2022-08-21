@@ -25,7 +25,9 @@ export class AdminCustomersService {
 
   getAllCustomers(): Observable<any>{
     return this.http.get<any>(endpoint + '/customers')
-       // .pipe(
+    
+    
+      //  .pipe(
       //   retry(1),
       //   catchError(this.handleError)
       // )
@@ -50,6 +52,13 @@ export class AdminCustomersService {
       responseType: 'text'
     }
     );
+  }
+  updateCustomers(updateCustomers: any): Observable<any> {
+    console.log(updateCustomers);
+    let proId = updateCustomers.proId
+    console.log(ctmId)
+    return this.http.put<any>(endpoint + '/customers/'+ ctmId ,JSON.stringify(updateCustomers),this.httpOptions)
+
   }
   // HttpClient API put() method => Update employee
   updateDataadmin(updateadmin: any): Observable<any> {

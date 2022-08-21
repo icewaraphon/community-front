@@ -30,18 +30,17 @@
                         <h5 class=" font-monospace fw-bold ">รายชื่อผู้ดูแลระบบ</h5>
                         <div class="btn-toolbar mb-2 mb-md-0">
                             <div class="col-md-12 col">
-                                <div class="input-group">
-                                    <input class="form-control border-end-2 border " type="search" value=""
-                                    placeholder="search" id="example-search-input" >
-                                    <span class="input-group-append">
-                                        <button
-                                            class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
-                                                    type="button">
-                                                    <i class="bi bi-search"></i>
+                                <div class="input-group col-mb-3">
+                                    <input class="form-control border-end-2 border " type="search" value="" placeholder="search"
+                                    id="example-search-input" name="searchText" [(ngModel)]="searchText">
 
-                                        </button>
-
-                                    </span>
+                                    <button type="button" class="btn btn-primary col-md-3 me-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                        </svg>
+                                    </button>
                                 </div>
 
                             </div>
@@ -72,12 +71,12 @@
 
                                     </thead>
                                     <tbody>
-                                    <tr class="" *ngFor="let item of let i = index">
+                                    <tr class="" *ngFor="let item of adminList; let i = index">
                                         <th scope="row" class="text-center">{{i+1}}</th>
-                                        <!-- <td class="text-center">{{item.ctmId}}</td>
+                                         <td class="text-center">{{item.ctmId}}</td>
                                         <td>{{item.titleType}}{{item.firstName}} {{item.lastName}}</td>
                                         <td class="text-center">{{item.telPhon}}</td>
-                                        <td>{{item.email}}</td> -->
+                                        <td>{{item.email}}</td>
                                         <td class="text-center">
                                             <button type="button" class=" btn-primary  btn-sm"
                                             data-bs-toggle="modal" data-bs-target="#selectdetail"
@@ -225,42 +224,42 @@
                         <label for="recipient-name"
                             class="col-form-label font-monospace ">รหัสไปรษณีย์:</label>
                     </div>
-                    <div class="col-md-2">
+                    <!-- <div class="col-md-2">
                         <input type="text" class="form-control" id="recipient-name"
                             (change)="changeUsereditZipCode($event)" formControlName="zipCode">
-                    </div>
-                    <div class="col-sm-auto">
+                    </div> -->
+                    <!-- <div class="col-sm-auto">
                         <label for="validationCustom04" class="col-form-label">ตำบล :</label>
-                    </div>
-                    <div class="col-sm-2">
+                    </div> -->
+                    <!-- <div class="col-sm-2">
                         <select id="inputState" class="form-select" formControlName="distId">
                             <option value="" disabled>--ตำบล--</option>
                             <option *ngFor="let disT of districts" [ngValue]="disT.distId">{{
                                 disT.distNameTh }}</option>
                         </select>
-                    </div>
-                    <div class="col-sm-auto">
+                    </div> -->
+                    <!-- <div class="col-sm-auto">
                         <label for="validationCustom04" class="col-form-label">อำเภอ :</label>
-                    </div>
-                    <div class="col-sm-2">
+                    </div> -->
+                    <!-- <div class="col-sm-2">
                         <select id="inputState" class="form-select" formControlName="amphur">
                             <option value="" disabled>--อำเภอ--</option>
                             <option *ngFor="let amn of amphurs" [ngValue]="amn.ampNameTh">{{ amn.ampNameTh
                                 }}
                             </option>
                         </select>
-                    </div>
-                    <div class="col-sm-auto">
+                    </div> -->
+                    <!-- <div class="col-sm-auto">
                         <label for="validationCustom04" class="col-form-label">จังหวัด :</label>
-                    </div>
-                    <div class="col-sm-2">
+                    </div> -->
+                    <!-- <div class="col-sm-2">
                         <select id="inputState" class="form-select" formControlName="province">
                             <option value="" disabled>--จังหวัด--</option>
                             <option *ngFor="let pro of provinces" [ngValue]="pro.pvNameTh">{{ pro.pvNameTh
                                 }}
                             </option>
                         </select>
-                    </div>
+                    </div> -->
 
 
                 </div>

@@ -27,7 +27,7 @@ export class CustomersService {
 
   }
   getAllProduct(): Observable<any> {
-    return this.http.get<any>(endpoint + '/product')
+    return this.http.get<any>(endpoint + '/products/')
   }
 
   getSupplierBysupId(supId: any): Observable<any> {
@@ -47,7 +47,7 @@ export class CustomersService {
       console.log(product)
       // product['key'] = UUID.UUID();
       product['quantity'] = 1;
-      product['supName'] = product.supplier.supName;
+      // product['supName'] = product.supplier.supName;
       this.cartItemList.push(product);
       this.productList.next(this.cartItemList);
       this.getTotalPrice();
@@ -58,7 +58,7 @@ export class CustomersService {
       console.log(product)
       // product['key'] = UUID.UUID();
       this.getTotalPrice();
-      this.router.navigate(['customer/customerorderbill']);
+      this.router.navigate(['customers/customersorderbill']);
     }
 
     addProductCount(product: any) {
@@ -109,7 +109,7 @@ export class CustomersService {
     
   // -------------------------------------------------------
   getbillorById(billId: any): Observable<any> {
-    return this.http.get<any>(endpoint + '/billorderById?billId=' + billId)
+    return this.http.get<any>(endpoint + '/billorders/' + billId)
   }
   getbillorderByCtmIdAndStatus(CtmId: any): Observable<any> {
     return this.http.get<any>(endpoint + '/billorder/byCtmIdAndStatus?CtmId=' + CtmId +'&status=A')
@@ -118,7 +118,7 @@ export class CustomersService {
     return this.http.get<any>(endpoint + '/billorder/by-CtmId?CtmId=' + CtmId)
   }
   getbillorderByCtmId(CtmId: any): Observable<any> {
-    return this.http.get<any>(endpoint + '/billorder/by-CtmId?CtmId=' + CtmId)
+    return this.http.get<any>(endpoint + '/billorders/by-ctm-id?ctmId=' + CtmId)
   }
   getorderdetailsId(detailsId: any): Observable<any> {
     return this.http.get<any>(endpoint + '/orderdetails?detailsId?=' + detailsId)
@@ -188,18 +188,17 @@ export class CustomersService {
       return this.http.get<any>(endpoint + '/promptpay-qr/generate-to-base64?amount=' + amount, { headers, responseType: 'text' as 'json' });
     }
 
-    upload(file: File, billId: any, billFrom:any): Observable<HttpEvent<any>> {
+    upload(file: File, billId: any): Observable<HttpEvent<any>> {
       const formData: FormData = new FormData();
-      console.log("billFrom.datePmInput ::" + billFrom.datePmInput)
       formData.append('file', file);
       formData.append('billId', billId);
-      formData.append('datePm', billFrom.datePm);
-      const req = new HttpRequest('POST','http://localhost:9080/communityonline' , formData, {
+      const req = new HttpRequest('POST','http://localhost:9080/communityonline/billorders/uploadFile' , formData, {
         reportProgress: true,
         responseType: 'json'
       });
       return this.http.request(req);
     }
+    
     getFiles(): Observable<any> {
       return this.http.get(`http://localhost:9080/communityonline/files`);
     }
@@ -231,7 +230,12 @@ export class CustomersService {
   }
 
   getDistrictByZipCode1(zipCode: any): Observable<any> {
-    return this.http.get<any>(endpoint + '/district/zipCode?zipCode=' + zipCode)
+    return this.http.get<any>(endpoint + '/district/by-zip-code?zipCode=' + zipCode)
+
+  }
+
+  getDistrictByDistrictId(district: any): Observable<any> {
+    return this.http.get<any>(endpoint + '/district/' + district)
 
   }
 

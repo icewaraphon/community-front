@@ -62,24 +62,26 @@ export class HomeComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    
       // แสดงสินค้า
-      // this.customerService.getAllProduct()
-      // .subscribe(res => {
-      //   this.productList = res;
-      //   this.filterCategory = res;
+      this.customerService.getAllProduct()
+      .subscribe(res => {
+        this.productList = res;
+        this.filterCategory = res;
 
-      //   this.productList.forEach((a: any) => {
-      //     if(a.cateId === "women's clothing" || a.cateId === "men's clothing") {
-      //       a.cateId = "fashion"
-      //     }
-      //     Object.assign(a, { quantity: 1, total: a.proPric });
-      //   });
-      //   console.log(this.productList)
-      // }); 
+        this.productList.forEach((a: any) => {
+          if(a.cateId === "women's clothing" || a.cateId === "men's clothing") {
+            a.cateId = "fashion"
+          }
+          Object.assign(a, { quantity: 1, total: a.proPric });
+        });
+        console.log(this.productList);
+        console.log(this.filterCategory);
+      }); 
 
 
-      // this.fetchData();
-      // this.initDropdown();
+      this.fetchData();
+      this.initDropdown();
   }
 
   getProductByCtmId(proId: any) {
@@ -135,17 +137,18 @@ export class HomeComponent implements OnInit {
       })
     }
   }
-   // addProductCount(item: any) {
+  //  addProductCount(item: any) {
   //   this.customerService.addProductCount(item);
   // }
   // removeProductCount(item: any) {
   //   this.customerService.removeProductCount(item);
   // }
 
-  // addtocart(item: any) {
-  //   this.customerService.addtoCart(item);
-  //   window.alert('สินค้าของคุณถูกเพิ่มลงในรถเข็นแล้ว!');
-  // }
+  addtocart(item: any) {
+    this.customerService.addtoCart(item);
+    window.alert('สินค้าของคุณถูกเพิ่มลงในรถเข็นแล้ว!');
+  }
+
   filter(cateId: string) {
     if (cateId != 'All') {
       this.filterCategory = this.productList
@@ -175,9 +178,9 @@ export class HomeComponent implements OnInit {
     this.productForm.controls['cateId'].patchValue(item.cateId);
     this.productForm.controls['catePro'].patchValue(item.categories.catePro);
 
-    this.productForm.controls['supName'].patchValue(item.supplier.supName);
+    // this.productForm.controls['supName'].patchValue(item.supplier.supName);
 
-    const supId = item.supId;
+    // const supId = item.supId;
     // this.fetchDataProduct(supId);
 
   }
@@ -194,6 +197,7 @@ export class HomeComponent implements OnInit {
   //   );
   // }
 
+
   fetchData() {
     this.homeService.getAllProduct().subscribe(
       (res) => {
@@ -205,6 +209,8 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
+
   get productf() { return this.productForm.controls; }
 
 

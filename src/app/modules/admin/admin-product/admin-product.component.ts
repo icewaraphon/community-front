@@ -32,7 +32,7 @@ fileInfo?: Observable<any>;
 
 page = 1;
 count = 0;
-tableSize = 10;
+tableSize = 200;
 tableSizes = [3, 6, 9, 12];
 
 //model
@@ -47,7 +47,7 @@ formModaleditproduct: any;
   ) { }
   submitted = false;
 
-  editproductForm = this.fb.group({
+  editproductForm = this.fb.group( {
     proId: [''],
 	  proName: [''],
 	  proImg: [''],

@@ -1,106 +1,202 @@
 <!-- carousel content -->
-<div class="container-fluid" style="min-height: 641px;">
+<div class="container-fluid" style="min-height: 641px">
+  <div class="card-body" style="width: 97%; margin: 0px auto">
+    <div
+      id="carouselExampleDark"
+      class="carousel carousel-dark slide top-2 carousel carousel-slider center"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide-to="4"
+          aria-label="Slide 5"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="4000">
+          <img
+            src="assets/image/Banner11.png"
+            class="d-block w-100"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block"></div>
+        </div>
 
-    <div class="card-body" style="width: 97%; margin: 0px auto;">
-      <div id="carouselExampleDark" class="carousel carousel-dark slide top-2 carousel carousel-slider center"
-        data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <div class="carousel-item" data-bs-interval="4000">
+          <img src="assets/image/Banner7.png" class="d-block w-100" alt="..." />
+          <div class="carousel-caption d-none d-md-block"></div>
         </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="4000">
-            <img src="assets/image/Banner11.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-            </div>
+
+        <div class="carousel-item" data-bs-interval="4000">
+          <img src="assets/image/Banner3.png" class="d-block w-100" alt="..." />
+          <div class="carousel-caption d-none d-md-block"></div>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+          <img src="assets/image/Banner4.png" class="d-block w-100" alt="..." />
+          <div class="carousel-caption d-none d-md-block"></div>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+          <img src="assets/image/Banner5.png" class="d-block w-100" alt="..." />
+          <div class="carousel-caption d-none d-md-block"></div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleDark"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleDark"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="row align-items-center text-center font-monospace fw-bold"
+    style="margin-left: 29px; margin-right: 29px"
+  >
+    <div class="col-md-auto text-center" style="width: 15%">
+      <a
+        (click)="filter('All')"
+        class="link-dark text-decoration-none fw-bold hover"
+        ><img style="width: 120px" src="assets/image/n11.png" alt="" />Community
+        Shop</a
+      >
+    </div>
+
+    <div class="col-md-auto text-center" style="width: 15%">
+      <a
+        (click)="filter('33333')"
+        class="link-dark text-decoration-none fw-bold hover"
+        ><img
+          style="width: 120px"
+          src="assets/image/n4.png"
+          alt=""
+        />หมวดหมู่อาหาร</a
+      >
+    </div>
+
+    <div class="col-md-auto text-center" style="width: 15%">
+      <a
+        (click)="filter('22222')"
+        class="link-dark text-decoration-none fw-bold"
+      >
+        <div class="row align-items-center">
+          <div class="col-md-5">
+            <img style="width: 120px" src="assets/image/n2.png" alt="" />
           </div>
-  
-          <div class="carousel-item" data-bs-interval="4000">
-            <img src="assets/image/Banner7.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-            </div>
-          </div>
-  
-          <div class="carousel-item" data-bs-interval="4000">
-            <img src="assets/image/Banner3.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-            </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="4000">
-            <img src="assets/image/Banner4.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-            </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="4000">
-            <img src="assets/image/Banner5.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-            </div>
+          <div class="col-md-7">
+            <span>หมวดหมู่เครื่องดื่ม</span>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+      </a>
     </div>
-  
-    <div class="row align-items-center text-center font-monospace fw-bold" style="
-      padding-left: 50px;">
-  
-    <div class="col-md-auto text-center " style="width:15%;"><a (click)="filter('All')"
-        class="link-dark text-decoration-none fw-bold hover"><img style="width: 120px;" src="assets/image/n11.png"
-          alt="">Community Shop</a>
+
+    <div class="col-md-auto text-center" style="width: 15%">
+      <a
+        (click)="filter('77777')"
+        class="link-dark text-decoration-none fw-bold"
+      >
+        <div class="row align-items-center">
+          <div class="col-md-5">
+            <img style="width: 120px" src="assets/image/n1.png" alt="" />
+          </div>
+          <div class="col-md-7 ">
+            <span>หมวดหมู่ผ้า เครื่องแต่งกาย</span>
+          </div>
+        </div>
+      </a>
     </div>
-  
-      <div class="col-md-auto text-center " style="width:15%;"><a (click)="filter('33333')"
-          class="link-dark text-decoration-none fw-bold hover"><img style="width: 120px;" src="assets/image/n4.png"
-            alt="">หมวดหมู่อาหาร</a>
-      </div>
-  
-      <div class="col-md-auto text-center" style="width:15%;"><a (click)="filter('22222')"
-          class="link-dark text-decoration-none fw-bold"><img style="width: 120px;" src="assets/image/n2.png"
-            alt="">หมวดหมู่เครื่องดื่ม</a>
-      </div>
-  
-      <div class="col-md-auto text-center" style="width:15%;"><a (click)="filter('77777')"
-          class="link-dark text-decoration-none fw-bold"><img style="width: 120px;" src="assets/image/n1.png"
-            alt="">หมวดหมู่ผ้า เครื่องแต่งกาย</a>
-      </div>
-      <div class="col-md-auto text-center" style="width:16%;"><a (click)="filter('11111')"
-          class="link-dark text-decoration-none fw-bold"><img style="width: 120px;" src="assets/image/n6.png"
-            alt="">หมวดหมู่ของใช้ ของตกแต่ง ของที่ระลึก</a>
-      </div>
-  
-     
-  
-      <div class="col-md-auto text-center" style="width:15%;"><a (click)="filter('p0000')"
-          class="link-dark text-decoration-none fw-bold"><img style="width: 120px;" src="assets/image/n3.png"
-            alt="">หมวดหมู่สมุนไพรที่ไม่ใช่อาหาร</a>
-      </div>
-  
-      
-  
-      
-  
+
+    <div class="col-md-auto text-center" style="width: 20%">
+      <a
+        (click)="filter('11111')"
+        class="link-dark text-decoration-none fw-bold"
+      >
+        <div class="row align-items-center">
+          <div class="col-md-5">
+            <img style="width: 120px" src="assets/image/n6.png" alt="" />
+          </div>
+          <div class="col-md-7">
+            <span>หมวดหมู่ของใช้ ของตกแต่ง ของที่ระลึก</span>
+          </div>
+        </div>
+      </a>
     </div>
-  
-    <div class="row mt-1 ">
-      <div class=" col-md-7"></div>
-      <div class="text-end col-md-5 sm col">
-        <div class="input-group ">
-          <input class="form-control border-end-2 border " type="search" value="" placeholder="search"
-            id="search-input" [(ngModel)]="searchText">
-          <span class="input-group-append">
-            <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5" type="button">
-              <svg
+
+    <div class="col-md-auto text-center" style="width: 20%">
+      <a
+        (click)="filter('99999')"
+        class="link-dark text-decoration-none fw-bold"
+      >
+        <div class="row align-items-center">
+          <div class="col-md-5">
+            <img style="width: 120px" src="assets/image/n3.png" alt="" />
+          </div>
+          <div class="col-md-7">
+            <span>หมวดหมู่สมุนไพรที่ไม่ใช่อาหาร</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="row mt-1">
+    <div class="col-md-7"></div>
+    <!-- <div class="text-end col-md-5 sm col">
+      <div class="input-group">
+        <input
+          class="form-control border-end-2 border"
+          type="search"
+          value=""
+          placeholder="search"
+          id="search-input"
+          [(ngModel)]="searchText"
+        />
+        <span class="input-group-append">
+          <button
+            class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
+            type="button"
+          >
+            <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
@@ -112,254 +208,436 @@
                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
               />
             </svg>
-            </button>
-          </span>
-        </div>
+          </button>
+        </span>
       </div>
-    </div>
-  
-    <!--แสดงสินค้า  -->
-    <div class="container pt-2">
-      <div class="mb-3 row">
-        <!-- <ng-container *ngFor="let item of filterCategory | filter:searchText "> -->
-          <div class="card col-md-2">
-            <img src="{{item.proImg}}" alt="" data-bs-toggle="modal" data-bs-target="#product" data-bs-whatever="@mdo"
-              (click)="selectpro(item)">
-  
-            <a href="" class="card-title link-dark text-decoration-none"
-              style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;"
-              data-bs-toggle="modal" data-bs-target="#product" data-bs-whatever="@mdo"
-              (click)="selectpro(item)">{{item.proName}}</a>
-            <p><strong>Size:</strong> {{item.proSize}}</p>
-            <p><strong>Price:</strong> ฿{{item.proPric | number}}</p>
-  
-            <div class="col-mb-12 text-center">
-            <button class="btn btn-warning btn-sm" >+</button>
+    </div> -->
+  </div>
+
+  <!--แสดงสินค้า  -->
+  <div class="select-data" style="margin-left: 60px; margin-right: 50px">
+    <div class="mb-3 row">
+      <ng-container
+        *ngFor="let item of filterCategory | filter: searchText"
+        style="width: 100%"
+      >
+        <div class="card" style="width: 16%; padding-top: 10px">
+          <div class="text-center">
+            <img
+              src="{{item.proImg}}"
+              alt=""
+              data-bs-toggle="modal"
+              data-bs-target="#product"
+              data-bs-whatever="@mdo"
+              (click)="selectpro(item)"
+              style="width: 260px; height: 260px"
+            />
+          </div>
+
+          <a
+            routerLink=""
+            class="card-title link-dark text-decoration-none select-text-data"
+            style="
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 100ch;
+            "
+            data-bs-toggle="modal"
+            data-bs-target="#product"
+            data-bs-whatever="@mdo"
+            (click)="selectpro(item)"
+            >{{ item.proName }}</a
+          >
+          <p class="select-text-data">
+            <strong>Size:</strong> {{ item.proSize }}
+          </p>
+          <p class="select-text-data">
+            <strong>Price:</strong> ฿{{ item.proPric | number }}
+          </p>
+
+          <!-- <div class="col-mb-12 text-center">
+            <button class="btn btn-warning btn-sm">+</button>
             {{ item.quantity }}
-            <button class="btn btn-warning btn-sm" >-</button>
+            <button class="btn btn-warning btn-sm">-</button>
+          </div> -->
+          <div class="col-mb-12">
+            <div class="row pt-2">
+              <!-- <button class="btn btn-primary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#fff"
+                  viewBox="0 0 22 22"
+                  width="22px"
+                  height="22px"
+                >
+                  <path fill="none" d="M 0 0 h 24 v 24 H 0 V 0 Z" />
+                  <path
+                    d="M 15.55 13 c 0.75 0 1.41 -0.41 1.75 -1.03 l 3.58 -6.49 c 0.37 -0.66 -0.11 -1.48 -0.87 -1.48 H 5.21 l -0.94 -2 H 1 v 2 h 2 l 3.6 7.59 l -1.35 2.44 C 4.52 15.37 5.48 17 7 17 h 12 v -2 H 7 l 1.1 -2 h 7.45 Z M 6.16 6 h 12.15 l -2.76 5 H 8.53 L 6.16 6 Z M 7 18 c -1.1 0 -1.99 0.9 -1.99 2 S 5.9 22 7 22 s 2 -0.9 2 -2 s -0.9 -2 -2 -2 Z m 10 0 c -1.1 0 -1.99 0.9 -1.99 2 s 0.89 2 1.99 2 s 2 -0.9 2 -2 s -0.9 -2 -2 -2 Z"
+                  />
+                </svg>
+              </button> -->
+              <div class="col-md-6 text-end">
+                <button
+                  type="button"
+                  class="btn btn-warning btn-sm"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="bottom"
+                  title="ดูรายลายเอียดสินค้า"
+                  data-bs-toggle="modal"
+                  data-bs-target="#product"
+                  data-bs-whatever="@mdo"
+                  (click)="selectpro(item)"
+                >
+                  &nbsp;&nbsp;
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    fill="currentColor"
+                    class="bi bi-list-task"
+                    viewBox="0 0 22 22"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"
+                    />
+                    <path
+                      d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"
+                    /></svg
+                  >&nbsp;&nbsp;
+                </button>
               </div>
-            <div class="col-mb-12 ">
-              <div class="row pt-2">
-  
-                <button class="btn btn-primary" >
-  
-              <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 22 22" width="22px" height="22px">
-                <path fill="none" d="M 0 0 h 24 v 24 H 0 V 0 Z" />
-                <path
-                  d="M 15.55 13 c 0.75 0 1.41 -0.41 1.75 -1.03 l 3.58 -6.49 c 0.37 -0.66 -0.11 -1.48 -0.87 -1.48 H 5.21 l -0.94 -2 H 1 v 2 h 2 l 3.6 7.59 l -1.35 2.44 C 4.52 15.37 5.48 17 7 17 h 12 v -2 H 7 l 1.1 -2 h 7.45 Z M 6.16 6 h 12.15 l -2.76 5 H 8.53 L 6.16 6 Z M 7 18 c -1.1 0 -1.99 0.9 -1.99 2 S 5.9 22 7 22 s 2 -0.9 2 -2 s -0.9 -2 -2 -2 Z m 10 0 c -1.1 0 -1.99 0.9 -1.99 2 s 0.89 2 1.99 2 s 2 -0.9 2 -2 s -0.9 -2 -2 -2 Z" />
-              </svg>
-            </button>
-                <div class="col-md-6 text-end">
-                  <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="tooltip"
-                    data-bs-placement="bottom" title="ดูรายลายเอียดสินค้า" data-bs-toggle="modal"
-                    data-bs-target="#product" data-bs-whatever="@mdo" (click)="selectpro(item)">&nbsp;&nbsp;
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-                      class="bi bi-list-task" viewBox="0 0 22 22">
-                      <path fill-rule="evenodd"
-                        d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z" />
-                      <path
-                        d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z" />
-                      <path fill-rule="evenodd"
-                        d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z" />
-                    </svg>&nbsp;&nbsp;
-                  </button>
-                </div>
-                <div class="col-md-6 text-align">
-                  <button class="btn btn-primary btn-sm p-1"  data-bs-toggle="tooltip"
-                    data-bs-placement="bottom" title="เพิ่มสินค้าใส่ตระกร้า">&nbsp;&nbsp;
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 21 21" width="21px" height="21px">
-                      <path fill="none" d="M 0 0 h 24 v 24 H 0 V 0 Z" />
-                      <path
-                        d="M 15.55 13 c 0.75 0 1.41 -0.41 1.75 -1.03 l 3.58 -6.49 c 0.37 -0.66 -0.11 -1.48 -0.87 -1.48 H 5.21 l -0.94 -2 H 1 v 2 h 2 l 3.6 7.59 l -1.35 2.44 C 4.52 15.37 5.48 17 7 17 h 12 v -2 H 7 l 1.1 -2 h 7.45 Z M 6.16 6 h 12.15 l -2.76 5 H 8.53 L 6.16 6 Z M 7 18 c -1.1 0 -1.99 0.9 -1.99 2 S 5.9 22 7 22 s 2 -0.9 2 -2 s -0.9 -2 -2 -2 Z m 10 0 c -1.1 0 -1.99 0.9 -1.99 2 s 0.89 2 1.99 2 s 2 -0.9 2 -2 s -0.9 -2 -2 -2 Z" />
-                    </svg>&nbsp;&nbsp;&nbsp;
-                  </button>
-                </div>
+              <div class="col-md-6 text-align">
+                <button
+                  class="btn btn-primary btn-sm p-1"  (click)=addtocart(item)
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="bottom"
+                  title="เพิ่มสินค้าใส่ตระกร้า"
+                >
+                  &nbsp;&nbsp;
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#fff"
+                    viewBox="0 0 21 21"
+                    width="21px"
+                    height="21px"
+                  >
+                    <path fill="none" d="M 0 0 h 24 v 24 H 0 V 0 Z" />
+                    <path
+                      d="M 15.55 13 c 0.75 0 1.41 -0.41 1.75 -1.03 l 3.58 -6.49 c 0.37 -0.66 -0.11 -1.48 -0.87 -1.48 H 5.21 l -0.94 -2 H 1 v 2 h 2 l 3.6 7.59 l -1.35 2.44 C 4.52 15.37 5.48 17 7 17 h 12 v -2 H 7 l 1.1 -2 h 7.45 Z M 6.16 6 h 12.15 l -2.76 5 H 8.53 L 6.16 6 Z M 7 18 c -1.1 0 -1.99 0.9 -1.99 2 S 5.9 22 7 22 s 2 -0.9 2 -2 s -0.9 -2 -2 -2 Z m 10 0 c -1.1 0 -1.99 0.9 -1.99 2 s 0.89 2 1.99 2 s 2 -0.9 2 -2 s -0.9 -2 -2 -2 Z"
+                    /></svg
+                  >&nbsp;&nbsp;&nbsp;
+                </button>
               </div>
             </div>
           </div>
-        <!-- </ng-container> -->
-  
-      </div>
+        </div>
+      </ng-container>
     </div>
   </div>
-  
-  <!-- model รายละเอียดสินค้า -->
-  <div class="modal fade" id="product" tabindex="-1" aria-labelledby="productLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header bg-info">
-          <h5 class="modal-title font-monospace fw-bold" id="nopaymentLabel">รายละเอียดสินค้า</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-3">
-  
-          <form [formGroup]="productForm">
-  
-            <div class="col-sm-12">
-              <div class=" text-end"><img class="rounded-circle"
-                    src="assets/image/n5.png" style="width: 45px; height: 47px;" alt="100x50"
-                    data-holder-rendered="true">&nbsp;&nbsp;&nbsp;
-              </div>
+</div>
+
+<!-- model รายละเอียดสินค้า -->
+<div
+  class="modal fade"
+  id="product"
+  tabindex="-1"
+  aria-labelledby="productLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-info">
+        <h5 class="modal-title font-monospace fw-bold" id="nopaymentLabel">
+          รายละเอียดสินค้า
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body p-3">
+        <form [formGroup]="productForm">
+          <div class="col-sm-12">
+            <div class="text-end">
+              <img
+                class="rounded-circle"
+                src="assets/image/n5.png"
+                style="width: 45px; height: 47px"
+                alt="100x50"
+                data-holder-rendered="true"
+              />&nbsp;&nbsp;&nbsp;
             </div>
-            <div class="col-sm-11 ">
-                <input type="text" class="form-control-plaintext font-monospace fw-bold text-end" id="recipient-name"
-                  value="" formControlName="supName" readonly>&nbsp;&nbsp;
-            </div>
-            <div class="">
-              <div class="row p-3">
-                <div class="col-md-1">
-                  <div class="col-md-auto">
-                    <input type="text" class="form-control-plaintext font-monospace fw-bold" id="recipient-name" value=""
-                      formControlName="proImg" style="width: 150px;" readonly>
-                  </div>
-  
+          </div>
+          <div class="col-sm-11">
+            <input
+              type="text"
+              class="form-control-plaintext font-monospace fw-bold text-end"
+              id="recipient-name"
+              value=""
+              formControlName="proName"
+              readonly
+            />&nbsp;&nbsp;
+          </div>
+          <div class="">
+            <div class="row p-3">
+              <div class="col-md-1">
+                <div class="col-md-auto">
+                  <input
+                    type="text"
+                    class="form-control-plaintext font-monospace fw-bold"
+                    id="recipient-name"
+                    value=""
+                    formControlName="proImg"
+                    style="width: 150px"
+                    readonly
+                  />
                 </div>
-                <div class="col-md-8" style="padding-left: 2%;">
-                  <div class="container">
+              </div>
+              <div class="col-md-8" style="padding-left: 2%">
+                <div class="container">
+                  <div class="mb-2 row">
+                    <div class="col-md-12">
+                      <input
+                        type="text"
+                        class="form-control-plaintext font-monospace fw-bold"
+                        id="recipient-name"
+                        value=""
+                        formControlName="proName"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-2 row">
+                    <div class="col-md-2">
+                      <!-- <input
+                        type="text"
+                        class="form-control-plaintext"
+                        id="recipient-name"
+                        value=""
+                        formControlName="proPric"
+                        readonly -->
+                      <!-- /> -->
+                    </div>
+                    <div class="col-md-2">
+                      <label for="message-text" class="col-form-label"
+                        >บาท
+                      </label>
+                    </div>
+                    <div class="col-md-3">
+                      <input
+                        type="text"
+                        class="form-control-plaintext"
+                        id="recipient-name"
+                        value="฿290"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-2 row">
+                    <div class="col-md-4">
+                      <label
+                        for="message-text"
+                        class="col-form-label font-monospace"
+                        >ค่าจัดส่ง :</label
+                      >
+                    </div>
+                    <div class="col-md-3">
+                      <input
+                        type="text"
+                        class="form-control-plaintext"
+                        id="recipient-name"
+                        value="$29"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-2 row">
+                    <div class="col-md-auto">
+                      <label
+                        for="message-text"
+                        class="col-form-label font-monospace"
+                        >สี :</label
+                      >
+                      <!-- <select
+                        class="form-select form-select-sm border-2"
+                        id="validationTitle1"
+                        aria-label=".form-select-sm example"
+                        formControlName="proColor"
+                      >
+                        <option selected disabled value="">เลือกสี...</option>
+                        <option>สีน้ำเงิน</option>
+                        <option>สีแดง</option>
+                        <option>สีชมพู</option>
+                        <option>สีส้ม</option>
+                        <option>สีเหลือง</option>
+                        <option>สีดำ</option>
+                        <option>สีเขียว</option>
+                        <option>สีน้ำตาล</option>
+                        <option>สีขาว</option>
+                        <option>สีเงิน</option>
+                        <option>สีทอง</option>
+                        <option>สีน้ำเงินอมเขียว</option>
+                        <option>สีเทา</option>
+                        <option>สีม่วง</option>
+                        <option>สีครีม</option>
+                        <option>สีบรอนซ์</option>
+                        <option>สีกากี</option>
+                        <option>สีคราม</option>
+                        <option>สีฟ้า</option>
+                        <option>สีน้ำเงินเข้ม</option>
+                      </select> -->
+                    </div>
+
+                    <div class="col-md-4">
+                      <input
+                        type="text"
+                        class="form-control-plaintext"
+                        id="recipient-name"
+                        value=""
+                        formControlName="proColor"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-2 row">
+                    <div class="col-md-auto">
+                      <label for="message-text" class="col-form-label"
+                        >ขนาด :</label
+                      >
+                    </div>
+                    <div class="col-md-auto">
+                      <input
+                        type="text"
+                        class="form-control-plaintext"
+                        id="recipient-name"
+                        value=""
+                        formControlName="proSize"
+                        readonly
+                      />
+                      <!-- <th class="col-md-1 fw-bold" scope="col">
+                        <select
+                          class="form-select form-select-sm border-2 fw-bold"
+                          aria-label=".form-select-sm example"
+                        >
+                          <option class="fw-bold" value="1">เลือกขนาด</option>
+                          <option class="fw-bold" value="2">S</option>
+                          <option class="fw-bold" value="3">M</option>
+                          <option class="fw-bold" value="3">L</option>
+                          <option class="fw-bold" value="3">XL</option>
+                        </select>
+                      </th> -->
+                    </div>
+
                     <div class="mb-2 row">
-                      <div class="col-md-12">
-                        <input type="text" class="form-control-plaintext font-monospace fw-bold" id="recipient-name"
-                          value="" formControlName="proName" readonly>
+                      <div class="col-md-auto">
+                        <label for="message-text" class="col-form-label"
+                          >จำนวน :</label
+                        >
+                      </div>
+                      <div class="col-md-4 p-2">
+                        <div
+                          class="col-md-1 text-center number-input md-number-input"
+                        >
+                          <button
+                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                            class="minus"
+                          ></button>
+                          <input
+                            class="quantity"
+                            min="0"
+                            name="quantity"
+                            value="1"
+                            type="number"
+                          />
+                          <button
+                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                            class="plus"
+                          ></button>
+                        </div>
                       </div>
                     </div>
                     <div class="mb-2 row">
-                      <div class="col-md-2">
-                        <input type="text" class="form-control-plaintext" id="recipient-name" value=""
-                          formControlName="proPric" readonly>
-                      </div>
-                      <div class="col-md-2">
-                        <label for="message-text" class="col-form-label ">บาท
-                        </label>
+                      <div class="col-md-4">
+                        <label for="message-text" class="col-form-label"
+                          >มีทั้งหมด</label
+                        >
                       </div>
                       <div class="col-md-3">
-                        <input type="text" class="form-control-plaintext" id="recipient-name" value="฿290" readonly>
-  
+                        <input
+                          type="text"
+                          class="form-control-plaintext"
+                          id="recipient-name"
+                          value=""
+                          formControlName="proNumber"
+                          readonly
+                        />
                       </div>
-                    </div>
-                    <div class="mb-2 row">
-                                  <div class="col-md-4">
-                                    <label for="message-text" class="col-form-label font-monospace ">ค่าจัดส่ง
-                                      :</label>
-                                  </div>
-                                  <div class="col-md-3">
-                                    <input type="text" class="form-control-plaintext" id="recipient-name" value="$29" readonly>
-              
-                                  </div>
-                                </div>
-                    <div class="mb-2 row">
-                      <div class="col-md-auto">
-                        <label for="message-text" class="col-form-label font-monospace ">สี
-                          :</label>
-                          <select class="form-select form-select-sm border-2 " id="validationTitle1" aria-label=".form-select-sm example"
-                          formControlName="proColor">
-                          <option selected disabled value="">เลือกสี...</option>
-                          <option>สีน้ำเงิน</option>
-                          <option>สีแดง</option>
-                          <option>สีชมพู</option>
-                          <option>สีส้ม</option>
-                          <option>สีเหลือง</option>
-                          <option>สีดำ</option>
-                          <option>สีเขียว</option>
-                          <option>สีน้ำตาล</option>
-                          <option>สีขาว</option>
-                          <option>สีเงิน</option>
-                          <option>สีทอง</option>
-                          <option>สีน้ำเงินอมเขียว</option>
-                          <option>สีเทา</option>
-                          <option>สีม่วง</option>
-                          <option>สีครีม</option>
-                          <option>สีบรอนซ์</option>
-                          <option>สีกากี</option>
-                          <option>สีคราม</option>
-                          <option>สีฟ้า</option>
-                          <option>สีน้ำเงินเข้ม</option>
-                      </select>
-                      </div>
-                      
-                      
                       <div class="col-md-4">
-                        <input type="text" class="form-control-plaintext" id="recipient-name" value=""
-                          formControlName="proColor" readonly>
+                        <input
+                          type="text"
+                          class="form-control-plaintext"
+                          id="recipient-name"
+                          value=""
+                          formControlName="proUnit"
+                          readonly
+                        />
                       </div>
-                    </div>
-                    <div class="mb-2 row">
-                      <div class="col-md-auto">
-                        <label for="message-text" class="col-form-label">ขนาด :</label>
-                      </div>
-                      <div class="col-md-auto ">
-                        <input type="text" class="form-control-plaintext" id="recipient-name" value=""
-                          formControlName="proSize" readonly>
-                        <th class="col-md-1 fw-bold" scope="col">
-                                      <select class=" form-select form-select-sm border-2 fw-bold"
-                                        aria-label=".form-select-sm example">
-                                        <option class="fw-bold" value="1">เลือกขนาด</option>
-                                        <option class="fw-bold" value="2">S</option>
-                                        <option class="fw-bold" value="3">M</option>
-                                        <option class="fw-bold" value="3">L</option>
-                                        <option class="fw-bold" value="3">XL</option>
-                                      </select>
-                                    </th>
-                      </div>
-  
-                      <div class="mb-2 row">
-                                    <div class="col-md-auto ">
-                                      <label for="message-text" class="col-form-label">จำนวน :</label>
-                                    </div>
-                                    <div class="col-md-4 p-2">
-                                      <div class="col-md-1 text-center number-input md-number-input">
-                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                                          class="minus"></button>
-                                        <input class="quantity" min="0" name="quantity" value="1" type="number">
-                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                          class="plus"></button>
-                                      </div>
-                                    </div>
-                                  </div>
-                      <div class="mb-2 row">
-                        <div class="col-md-4">
-                          <label for="message-text" class="col-form-label">มีทั้งหมด</label>
-                        </div>
-                        <div class="col-md-3">
-                          <input type="text" class="form-control-plaintext" id="recipient-name" value=""
-                            formControlName="proNumber" readonly>
-                        </div>
-                        <div class="col-md-4">
-                          <input type="text" class="form-control-plaintext" id="recipient-name" value=""
-                            formControlName="proUnit" readonly>
-                        </div>
-                      </div>
-  
                     </div>
                   </div>
                 </div>
-  
-              </div>
-              <div class="mb-3 row">
-  
-                <div class="col-md-auto">
-                  <label for="recipient-name" class="col-form-label font-monospace fw-bold">รายละเอียดสินค้า
-                    :</label>
-                </div>
-                <div class="col-md-9">
-                  <input type="text" class="form-control-plaintext" id="recipient-name" formControlName="proDetails"
-                    readonly>
-                </div>
-  
               </div>
             </div>
-            <div class="mb-3 row text-end ">
-              <div class="col-md-12  p-1">
-                <button class="btn btn-primary" type="submit" data-bs-toggle="modal" ><svg
-                    xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 22 22" width="22px" height="22px">
-                    <path fill="none" d="M 0 0 h 24 v 24 H 0 V 0 Z" />
-                    <path
-                      d="M 15.55 13 c 0.75 0 1.41 -0.41 1.75 -1.03 l 3.58 -6.49 c 0.37 -0.66 -0.11 -1.48 -0.87 -1.48 H 5.21 l -0.94 -2 H 1 v 2 h 2 l 3.6 7.59 l -1.35 2.44 C 4.52 15.37 5.48 17 7 17 h 12 v -2 H 7 l 1.1 -2 h 7.45 Z M 6.16 6 h 12.15 l -2.76 5 H 8.53 L 6.16 6 Z M 7 18 c -1.1 0 -1.99 0.9 -1.99 2 S 5.9 22 7 22 s 2 -0.9 2 -2 s -0.9 -2 -2 -2 Z m 10 0 c -1.1 0 -1.99 0.9 -1.99 2 s 0.89 2 1.99 2 s 2 -0.9 2 -2 s -0.9 -2 -2 -2 Z" />
-                  </svg>&nbsp;เพิ่มสินค้าใส่ตระกร้า</button>&nbsp;&nbsp;
+            <div class="mb-3 row">
+              <div class="col-md-auto">
+                <label
+                  for="recipient-name"
+                  class="col-form-label font-monospace fw-bold"
+                  >รายละเอียดสินค้า :</label
+                >
+              </div>
+              <div class="col-md-9">
+                <input
+                  type="text"
+                  class="form-control-plaintext"
+                  id="recipient-name"
+                  formControlName="proDetails"
+                  readonly
+                />
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+          <div class="mb-3 row text-end">
+            <div class="col-md-12 p-1">
+              <!-- <button
+                class="btn btn-primary"
+                type="submit"
+                data-bs-toggle="modal"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#fff"
+                  viewBox="0 0 22 22"
+                  width="22px"
+                  height="22px"
+                >
+                  <path fill="none" d="M 0 0 h 24 v 24 H 0 V 0 Z" />
+                  <path
+                    d="M 15.55 13 c 0.75 0 1.41 -0.41 1.75 -1.03 l 3.58 -6.49 c 0.37 -0.66 -0.11 -1.48 -0.87 -1.48 H 5.21 l -0.94 -2 H 1 v 2 h 2 l 3.6 7.59 l -1.35 2.44 C 4.52 15.37 5.48 17 7 17 h 12 v -2 H 7 l 1.1 -2 h 7.45 Z M 6.16 6 h 12.15 l -2.76 5 H 8.53 L 6.16 6 Z M 7 18 c -1.1 0 -1.99 0.9 -1.99 2 S 5.9 22 7 22 s 2 -0.9 2 -2 s -0.9 -2 -2 -2 Z m 10 0 c -1.1 0 -1.99 0.9 -1.99 2 s 0.89 2 1.99 2 s 2 -0.9 2 -2 s -0.9 -2 -2 -2 Z"
+                  /></svg
+                >&nbsp;เพิ่มสินค้าใส่ตระกร้า</button -->
+              >&nbsp;&nbsp;
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  
+</div>

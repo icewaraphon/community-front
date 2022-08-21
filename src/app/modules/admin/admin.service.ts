@@ -99,7 +99,7 @@ export class AdminService {
 
   }
   getAllBillorder(): Observable<any> {
-    return this.http.get<any>(endpoint + '/billorder')
+    return this.http.get<any>(endpoint + '/billorders')
 
   }
 

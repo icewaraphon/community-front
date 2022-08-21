@@ -19,6 +19,8 @@ import { AdminReportComponent } from './admin-report/admin-report.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminAddcustomersComponent } from './admin-addcustomers/admin-addcustomers.component';
+import { AdminEditcusComponent } from './admin-editcus/admin-editcus.component';
 
 
 
@@ -36,6 +38,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AdminOrdercheckComponent,
     AdminmanagAdminComponent,
     AdminReportComponent,
+    AdminAddcustomersComponent,
+    AdminEditcusComponent,
    
     
   ],

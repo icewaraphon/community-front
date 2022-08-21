@@ -18,6 +18,8 @@ export class AdminmanagAdminComponent implements OnInit {
   listCustomers : any;
   item: any
   ctmId: any
+
+  adminList : any
   
   page = 1;
   count = 0;
@@ -36,26 +38,26 @@ export class AdminmanagAdminComponent implements OnInit {
   // post
   adminmanagForm = this.fb.group({
     ctmId: [0],
-    usName: ['', Validators.required],
-    password: ['', Validators.required],
-    titleType: ['', Validators.required],
-    cardId: ['', Validators.required],
+    usName: [''],
+    password: [''],
+    titleType: [''],
+    cardId: [''],
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    gender: ['', Validators.required],
-    birthDate: ['', Validators.required],
-    telPhon: ['', Validators.required],
-    email: ['', Validators.required],
-    addrass: ['', Validators.required],
+    gender: [''],
+    birthDate: [''],
+    telPhon: [''],
+    email: [''],
+    addrass: [''],
     cateInteres: [''],
-    zipCode: ['', Validators.required],
-    roleId: ['1'],
+    zipCode: [''],
+    roleId: ['', Validators.required],
     distId: [{ value: '', disabled: true },],
-    amphur: [{ value: '', disabled: true },],
-    province: [{ value: '', disabled: true },],
-    districtinput: [''],
-    amphurinput: [''],
-    provinceinput: [''],
+     amphur: [{ value: '', disabled: true },],
+     province: [{ value: '', disabled: true },],
+     districtinput: [''],
+     amphurinput: [''],
+     provinceinput: [''],
   });
 
   
@@ -63,34 +65,43 @@ export class AdminmanagAdminComponent implements OnInit {
     ctmId: [''],
     usName: [''],
     password: [''],
-    titleType: ['', Validators.required],
+    titleType: [''],
     cardId: [''],
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    gender: ['', Validators.required],
-    birthDate: ['', Validators.required],
-    telPhon: ['', Validators.required],
-    email: ['', Validators.required],
-    addrass: ['', Validators.required],
+    gender: [''],
+    birthDate: [''],
+    telPhon: [''],
+    email: [''],
+    addrass: [''],
     cateInteres: [''],
-    zipCode: ['', Validators.required],
+    zipCode: [''],
     roleId: ['1'],
-    distId: [{ value: '', disabled: true },],
-    amphur: [{ value: '', disabled: true },],
-    province: [{ value: '', disabled: true },],
-    districtinput: [''],
-    amphurinput: [''],
-    provinceinput: [''],
+     distId: [{ value: '', disabled: true },],
+     amphur: [{ value: '', disabled: true },],
+     province: [{ value: '', disabled: true },],
+     districtinput: [''],
+     amphurinput: [''],
+     provinceinput: [''],
   });
 
 
   ngOnInit(): void {
     //load dropdown all
     this.ctmId = sessionStorage.getItem('user_id');
-    this.fetchData();
-    this.initDropdown();
+    console.log('CTMID =>' , this.ctmId)
+   // this.fetchData();
+    //this.initDropdown();
     this.initAdminDataforEditById(this.ctmId);
-    this.editadminmanagForm.controls['distId'].disable();
+    //this.editadminmanagForm.controls['distId'].disable();
+    
+    this.adminmanagService.getCustomersByRole(2).subscribe(res => {
+      this.listCustomers= res
+      console.log(res);
+
+      
+      
+    })
   }
 
   initDropdown() {
@@ -101,9 +112,13 @@ export class AdminmanagAdminComponent implements OnInit {
   }
 
   initAdminDataforEditById(ctmId: any) {
-    this.adminmanagService.updateDataadmin(ctmId).subscribe((res) => {
-      this.adminmanagService.getDistrictByZipCode1(res.zipCode).subscribe(res => { this.districts = res; console.log('data :', res) });
+    this.adminmanagService.getCustomersByRole(2).subscribe((res) => {
+      //this.adminmanagService.getDistrictByZipCode1(res.zipCode).subscribe(res => { this.districts = res; console.log('data :', res) });
       console.log('!!!!!!!!!!!!res data!!!!!!!!!!!!', res)
+
+      this.adminList = res;
+
+
       this.editadminmanagForm.patchValue({
         ctmId: res.ctmId,
         // usName: res.usName,
@@ -123,13 +138,13 @@ export class AdminmanagAdminComponent implements OnInit {
         // distId: res.distId,
         // amphur: res.amphur,
         // province: res.province,
-        districtinput: res.district,
-        amphurinput: res.amphur,
-        provinceinput: res.province,
+        // districtinput: res.district,
+        // amphurinput: res.amphur,
+        // provinceinput: res.province,
       });
 
       //set default select dropdown
-      this.loadUserZipCode(res.distId);
+      //this.loadUserZipCode(res.distId);
     },
       (error) => {
         console.log('!!!!!!!!!!!!!!error!!!!!!!!!!', error);
@@ -306,7 +321,7 @@ export class AdminmanagAdminComponent implements OnInit {
 
   
   changeUserConfirmPassword(event: any) {
-    debugger
+    // debugger
     const pass = this.adminmanagForm.controls['password'].value;
     const confirmPassword = event.target.value;
     if (pass.localeCompare(confirmPassword) != 0) {

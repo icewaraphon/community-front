@@ -28,45 +28,45 @@ export class CustomersShoppingComponent implements OnInit {
     private activatedroute: ActivatedRoute,
     private customerService: CustomersService,
   ) { }
-    submitted = false;
+  //   submitted = false;
  
-  productForm = this.fb.group({
-    proId: [''],
-    proName: [''],
-    proImg: [''],
-    proPric: [''],
-    perCent: [''],
-    proNumber: [''],
-    proUnit: [''],
-    proColor: [''],
-    proSize: [''],
-    proOther: [''],
-    proDetails: [''],
-    supName: [''],
-    supId: [''],
-    cateId: [''],
-    catePro: [''],
-    numberPieces: [''],
-    billPric: [''],
+  // productForm = this.fb.group({
+  //   proId: [''],
+  //   proName: [''],
+  //   proImg: [''],
+  //   proPric: [''],
+  //   perCent: [''],
+  //   proNumber: [''],
+  //   proUnit: [''],
+  //   proColor: [''],
+  //   proSize: [''],
+  //   proOther: [''],
+  //   proDetails: [''],
+  //   supName: [''],
+  //   supId: [''],
+  //   cateId: [''],
+  //   catePro: [''],
+  //   numberPieces: [''],
+  //   billPric: [''],
 
-    categories: {
-      cateId: [''],
-      catePro: [''],
-      proDetails: [''],
-    },
-    supplier: {
-      supId: [''],
-    },
+  //   categories: {
+  //     cateId: [''],
+  //     catePro: [''],
+  //     proDetails: [''],
+  //   },
+  //   supplier: {
+  //     supId: [''],
+  //   },
 
-  });
+  // });
 
   ngOnInit(): void {
-    // this.customerService.getProducts()
-    //   .subscribe(res => {
-    //     this.product = res;        
-    //   });
+    this.customerService.getProducts()
+      .subscribe(res => {
+        this.product = res;        
+      });
     console.log('this.product ::  ' + this.product)
-    // this.grandTotal = this.customerService.getTotalPrice();
+    this.grandTotal = this.customerService.getTotalPrice();
    
   }
   groupArrayOfObjects(list: any, key :any) {
@@ -78,30 +78,30 @@ export class CustomersShoppingComponent implements OnInit {
 
   GotoOrderCart(product: any) {
     console.log('CeateData Steb 1  :: ')
-    // this.customerService.GotoOrderCart(product);
+    this.customerService.GotoOrderCart(product);
   }
   
   addProductCount(product: any) {
-    // this.customerService.addProductCount(product);
-    // this.grandTotal = this.customerService.getTotalPrice();
+    this.customerService.addProductCount(product);
+    this.grandTotal = this.customerService.getTotalPrice();
     // debugger
   }
 
   removeProductCount(product: any) {
-    // this.customerService.removeProductCount(product);
-    // this.grandTotal = this.customerService.getTotalPrice();
+    this.customerService.removeProductCount(product);
+    this.grandTotal = this.customerService.getTotalPrice();
   }
   removeItem(product: any) {
-    // this.customerService.removeCartItem(product);
-    // this.grandTotal = this.customerService.getTotalPrice();
+    this.customerService.removeCartItem(product);
+    this.grandTotal = this.customerService.getTotalPrice();
   }
   emptycart() {
-    // this.customersService.removeAllCart();
-    // this.grandTotal = this.customerService.getTotalPrice();
+    this.customerService.removeAllCart();
+    this.grandTotal = this.customerService.getTotalPrice();
   }
-    setProductt(item: any) {
-    // this.customerService.setProduct(item);
-  }
+  //   setProductt(item: any) {
+  //   this.customerService.setProduct(item);
+  // }
 
-     // get productf() { return this.productForm.controls; }
+  //    get productf() { return this.productForm.controls; }
 }//end

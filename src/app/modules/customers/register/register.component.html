@@ -83,7 +83,7 @@
                                 :</label>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" id="recipient-name" formControlName="email">
+                            <input type="text" class="form-control" id="recipient-name" formControlName="eMail">
                         </div>
 
                         <div class="col-md-auto">
@@ -91,7 +91,7 @@
                                 :</label>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control " id="recipient-name" formControlName="telPhon">
+                            <input type="text" class="form-control" id="" formControlName="telPhone">
                         </div>
                     </div>
 
@@ -102,7 +102,7 @@
                         <div class="col-md-11">
                             <div class="col-md-12">
                                 <textarea class="form-control" id="message-text" value="xxxxxxxxxxxx"
-                                    formControlName="addrass"></textarea>
+                                    formControlName="address"></textarea>
                             </div>
                         </div>
                     </div>
@@ -111,21 +111,21 @@
                         <div class="col-md-auto">
                             <label for="recipient-name" class="col-form-label font-monospace ">รหัสไปรษณีย์:</label>
                         </div>
-                        <!-- <div class="col-md-2">
+                        <div class="col-md-2">
                             <input type="text" class="form-control" id="recipient-name"
-                                (change)="changeUserZipCode($event)" formControlName="zipCode">
-                        </div> -->
-                        <!-- <div class="col-sm-auto">
+                                (change)="changeUserZipcode($event)" formControlName="zipCode">
+                        </div>
+                        <div class="col-sm-auto">
                             <label for="validationCustom04" class="col-form-label">ตำบล :</label>
-                        </div> -->
-                        <!-- <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-2">
                             <select id="inputState" class="form-select" formControlName="distId">
                                 <option value="" selected disabled>--ตำบล--</option>
                                 <option *ngFor="let disT of districts" [ngValue]="disT.distId">{{
                                     disT.distNameTh }}</option>
                             </select>
-                        </div> -->
-                        <!-- <div class="col-sm-auto">
+                        </div>
+                        <div class="col-sm-auto">
                             <label for="validationCustom04" class="col-form-label">อำเภอ :</label>
                         </div>
                         <div class="col-sm-2">
@@ -134,17 +134,17 @@
                                 <option *ngFor="let amn of amphurs" [ngValue]="amn.ampNameTh">{{ amn.ampNameTh }}
                                 </option>
                             </select>
-                        </div> -->
-                        <!-- <div class="col-sm-auto">
+                        </div>
+                        <div class="col-sm-auto">
                             <label for="validationCustom04" class="col-form-label">จังหวัด :</label>
-                        </div> -->
-                        <!-- <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-2">
                             <select id="inputState" class="form-select" formControlName="province">
                                 <option value="" selected disabled>--จังหวัด--</option>
                                 <option *ngFor="let pro of provinces" [ngValue]="pro.pvNameTh">{{ pro.pvNameTh }}
                                 </option>
                             </select>
-                        </div> -->
+                        </div>
                     </div>
 
                     <br>
@@ -252,10 +252,10 @@
                                             </div>
                                         </div>
 
-                                        <div class="mb-3 row">
-                                            <div class="col-md-auto">
-                                                <input for="recipient-name" class="col-form-label font-monospace ">
-                                                    ยืนยันรหัสผ่าน
+                                        <div class="mb-4 row">
+                                            <div class="col-md-3">
+                                                <label for="recipient-name" class="col-form-label font-monospace ">
+                                                    ยืนยันรหัสผ่าน&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                             </div>
                                             <div class="col">
                                                 <!-- <show-hide-password [btnOutline]="false"> -->

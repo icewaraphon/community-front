@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   submitted = false;
+  
 
   loginForm = this.fb.group({
     username: ['0309', Validators.required],
@@ -61,6 +62,7 @@ export class LoginComponent implements OnInit {
     console.log('log this.loginForm.value >>>:',this.loginForm.value);
     console.log('log typeLogin >>>:',this.loginForm.value.typeLogin);
     sessionStorage.setItem('user_role', this.getRole(this.loginForm.value.typeLogin));
+    sessionStorage.setItem('user_id','2')
     
     // this.loginService.loginCustomers(this.loginForm.value).subscribe(
     //   (res) => {
